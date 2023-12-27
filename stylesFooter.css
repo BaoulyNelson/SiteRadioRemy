@@ -1,0 +1,51 @@
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 0px;
+    bottom: 0;
+    width: 100%;
+    position: fixed;
+}
+
+/* Ajoutez ces règles pour le style des boutons Suivant et Précédent */
+.navigation-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 5px;
+    font-size: 14px;
+
+}
+
+.prev-button,
+.next-button {
+    background-color: #333;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+.prev-button:hover,
+.next-button:hover {
+    background-color: #555;
+}
+
+/* Ajoute un espace en bas de la page pour compenser la hauteur du footer */
+.spacer {
+    height: 20vh; /* Ajoute la hauteur du footer ici */
+}
+
+.enhaut {
+    display: block;
+    text-align: center;
+    margin-bottom: 5px; /* Ajoutez de l'espacement vers le haut pour le lien "Monter en haut" */
+  }
+
+  /* Ciblez les liens dans le footer et définissez leur couleur à blanc */
+footer a {
+    color: white;
+}
+

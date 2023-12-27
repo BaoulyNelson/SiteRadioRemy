@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="logo.jpg">
+    <title>RDIO MARBIAL FM</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="stylesDate.css">
+    <link rel="stylesheet" href="styleLogin.css">
+    <link rel="stylesheet" href="stylesFormulaire.css">
+    <link rel="stylesheet" href="stylesNav.css">
+    <link rel="stylesheet" href="stylesFooter.css">
+    <link rel="stylesheet" href="stylesRecherche.css">
+    <link rel="stylesheet" href="styleCloseRecherche.css">
+    <link rel="stylesheet" href="styleTable.css">
+    <link rel="stylesheet" href="styleAnimation.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+</head>
+
+<body>
+
+    <div id="date-actuelle"></div>
+    <nav>
+        <div>
+            <span id="menu-icon" onclick="toggleMenu()">&#9776;</span>
+            <div id="search-container">
+                <input type="text" id="search" placeholder="&#128269;search" oninput="countOccurrences()">
+                <span id="clear-search" onclick="clearSearch()">&#10006;</span>
+                <div id="occurrences-display"></div>
+            </div>
+
+            <ul id="menu-list">
+                <li><a href="#accueil">Accueil</a></li>
+                <li><a href="#alaune">A La une</a></li>
+                <li><a href="#presentateurs">Presentateurs</a></li>
+                <li><a href="#ecouter">En direct</a></li>
+                <li><a href="#apropos">À propos</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#horaire">Horaire</a></li>
+
+                <!-- Ajoutez d'autres liens selon vos besoins -->
+            </ul>
+
+
+        </div>
+   <!-- Ajoutez la classe "blinking-text" au paragraphe -->
+<p class="transform-element blinking-text" style="font-family: 'Algerian', sans-serif;">RADIO MARBIAL FM 99.5</p>
+
+        <div>
+            <img id="logo" src="radio.jpg" alt="Logo">
+            <img id="logo" src="logo.jpg" alt="Logo">
+        </div>
+
+    </nav>
+    <div class="containt">
+        <img id="remy" src="remy.jpg" alt="Logo">
+      <h4><b>En 2015, Remy JEAN BAPTISTE entreprend pour une fois de lancer une station de radio à Marbial. Il fonde
+                La MmF
+            </b></h4> <br>
+        <p>Radyo MFM est une radio généraliste haïtienne située à Cochon-gras, dans la banlieue de Marbial, créée en
+            2015. </p><br>
+        <p> Cette station est la source d'inspiration de la communaute pour les nouvelles, l'actualité politique,
+            sportive et culturelle </p><br>
+        <p> Retrouvez également le meilleur de la musique locale!</p><br>
+        <p> La scène musicale haïtienne rayonne de diversité, reflétant les multiples facettes de sa culture
+            riche. Les ondes des stations de radio en Haïti résonnent avec une variété éblouissante de
+            genres
+            musicaux. De la cadence envoûtante du compas direct aux rythmes festifs du rasin, en passant par
+            les
+            mélodies envoûtantes du twoubadou, la musique haïtienne est un patchwork en perpétuelle
+            évolution.</p><br>
+
+        <p> La station de radio haïtienne moderne embrasse cette diversité musicale en offrant une palette
+            éclectique. Du konpa traditionnel aux sons plus contemporains du rap kreyol, en passant par les
+            sonorités entraînantes du zouk, chaque journée d'émission sur ces ondes est une immersion dans
+            un
+            univers musical aussi vibrant que varié.</p><br>
+
+        <p> Au-delà des frontières nationales, les stations de radio haïtiennes s'ouvrent également aux
+            tendances musicales internationales. Des tubes pop internationaux aux rythmes reggae et aux
+            influences afro-caribéennes, cette fusion d'influences crée une expérience musicale unique et
+            inclusive pour les auditeurs en quête de diversité.</p><br>
+        <img id="mfm" src="mfm.jpg" alt="Logo">
+
+
+    </div>
+    <!-- Ajoutez des sections de contenu avec des identifiants -->
+    <div id="accueil" class="content-section">
+        <!-- Animation pour le titre -->
+  <h4 class="transform-element">Bienvenue sur Marbial FM 99.5</h4>
+   
+        <p>Infos de tous genres en temps réel. Sport, Actualités,
+            Cultures et Sociétés.</p> <br>
+        <p>Nous sommes ravis de vous accueillir dans notre univers radiophonique où vous découvrirez une
+            programmation variée, des émissions captivantes et des moments de divertissement sans
+            pareil. Installez-vous confortablement, détendez-vous et laissez-vous emporter par nos
+            programmes soigneusement conçus pour vous. Merci de nous rejoindre pour cette expérience
+            radiophonique unique !</p><br>
+            <p>Bienvenue sur <strong>Marbial FM 99.5</strong>, votre source ultime de divertissement auditif! Plongez dans l'univers captivant de la musique, des émissions en direct, et des discussions stimulantes.</p>
+
+<p>Chez <strong>Marbial FM 99.5</strong>, nous sommes dévoués à vous offrir une expérience sonore exceptionnelle, avec une programmation variée qui traverse les genres musicaux et explore les dernières actualités.</p>
+
+<p>Que vous soyez passionné de pop, rock, jazz, ou que vous cherchiez simplement à rester informé, nous avons quelque chose de spécial pour vous. Découvrez nos émissions exclusives, participez aux débats en direct, et laissez notre musique être la bande-son de votre journée.</p>
+
+<p>Bienvenue à bord, où chaque onde est une aventure auditive qui éveillera vos sens!</p>
+
+<p><em>Signé,</em><br><strong>Jean Baptiste Remy</strong><br>PDG, Marbial FM 99.5</p>
+
+    </div>
+
+    <div id="presentateurs" class="content-section ">
+        <h4>Presentateurs</h4>
+        <!-- Contenu de la section À propos -->
+        <table>
+            <tr>
+                <th>Evangelique</th>
+                <th>Compas</th>
+                <th>Rap</th>
+            </tr>
+            <tr>
+                <td>Claude Jean Baptiste</td>
+                <td>Robert Point Du Jour</td>
+                <td>Marc Arthur</td>
+            </tr>
+            <tr>
+                <td>Mackenson</td>
+                <td>Billy Jean Baptiste</td>
+                <td>Manno Dossous</td>
+            </tr>
+            <tr>
+                <td>Lucien d'Haiti</td>
+                <td>Mathieu Thomas</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>David Durandis</td>
+                <td>Elie Jean Philipe</td>
+                <td></td>
+            </tr>
+        </table>
+    </div>
+
+
+ <!-- Section À la Une avec animation -->
+ <div id="alaune" class="content-section ">
+    <h4>Evenements récents</h4>
+    <a href="https://lequotidiennews.org/">A la une</a>
+    <a href="https://www.gazettehaiti.com/">Nationales</a>
+    <a href="https://lenouvelliste.com/a-la-minute">A la minute</a>
+    <a href="https://www.rfi.fr/fr/?utm_medium=acquisition&utm_source=google&utm_campaign=marque_rfi&utm_content=marque_seule&utm_term=rfi&gclid=Cj0KCQiA7aSsBhCiARIsALFvovzr2KxeA7pgIy0xHvxFqaookS4TaKbNMNPRPjXRu1eu3gUZvc3snbUaAlTHEALw_wcB">En revue</a>
+</div>
+
+    <div id="ecouter" class="content-section">
+        <h4>Nos Émissions</h4>
+        <!-- Contenu de la section À propos -->
+        <div class="content" id="shows">
+            <p>Découvrez nos émissions passionnantes.</p>
+            <section class="player">
+                <audio src="stream.mp3" controls></audio>
+            </section>
+        </div>
+        <p>
+            Branchez-vous sur Radio Mabyal FM 99.5 pour une expérience auditive exceptionnelle. Profitez
+            de
+            notre programmation variée, de nos émissions en direct et de la meilleure sélection
+            musicale. </p> <br>
+        Restez connecté(e) et plongez dans l'univers vibrant de la radio avec nous !
+        </p><br>
+
+    </div>
+
+    <div id="apropos" class="content-section">
+        <h4>À propos</h4>
+        <!-- Contenu de la section À propos -->
+        Bienvenue sur Radio Mabyal FM, votre source incontournable d'informations, de divertissement
+        et
+        de musique. </p><br>
+        <p> Découvrez notre histoire, notre équipe dévouée et la passion qui nous anime
+            chaque
+            jour pour vous offrir une expérience radiophonique unique.
+        </p><br>
+        <p>nous avions pris naissance le 4 Août 2015</p><br>
+        <b>En 2015, Remy JEAN BAPTISTE entreprend pour une fois de lancer une station de radio à Marbial. Il fonde
+            La MmF
+        </b><br>
+    <p>Radyo MFM est une radio généraliste haïtienne située à Cochon-gras, dans la banlieue de Marbial, créée en
+        2015. </p><br>
+    <p> Cette station est la source d'inspiration de la communaute pour les nouvelles, l'actualité politique,
+        sportive et culturelle </p><br>
+    <p> Retrouvez également le meilleur de la musique locale!</p><br>
+    <p> La scène musicale haïtienne rayonne de diversité, reflétant les multiples facettes de sa culture
+        riche. Les ondes des stations de radio en Haïti résonnent avec une variété éblouissante de
+        genres
+        musicaux. De la cadence envoûtante du compas direct aux rythmes festifs du rasin, en passant par
+        les
+        mélodies envoûtantes du twoubadou, la musique haïtienne est un patchwork en perpétuelle
+        évolution.</p><br>
+
+    <p> La station de radio haïtienne moderne embrasse cette diversité musicale en offrant une palette
+        éclectique. Du konpa traditionnel aux sons plus contemporains du rap kreyol, en passant par les
+        sonorités entraînantes du zouk, chaque journée d'émission sur ces ondes est une immersion dans
+        un
+        univers musical aussi vibrant que varié.</p><br>
+
+    <p> Au-delà des frontières nationales, les stations de radio haïtiennes s'ouvrent également aux
+        tendances musicales internationales. Des tubes pop internationaux aux rythmes reggae et aux
+        influences afro-caribéennes, cette fusion d'influences crée une expérience musicale unique et
+        inclusive pour les auditeurs en quête de diversité.</p><br>
+    <img id="mfm" src="mfm.jpg" alt="Logo">
+    </div>
+
+    <div id="horaire" class="content-section">
+        <h4>Programme</h4>
+        <p>
+            Horaire de la station Radio Mabyal FM <br><br>
+        <p>Nous sommes ouverts du Dimanche au samedi 7/7 et 24/24</p>
+
+        <table>
+            <tr>
+                <th>Jour</th>
+                <th>Heures d'ouverture</th>
+            </tr>
+            <tr>
+                <td>Dimanche</td>
+                <td>temps plein</td>
+            </tr>
+            <tr>
+                <td>Lundi</td>
+                <td>temps plein</td>
+            </tr>
+            <tr>
+                <td>Mardi</td>
+                <td>temps plein</td>
+            </tr>
+            <tr>
+                <td>Mercredi</td>
+                <td>temps plein</td>
+            </tr>
+            <tr>
+                <td>Jeudi</td>
+                <td>temps plein</td>
+            </tr>
+            <tr>
+                <td>Vendredi</td>
+                <td>temps plein</td>
+            </tr>
+            <tr>
+                <td>Samedi</td>
+                <td>temps plein</td>
+            </tr>
+
+        </table>
+        </p>
+    </div>
+
+    <div id="services" class="content-section">
+        <h4>Services</h4>
+
+        <section id="player">
+            <audio id="radioPlayer" controls>
+                <source src="https://www.facebook.com/share/p/kQUS26RKkVkbnNwL/?mibextid=qi2Omg" type="audio/mp3">
+                Votre navigateur ne supporte pas l'élément audio.
+            </audio>
+        </section>
+
+        <!-- Contenu de la section Services -->
+        <p><strong>Diffusion en direct :</strong> Diffusion en direct de programmes radio, de musique, d'interviews, de
+            nouvelles et d'autres contenus audio.<br></p>
+
+        <p><strong>Podcasts :</strong> Création et diffusion de podcasts sur des sujets spécifiques, permettant aux
+            auditeurs d'écouter des émissions à tout moment.<br></p>
+
+        <p><strong>Actualités et informations :</strong> Fourniture d'actualités locales, nationales ou internationales,
+            ainsi que d'informations sur la météo, le trafic, etc.<br></p>
+
+        <p><strong>Programmation musicale :</strong> Diffusion de divers genres musicaux, organisation de playlists,
+            présentation d'artistes locaux ou internationaux, etc.<br></p>
+
+        <p><strong>Émissions spéciales :</strong> Organisation d'émissions thématiques, d'événements en direct,
+            d'interviews d'invités spéciaux, de retransmissions d'événements sportifs, etc.<br></p>
+
+        <p><strong>Interactivité avec les auditeurs :</strong> Mise en place de lignes téléphoniques ou de plateformes
+            en ligne pour permettre aux auditeurs de participer en direct, de faire des dédicaces, de poser des
+            questions, etc.<br></p>
+
+        <p><strong>Contenu local :</strong> Fourniture d'informations et d'émissions spécifiques à la communauté locale,
+            notamment des annonces d'événements, des entrevues avec des personnalités locales, etc.<br></p>
+
+        <p><strong>Promotions et publicités :</strong> Diffusion de publicités pour les entreprises locales,
+            organisation de promotions en partenariat avec des sponsors, etc.<br></p>
+
+        <p><strong>Services de streaming en ligne :</strong> Mise à disposition de flux audio en ligne via des
+            applications mobiles, des sites web ou d'autres plates-formes de streaming.<br></p>
+
+        <p><strong>Éducation et sensibilisation :</strong> Création de programmes éducatifs, promotion d'organismes de
+            bienfaisance et de causes sociales, etc.<br></p>
+
+    </div>
+
+
+    <div id="contact" class="content-section">
+        <h4>Contact</h4>
+        <!-- Contenu de la section Services -->
+        <div class="login-container">
+            <h4>S'identifier</h4>
+            <div class="tab">
+                <button class="tablinks" onclick="openForm(event, 'signInForm')">Se connecter</button>
+                <button class="tablinks" onclick="openForm(event, 'signUpForm')">S'inscrire</button>
+            </div>
+
+            <form id="signInForm" class="tabcontent" onsubmit="return validateForm('signInForm')">
+                <label for="username">Nom d'utilisateur :</label>
+                <input type="text" id="username" placeholder="RemyJean" name="username" required>
+
+                <label for="password">Mot de passe :</label>
+                <input type="password" id="password" placeholder="......." name="password" required>
+
+                <button type="submit">Se connecter</button>
+            </form>
+
+            <form id="signUpForm" class="tabcontent" onsubmit="return validateForm('signUpForm')">
+                <label for="newUsernameNom">Nom :</label>
+                <input type="text" id="newUsernameNom" placeholder="Jean-Baptiste" name="newUsernameNom" required>
+
+                <label for="newUsernamePrenom">Prenom :</label>
+                <input type="text" id="newUsernamePrenom" placeholder="Remy" name="newUsernamePrenom" required>
+
+                <label for="email">Adresse e-mail :</label>
+                <input type="email" id="email" placeholder="@gmail.com" name="email" required>
+
+                <label for="newPassword">Mot de passe :</label>
+                <input type="password" id="newPassword" placeholder="........" name="newPassword" required>
+
+                <button type="submit">S'inscrire</button>
+            </form>
+        </div>
+    </div>
+
+
+    <script src="script.js"></script>
+    <script src="scriptDate.js"></script>
+    <script src="scriptLogin.js"></script>
+    <script src="scriptRecherche.js"></script>
+    <script src="scriptAnimations.js"></script>
+
+
+    <script async src="https://cdn.jsdelivr.net/npm/kutty@0.6.0/dist/kutty.min.js"
+        integrity="sha256-D7YIit7x5hul8+Pk4FQ5Zlf7Ugz0XOXgOlwvmWNH+mE=" crossorigin="anonymous"
+        data-hid="cff42e"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.1/jquery.min.js"
+        integrity="sha512-nhY06wKras39lb9lRO76J4397CH1XpRSLfLJSftTeo3+q2vP7PaebILH9TqH+GRpnOhfAGjuYMVmVTOZJ+682w=="
+        crossorigin="anonymous" data-hid="a64ab29"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/galleria/1.6.1/galleria.min.js"
+        integrity="sha512-vRKUU1GOjCKOTRhNuhQelz4gmhy6NPpB8N41c7a36Cxl5QqKeB9VowP8S7x8Lf3B8vZVURBxGlPpvyiRHh+CKg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" data-hid="4f2a6fd"></script>
+
+
+    <div class="spacer"></div>
+    <footer>
+
+        <a href="#top" class="enhaut">Monter en haut</a>
+
+        <!-- Ajoutez ces éléments pour les boutons Suivant et Précédent dans votre contenu -->
+        <div class="navigation-buttons">
+            <button class="prev-button" onclick="showPreviousContent()"><i class="fas fa-chevron-left"></i>
+                Précédent</button>
+            <button class="next-button" onclick="showNextContent()">Suivant <i
+                    class="fas fa-chevron-right"></i></button>
+        </div>
+
+        <div class="social-icons">
+            <div class="social-icons">
+                <a href="#" target="_blank" class="social-icon"><i class="fab fa-facebook"></i></a>
+                <a href="#" target="_blank" class="social-icon"><i class="fab fa-twitter"></i></a>
+                <a href="#" target="_blank" class="social-icon"><i class="fab fa-instagram"></i></a>
+                <a href="#" target="_blank" class="social-icon"><i class="fab fa-youtube"></i></a>
+                <a href="#" target="_blank" class="social-icon"><i class="fab fa-telegram"></i></a>
+                <a href="#" target="_blank" class="social-icon"><i class="fab fa-whatsapp"></i></a>
+                <a href="#" target="_blank" class="social-icon"><i class="fab fa-messenger"></i></a>
+
+                <!-- Ajoutez d'autres icônes de réseaux sociaux selon vos besoins -->
+            </div>
+
+            <div class="footer-links">
+                <a href="#">Politique de confidentialité</a>
+                <a href="#">Cookies</a>
+                <a href="#">Conditions générales d'utilisation</a>
+                <a href="#">Politique de confidentialité</a>
+                <a href="#">Conditions générales d'abonnement</a>
+                <!-- Ajoutez d'autres liens selon vos besoins -->
+            </div>
+
+            <!-- <img src="logo.jpg" alt="" srcset="" style="max-width: 100px; max-height: 100px; height: auto;"> -->
+            <p>&copy; 2023 Station Radiophonique. Tous droits réservés.</p>
+    </footer>
+
+
+</body>
+
+</html>
