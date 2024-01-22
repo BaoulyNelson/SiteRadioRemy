@@ -1,0 +1,8 @@
+#date-actuelle {
+  display: flex;
+  justify-content: center; /* Centre horizontalement */
+  background-color: #227; /* Ajoutez une couleur de fond */
+  color: white;
+  padding: 0px;
+  text-align: center; /* Centre le texte horizontalement dans #date-actuelle */
+}
