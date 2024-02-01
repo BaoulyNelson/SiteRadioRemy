@@ -1,0 +1,72 @@
+.radio-icon {
+    margin-right: 10px; /* Ajustez la marge selon vos besoins */
+  }
+
+/* Styles pour les icônes dans le menu */
+.menu-icon {
+  transition: opacity 0.5s ease-in-out; /* Ajouter une transition pour une animation fluide */
+}
+
+/* Animation pour faire clignoter l'icône */
+@keyframes blink {
+  0%, 100% {
+      opacity: 1;
+  }
+  50% {
+      opacity: 0;
+  }
+}
+
+/* Appliquer l'animation aux icônes */
+.menu-icon:hover {
+  animation: blink 5s infinite; /* Faire clignoter l'icône toutes les 5 secondes de manière infinie lors du survol */
+}
+
+
+  #menu-icon {
+    position: absolute;
+    top: 10%;
+    left: 0;
+    transform: translateY(-50%);
+    padding: 20px;
+    background-color: #f1f1f1;
+    cursor: pointer;
+    font-size: 24px;
+  }
+
+
+  #menu-icon i {
+    color: #333;
+  }
+
+ 
+  #close-icon {
+    display: none;
+  }
+  
+  #menu-icon.open #menu-icon-icon {
+    display: none;
+  }
+  
+  #menu-icon.open #close-icon {
+    display: flex;
+  }
+
+  .search-icon,
+  .profile-icon {
+      position: absolute;
+      top: 10%; /* Ajuste cette valeur pour aligner les icônes horizontalement */
+      transform: translateY(-50%);
+      padding: 20px;
+      background-color: #f1f1f1;
+      cursor: pointer;
+      font-size: 24px;
+  }
+  
+   .profile-icon {
+      right: 100px; /* Ajuste cette valeur pour décaler la première icône vers la droite */
+  }
+  
+  .search-icon {
+      right: 10px; /* Ajuste cette valeur pour décaler la deuxième icône vers la droite */
+  }

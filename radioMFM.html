@@ -7,6 +7,13 @@
   <link rel="stylesheet" href="CSS/date.css">
   <link rel="stylesheet" href="CSS/stylesMedia.css">
   <link rel="stylesheet" href="CSS/stylesMonterHaut.css">
+  <link rel="stylesheet" href="CSS/tableau.css">
+  <link rel="stylesheet" href="CSS/navBar.css">
+  <link rel="stylesheet" href="CSS/iconesFontawesome.css">
+  <link rel="stylesheet" href="CSS/footer.css">
+
+
+
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
   <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
 
@@ -17,7 +24,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
     integrity="sha384-GLhlTQ8iKStXZ5l/Afbno3PKYUD4qzpo5F8+YR5FZtAtUHzq4Ux4bUDxpxI3Wr2Q" crossorigin="anonymous">
   <script src="https://kit.fontawesome.com/4675b5c56a.js" crossorigin="anonymous"></script>
-  <title>Mon Site Multimédia</title>
+  <title> MFM Radio 99.5 Marbial Haïti</title>
 </head>
 
 <body>
@@ -26,14 +33,11 @@
     <!-- Section de la date et de la cloche de notifications -->
     <div id="date"></div>
     <a href="#">
-        <i class="fas fa-bell" title="notifications"></i> <!-- Icône Notifications -->
+      <i class="fas fa-bell fa-inverse" title="notifications"></i>
     </a>
 
-    <!-- Logo (décommentez la ligne suivante et ajoutez la balise img si nécessaire) -->
-    <!-- <img id="logo" src="IMAGES/logo.jpg" alt="Logo de la radio"> -->
-
     <!-- Titre h1 avec l'icône de radio et la police Script MT Bold -->
-    <h1><i class="fas fa-broadcast-tower radio-icon"></i>RADIO MFM 99.5 FM <i class="fas fa-headphones"></i></h1>
+    <h1><i class="fas fa-broadcast-tower radio-icon"></i> MFM Radio 99.5 Marbial Haïti <i class="fas fa-headphones"></i></h1>
 
     <!-- Icône de recherche -->
     <a href="#recherche" title="Recherche" id="searchButton" data-target="recherche">
@@ -56,8 +60,11 @@
       <ul>
         <li><a href="#" title="Accueil" data-target="accueil"><i class="fas fa-home menu-icon"></i>Accueil</a></li>
         <li><a href="#" title="En Direct" data-target="streaming"><i class="fas fa-broadcast-tower menu-icon"></i>En Direct</a></li>
-        <li><a href="#" title="Podcast" data-target="podcasts"><i class="fas fa-headphones menu-icon"></i>Podcasts</a></li>   </ul>
-    </ul>
+        <li><a href="#" title="Podcast" data-target="podcasts"><i class="fas fa-headphones menu-icon"></i>Podcasts</a></li> 
+        <li><a href="#" title="Presentateur" data-target="presentateurs"><i class="fas fa-users"></i>Presentateur</a></li>
+        <li><a href="#" title="Actualites" data-target="actualites"><i class="fas fa-globe"></i>Actualites</a></li>
+
+      </ul>
     </nav>
 
     <!-- Icône de menu principal pour les petits écrans -->
@@ -72,6 +79,27 @@
 </header>
 
 <main>
+
+  <section id="accueil" class="content-section hidden">
+    <h2>Accueil</h2>
+    <p>bienvenue a la page d'accueil de la RMF</p>
+    <p>Video provides a powerful way to help you prove your point. </p>
+</section>
+
+<section id="streaming" class="content-section hidden">
+  <h2>En Direct</h2>
+  <video src="video.mp4" controls poster="image_preview.jpg"></video>
+  <!-- Contenu du streaming -->
+  <div class="video">
+      <img src="video1_thumbnail.jpg" alt="Vidéo 1">
+      <h3>Titre de la Vidéo 1</h3>
+  </div>
+  <div class="video">
+      <img src="video2_thumbnail.jpg" alt="Vidéo 2">
+      <h3>Titre de la Vidéo 2</h3>
+  </div>
+</section>
+
   <section id="podcasts" class="content-section hidden">
     <h2>Podcasts</h2>
     <!-- Contenu des podcasts -->
@@ -88,33 +116,57 @@
       <input type="submit" value="Envoyer le podcast">
     </form>
 </section>
-<div class="container">
-  <div id="map"> <!-- Votre carte ici --> </div>
-  <div class="content"> <!-- Vos contenus ici --> </div>
-</div>
 
 
-  <section id="accueil" class="content-section hidden">
-    <h2>Accueil</h2>
-    <p>bienvenue a la page d'accueil de la RMF</p>
-    <p>Video provides a powerful way to help you prove your point. When you click Online Video, you can paste in the embed code for the video you want to add. You can also type a keyword to search online for the video that best fits your document. To make your document look professionally produced, Word provides header, footer, cover page, and text box designs that complement each other. For example, you can add a matching cover page, header, and sidebar. Click Insert and then choose the elements you want from the different galleries. Themes and styles also help keep your document coordinated. When you click Design and choose a new Theme, the pictures, charts, and SmartArt graphics change to match your new theme.
-  
+
+<section id="presentateurs" class="content-section hidden">
+  <h2>Presentateurs</h2>
+          <table>
+              <tr>
+                  <th>Evangelique</th>
+                  <th>Compas</th>
+                  <th>Rap</th>
+              </tr>
+              <tr>
+                  <td>Claude Jean Baptiste</td>
+                  <td>Robert Point Du Jour</td>
+                  <td>Marc Arthur</td>
+              </tr>
+              <tr>
+                  <td>Mackenson</td>
+                  <td>Billy Jean Baptiste</td>
+                  <td>Manno Dossous</td>
+              </tr>
+              <tr>
+                  <td>Lucien d'Haiti</td>
+                  <td>Mathieu Thomas</td>
+                  <td></td>
+              </tr>
+              <tr>
+                  <td>David Durandis</td>
+                  <td>Elie Jean Philipe</td>
+                  <td></td>
+              </tr>
+          </table>
       </p>
 </section>
 
-<section id="streaming" class="content-section hidden">
-  <h2>En Direct</h2>
-  <video src="video.mp4" controls poster="image_preview.jpg"></video>
-  <!-- Contenu du streaming -->
-  <div class="video">
-      <img src="video1_thumbnail.jpg" alt="Vidéo 1">
-      <h2>Titre de la Vidéo 1</h2>
-  </div>
-  <div class="video">
-      <img src="video2_thumbnail.jpg" alt="Vidéo 2">
-      <h2>Titre de la Vidéo 2</h2>
-  </div>
+<section id="actualites" class="content-section hidden">
+  <h2>Actualités</h2>
+  <table>
+    <tr>
+      <td><a href="https://lequotidiennews.org/">A la une</a></td>
+      <td><a href="https://www.gazettehaiti.com/">Nationales</a></td>
+    </tr>
+    <tr>
+      <td><a href="https://lenouvelliste.com/a-la-minute">A la minute</a></td>
+      <td><a href="https://www.rfi.fr/fr/?utm_medium=acquisition&utm_source=google&utm_campaign=marque_rfi&utm_content=marque_seule&utm_term=rfi&gclid=Cj0KCQiA7aSsBhCiARIsALFvovzr2KxeA7pgIy0xHvxFqaookS4TaKbNMNPRPjXRu1eu3gUZvc3snbUaAlTHEALw_wcB">En revue</a></td>
+    </tr>
+  </table>
 </section>
+
+
+
 
   <section id="profil" class="content-section hidden ">
     <div class="container">
@@ -201,21 +253,21 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   </section>
 </main>
+<div class="container">
+  <div id="map"> <!-- Votre carte ici --> </div>
+  <div class="content"> <!-- Vos contenus ici --> </div>
+</div>
 <div id="footer">
-
-  <a href="lien_vers_votre_page" class="white-icon">
-    <i class="fas fa-envelope"></i> <!-- Icône Messages -->
-</a>
-
-<a href="lien_vers_votre_site_web" class="white-icon">
-    <i class="fas fa-globe"></i> <!-- Icône pour le site web -->
-</a>
-
-
-   <!-- Ajoutez ceci à l'endroit où vous voulez afficher la flèche -->
-   <button id="backToTopBtn" title="Retour en haut">&#9650;</button>
-   <p id="copyright">&copy; <span id="current-year"></span> Radio Marbial FM inc. Tous droits réservés.</p>
+  <div class="white-icon">
+    <a href="#" title="Message"><i class="fas fa-envelope"></i></a>
+    <a href="#" title="Centre d'aide"><i class="fas fa-question-circle"></i></a>
+    <a href="#" title="Centre d'aide"><i class="fas fa-globe"></i></a>
   </div>
+
+  <!-- Ajoutez ceci à l'endroit où vous voulez afficher la flèche -->
+  <button id="backToTopBtn" title="Retour en haut">&#9650;</button>
+  <p id="copyright">&copy; <span id="current-year"></span> Radio Marbial FM inc. Tous droits réservés.</p>
+</div>
 
   <script src="SCRIPT/Date.js" defer></script>
   <script src="SCRIPT/menuScript.js" defer></script>
@@ -224,6 +276,8 @@
   <script src="SCRIPT/scriptFormulaire.js" defer></script>
   <script src="SCRIPT/scriptFooter.js" defer></script>
   <script src="SCRIPT/scriptMap.js" defer></script>
+  <script src="SCRIPT/audio.js" defer></script>
+
 
 
 </body>

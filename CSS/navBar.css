@@ -1,0 +1,73 @@
+/* Styles de base pour les liens dans la navigation */
+nav ul li a {
+    text-decoration: none; /* Pour enlever le soulignement du lien par défaut */
+    color: #333; /* Couleur du texte par défaut */
+    /* Ajouter une transition pour une animation fluide */
+    transition: color 0.3s ease-in-out;
+  }
+  
+  /* Réinitialisation des styles par défaut de la liste et des marges */
+  nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex; /* Afficher les éléments en ligne par défaut */
+    justify-content: center; /* Centrer horizontalement les éléments */
+  }
+  
+  /* Styles pour les éléments de la liste horizontale */
+  nav.horizontal li {
+    display: inline;
+    margin-right: 20px;
+    transition: color 0.3s ease-in-out; /* Ajouter une transition pour une animation fluide */
+  
+  }
+  
+  /* Styles pour les éléments de la liste verticale */
+  nav.vertical ul {
+    flex-direction: column;
+    display: none;
+  }
+  
+  /* Styles pour les liens dans la liste verticale */
+  nav.vertical ul li a {
+    display: block; /* Assurez-vous que les liens occupent toute la largeur */
+    margin-bottom: 10px; /* Ajoutez un espacement entre les liens */
+    transition: color 0.3s ease-in-out; /* Ajouter une transition pour une animation fluide */
+  
+  }
+  
+  /* Styles pour le survol des liens */
+  nav ul li a:hover {
+    color: white; /* Couleur du texte lors du survol */
+  }
+  
+  /* Styles pour les liens dans la liste verticale lors du survol */
+  nav.vertical ul li a:hover {
+    color: whitesmoke; /* Couleur du texte lors du survol */
+  }
+  
+  /* Ajout de la classe 'show' pour afficher la liste verticalement */
+  nav.vertical.show ul {
+    display: flex;
+  }
+  
+  /* Ajout d'une classe 'left' pour positionner la liste à gauche */
+  nav.vertical.left ul {
+    transition: color 0.3s ease-in-out; /* Ajouter une transition pour une animation fluide */
+    justify-content: flex-start;
+    align-items: flex-start; /* Ajout de cette propriété pour aligner les éléments à gauche */
+  }
+  
+  
+  a.profile-icon,
+  a.search-icon {
+      text-decoration: none; /* Pour enlever le soulignement du lien par défaut */
+      /* Ajouter une transition pour une animation fluide */
+      transition: color 0.3s ease-in-out;
+  }
+  
+  a.profile-icon:hover,
+  a.search-icon:hover {
+      color: red; /* Couleur du texte lors du survol */
+  }
