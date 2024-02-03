@@ -4,6 +4,7 @@ body {
     padding: 0;
     display: flex;
     flex-direction: column;
+    overflow-x: hidden; /* pour masquer la barre de défilement horizontale */
     min-height: 100vh; /* Assure que le contenu s'étend sur toute la hauteur de la fenêtre */
   }
 
@@ -30,37 +31,46 @@ color: red; /* Couleur de fond rouge */
   
  
   section {
-    padding: 20px;
-    margin: 0 auto;
-    max-width: 400px;
-    text-align: center;
+  padding: 20px;
+  margin: 0 auto;
+  text-align: center;
+  max-width: 500px;
+  margin-bottom: 10px;
+
+
   }
-  
-  section h2 {
-    display: inline-block;
-    background-color: #3498db;
-    color: #ffffff;
-    padding: 10px;
-    border-radius: 2px;
-    margin-top: 20px;
-    animation: fadeInUp 5s ease; /* Animation fadeInUp pendant 5 secondes avec une fonction de temporisation ease */
-  }
-  
-  /* Style spécifique pour la section #podcasts */
-  section#podcasts {
-    background-color: #f8f8f8;
-    margin-bottom: 20px;
-  }
-  
-  section#podcasts h2 {
-    font-size: 24px;
-    margin-bottom: 10px;
-  }
-  
+  /* Appliquer un style commun aux paragraphes */
+ section p {
+  text-align: justify;
+  /* Définir la taille de police des paragraphes à 14 pixels */
+  font-size: 20px;
+  /* Limiter la largeur maximale des paragraphes à 500 pixels */
+  max-width: 500px;
+  /* Centrer horizontalement les paragraphes */
+  margin-left: auto;
+  margin-right: auto;
+  /* Ajouter une transition douce pour l'effet de transformation */
+  transition: transform 0.2s ease-in-out;
+
+}
+
+/* Centrez le titre h2 */
+section h2 {
+  display: inline-block;
+  background-color: #3498db;
+  color: #ffffff;
+  padding: 10px;
+  border-radius: 2px;
+  margin-top: 20px;
+  font-size: 24px;
+  animation: fadeInUp 5s ease;
+}
+
   section#podcasts h3 {
     color: #666;
     font-size: 18px;
     margin-bottom: 10px;
+    text-align: center;
   }
   
   
@@ -121,9 +131,6 @@ input[type="submit"]:hover {
   background-color: #555;
 }
 
-
-
-
 @keyframes fadeInUp {
   from {
       opacity: 0;
@@ -133,21 +140,6 @@ input[type="submit"]:hover {
       opacity: 1;
       transform: translateY(0);
   }
-}
-
-
-.container {
-  margin: 20px;
-}
-
-
-.actions {
-  margin-bottom: 10px;
-}
-
-.actions i {
-  cursor: pointer;
-  margin-right: 10px;
 }
 
  /* Inclure la police Script MT Bold depuis une source externe si nécessaire */
@@ -198,20 +190,7 @@ input[type="submit"]:hover {
 }
 
 
-/* Appliquer un style commun aux paragraphes */
-p {
-  /* Définir la taille de police des paragraphes à 14 pixels */
-  font-size: 20px;
-  /* Limiter la largeur maximale des paragraphes à 500 pixels */
-  max-width: 500px;
-  /* Centrer horizontalement les paragraphes */
-  margin-left: auto;
-  margin-right: auto;
 
-  /* Ajouter une transition douce pour l'effet de transformation */
-  transition: transform 0.2s ease-in-out;
-
-}
 
 
 /* Styles pour les messages en rouge */
