@@ -32,7 +32,7 @@ nav ul li a {
   /* Styles pour les liens dans la liste verticale */
   nav.vertical ul li a {
     display: block; /* Assurez-vous que les liens occupent toute la largeur */
-    margin-bottom: 10px; /* Ajoutez un espacement entre les liens */
+    margin-bottom: 5px; /* Ajoutez un espacement entre les liens */
     transition: color 0.3s ease-in-out; /* Ajouter une transition pour une animation fluide */
   
   }
