@@ -4,6 +4,7 @@
     text-align: center;
     padding: 5px;
     overflow-x: hidden;
+    overflow-y:auto;
   }
   
   .white-icon a {
