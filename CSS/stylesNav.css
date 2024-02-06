@@ -38,8 +38,27 @@
 }
 
  /* Appliquer la police à l'élément h1 */
- h1 {
+ h6 {
     font-family: 'Algerian', cursive;
+}
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+@keyframes blink {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
 }
 
 .radio-icon {

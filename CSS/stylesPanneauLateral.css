@@ -27,6 +27,8 @@ body.no-scroll {
     left: 20px;
     cursor: pointer;
     z-index: 1000;
+    background-color: #e0e0e0; /* Changement de couleur de fond au survol */
+
 }
 
 #side-panel {
@@ -83,4 +85,6 @@ body.no-scroll {
 
 #close-btn:hover {
     color: red;
+    background-color: #e0e0e0; /* Changement de couleur de fond au survol */
+
 }
