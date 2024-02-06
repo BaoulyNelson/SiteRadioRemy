@@ -1,0 +1,45 @@
+/* Ajoutez ces styles pour personnaliser votre navbar */
+#navbar {
+    background-color: #227dea;
+    overflow: hidden;
+}
+
+#navbar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: flex-end; /* Aligne les éléments à l'extrémité droite */
+}
+
+#navbar li {
+    padding: 10px;
+}
+
+#navbar a {
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+    margin-right: 20px; /* Utilisez margin-right au lieu de margin-left */
+    transition: 0.3s;
+}
+
+#navbar a:hover {
+    color: #227dea;
+    background-color: #e0e0e0; /* Changement de couleur de fond au survol */
+
+}
+.search-icon {
+    right: 10px; /* Ajuste cette valeur pour décaler la deuxième icône vers la droite */
+}
+
+ /* Appliquer la police à l'élément h1 */
+ h1 {
+    font-family: 'Algerian', cursive;
+}
+
+.radio-icon {
+    margin-right: 10px; /* Ajustez la marge selon vos besoins */
+    color: white;
+  }
+

@@ -8,101 +8,87 @@
   <link rel="stylesheet" href="CSS/stylesMedia.css">
   <link rel="stylesheet" href="CSS/stylesMonterHaut.css">
   <link rel="stylesheet" href="CSS/tableau.css">
-  <link rel="stylesheet" href="CSS/navBar.css">
-  <link rel="stylesheet" href="CSS/iconesFontawesome.css">
+  <link rel="stylesheet" href="CSS/stylesNav.css">
   <link rel="stylesheet" href="CSS/footer.css">
+  <link rel="stylesheet" href="CSS/stylesPanneauLateral.css">
+
 
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
-  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
-       <!-- Assurez-vous d'inclure la bibliothèque Font Awesome dans votre fichier HTML -->
-       <script src="https://kit.fontawesome.com/4675b5c56a.js" crossorigin="anonymous"></script>
        <!-- Mise à jour vers Bootstrap 5.3 -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
 
   <!-- Assurez-vous d'inclure la bibliothèque Font Awesome dans votre fichier HTML -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
     integrity="sha384-GLhlTQ8iKStXZ5l/Afbno3PKYUD4qzpo5F8+YR5FZtAtUHzq4Ux4bUDxpxI3Wr2Q" crossorigin="anonymous">
-  <script src="https://kit.fontawesome.com/4675b5c56a.js" crossorigin="anonymous"></script>
-  <title> MFM Radio 99.5 Marbial Haïti. National, International, Politique, Economie, Culture, Sociéte, Editorial . </title>
+   <title> MFM Radio 99.5 Marbial Haïti. National, International, Politique, Economie, Culture, Sociéte, Editorial . </title>
   <meta name="description" content="En 2015, Remy Jean Baptiste entreprend pour la premiere fois de lancer une radio de diffusion et d'annonces à cochon-gras. Il fonde la RMF">
-  <style>
-    .container {
-      display: flex;
-      justify-content: flex-end;
-      margin: 10px;
-    }
-
-    .actions {
-      margin-bottom: 10px;
-    }
-
-    .actions i {
-      cursor: pointer;
-      margin-right: 10px;
-    }
-    
-  </style>
   </head>
 
 <body>
-
-  <header>
-    <!-- Section de la date et de la cloche de notifications -->
+  
     <div id="date"></div>
-    <a href="#">
-      <i class="fas fa-bell fa-inverse" title="notifications"></i>
-    </a>
-
-    <!-- Titre h1 avec l'icône de radio et la police Script MT Bold -->
-    <h1><i class="fas fa-broadcast-tower radio-icon"></i> MFM Radio 99.5 Marbial Haïti <i class="fas fa-headphones"></i>
-    </h1>
-
-    <!-- Icône de recherche -->
-    <a href="#recherche" title="Recherche" id="searchButton" data-target="recherche">
-      <i class="fas fa-search search-icon"></i>
-    </a>
-
-    <!-- Barre de recherche -->
-    <div id="recherche" class="barre-recherche">
-      <input type="text" placeholder="Rechercher...">
-      <div id="apercu-recherche"></div>
-      <div id="result-message"></div>
-      <button onclick="fermerRecherche()">&times;</button>
-      
-    </div>
-    
    
-
-
-    <!-- Menu de navigation -->
-    <nav class="horizontal left">
+    <nav id="navbar">
+    
       <ul>
         <li><a href="#" title="Accueil" data-target="accueil"><i class="fas fa-home menu-icon"></i>Accueil</a></li>
         <li><a href="#" title="En Direct" data-target="streaming"><i class="fas fa-broadcast-tower menu-icon"></i>En
             Direct</a></li>
-        <li><a href="#" title="Podcast" data-target="podcasts"><i class="fas fa-headphones menu-icon"></i>Podcasts</a>
-        </li>
-        <li><a href="#" title="Presentateur" data-target="presentateurs"><i class="fas fa-users"></i>Presentateur</a>
-        </li>
+        <li><a href="#" title="Podcast" data-target="podcasts"><i class="fas fa-headphones menu-icon"></i>Podcasts</a></li>
         <li><a href="#" title="Actualites" data-target="actualites"><i class="fas fa-globe"></i>Actualites</a></li>
-
       </ul>
-      <div class="container">
-        <div class="actions">
-          <i class="fas fa-user" data-toggle="modal" data-target="#loginModal"> Se connecter</i>
+    
+      <div class="d-flex justify-content-center">
+        <!-- Titre h1 avec l'icône de radio et la police Script MT Bold -->
+        <h1><i class="fas fa-broadcast-tower radio-icon"></i> MFM 99.5 <!-- Utilisez l'icône avec une classe -->
+          <i class="fas fa-headphones" style="color: white;"></i>
+        </h1>
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#loginModal">
+          <i class="fas fa-user mr-2"></i> Connexion/Inscription
+        </button>
+      </div>
+      <!-- Icône de menu -->
+      <div id="menu-icon">&#9776;
+      </div>
+      <div class="container mt-3">
+        <!-- Affichage de l'icône de recherche -->
+        <i class="fas fa-search" style="cursor: pointer;" id="searchIcon"></i>
+
+        <!-- Formulaire de recherche et aperçu des liens -->
+        <div id="searchPreview" style="display: none;">
+            <form class="d-flex" id="searchForm">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" id="searchInput" style="width: 150px; height: 30px;">
+                <button class="btn btn-outline-success" type="button" style="width: 80px; height: 8px; padding-bottom: 30px;">Search</button>
+            </form>
+
+            <ul id="searchResults"></ul>
+            <p id="noResultsMessage" style="display: none;">Aucun lien trouvé.</p>
         </div>
+    </div>
+    
     </nav>
 
-    <!-- Icône de menu principal pour les petits écrans -->
-    <div id="menu-icon" title="Menu" onclick="toggleMenu()">
-      <i class="fas fa-bars" id="menu-icon-icon"></i>
-      <i class="fas fa-times" id="close-icon"></i>
-    </div>
-    <div id="close-icon" title="Fermer" onclick="toggleMenu()">
-      <i class="fas fa-times"></i>
-    </div>
 
-  </header>
+
+<!-- Panneau latéral -->
+<div id="side-panel">
+  <span id="close-btn">&times;</span>
+  <ul>
+        <li><a href="#" title="Accueil" data-target="accueil"><i class="fas fa-home menu-icon"></i>Accueil</a></li>
+        <li><a href="#" title="En Direct" data-target="streaming"><i class="fas fa-broadcast-tower menu-icon"></i>En Direct</a></li>
+        <li><a href="#" title="Podcast" data-target="podcasts"><i class="fas fa-headphones menu-icon"></i>Podcasts</a></li>
+        <li><a href="#" title="Presentateur" data-target="presentateurs"><i class="fas fa-users"></i>Presentateur</a></li>
+        <li><a href="#" title="Actualites" data-target="actualites"><i class="fas fa-globe"></i>Actualites</a></li>
+        <li><a href="#projet-vedette" title="Projet en Vedette" data-target="projet-vedette"><i class="fas fa-star"></i> Projet en Vedette</a></li>
+        <li><a href="#a-propos" title="À Propos de Moi" data-target="a-propos"><i class="fas fa-user"></i> À Propos de MFM</a></li>
+        <li><a href="#contact" title="Contact" data-target="contact"><i class="fas fa-envelope"></i> Contact</a></li>
+        <li><a href="#reseaux-sociaux" title="Réseaux Sociaux" data-target="reseaux-sociaux"><i class="fab fa-facebook"></i> Réseaux Sociaux</a></li>
+        <li><a href="#blog" title="Blog" data-target="blog"><i class="fas fa-blog"></i> Blog</a></li>
+       <li><a href="#temoignages" title="Témoignages" data-target="temoignages"><i class="fas fa-comments"></i> Témoignages</a></li>
+   
+  </ul>
+</div>
+    
 
   <main>
 
@@ -195,93 +181,147 @@
       </table>
     </section>
 
+    <section id="projet-vedette" class="content-section hidden">
+      <h2>Projet en Vedette</h2>
+      <p>Découvrez mon projet le plus récent, un système de gestion de contenu révolutionnaire qui simplifie la création et la modification de contenu en ligne. Ce projet a été réalisé en collaboration avec une équipe talentueuse et a été salué pour son interface utilisateur intuitive et ses fonctionnalités innovantes.</p>
+  </section>
+  
+  <section id="a-propos" class="content-section hidden">
+      <h2>À Propos de Moi</h2>
+      <p>Bienvenue sur mon portfolio ! Je suis passionné par la conception de solutions créatives et fonctionnelles. Mon parcours professionnel m'a permis de développer des compétences approfondies en développement web, conception d'interfaces utilisateur et gestion de projets. Explorez mon profil pour en savoir plus sur mon parcours et mes projets.</p>
+  </section>
+  
+  <section id="contact" class="content-section hidden">
+      <h2>Contact</h2>
+      <p>N'hésitez pas à me contacter pour discuter de projets potentiels, collaborations ou simplement pour échanger des idées. Vous pouvez utiliser le formulaire de contact ci-dessous, et je vous répondrai dans les plus brefs délais. Merci de prendre le temps de visiter mon portfolio !</p>
+  </section>
+  
+  <section id="reseaux-sociaux" class="content-section hidden">
+      <h2>Réseaux Sociaux</h2>
+      <p>Restons connectés ! Suivez-moi sur les réseaux sociaux pour les dernières mises à jour, annonces de projets et partages d'articles intéressants. Je suis actif sur plusieurs plateformes, alors choisissez celle que vous préférez, et rejoignez la communauté.</p>
+  </section>
+  
+  <section id="blog" class="content-section hidden">
+      <h2>Blog</h2>
+      <p>Explorez mon blog où je partage des articles sur les dernières tendances en matière de technologie, des tutoriels pratiques et des réflexions sur l'industrie. Mon objectif est de fournir du contenu informatif et engageant. N'hésitez pas à laisser des commentaires pour partager vos pensées et idées.</p>
+  </section>
+  
+  <section id="temoignages" class="content-section hidden">
+      <h2>Témoignages</h2>
+      <p>Découvrez ce que mes clients et collègues disent de moi et de mon travail. Leurs témoignages reflètent la qualité de mes services et mon engagement envers l'excellence. Si vous avez également eu une expérience de travail avec moi, n'hésitez pas à partager votre témoignage.</p>
+  </section>
+  
+<!-- Modal -->
+<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+          <div class="modal-header">
+              <h5 class="modal-title" id="loginModalLabel">Connexion/Inscription</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+              <ul class="nav nav-tabs" id="loginTabs" role="tablist">
+                  <li class="nav-item" role="presentation">
+                      <a class="nav-link active" id="login-tab" data-bs-toggle="tab" href="#login" role="tab" aria-controls="login" aria-selected="true">Connexion</a>
+                  </li>
+                  <li class="nav-item" role="presentation">
+                      <a class="nav-link" id="register-tab" data-bs-toggle="tab" href="#register" role="tab" aria-controls="register" aria-selected="false">Inscription</a>
+                  </li>
+              </ul>
+              <div class="tab-content" id="loginTabsContent">
+                  <!-- Connexion Tab -->
+                  <div class="tab-pane fade show active" id="login" role="tabpanel" aria-labelledby="login-tab">
+                      <form>
+                          <div class="mb-3">
+                              <label for="loginUsername" class="form-label">Nom d'utilisateur</label>
+                              <input type="text" class="form-control" id="loginUsername" required>
+                          </div>
+                          <div class="mb-3">
+                              <label for="loginPassword" class="form-label">Mot de passe</label>
+                              <input type="password" class="form-control" id="loginPassword" required>
+                              <div class="mt-2">
+                                  <a href="#" data-bs-toggle="modal" data-bs-target="#forgotPasswordModal">Mot de passe oublié?</a>
+                              </div>
+                          </div>
+                          <button type="submit" class="btn btn-primary">Se connecter</button>
+                          <div class="mt-2">
+                            Vous n'avez pas de compte? <a href="#register" data-bs-toggle="tab" role="tab" id="switch-to-register">Inscrivez-vous ici</a>.
+                        </div>
+                        
+                      </form>
+                  </div>
+                  <!-- Inscription Tab -->
+                  <div class="tab-pane fade" id="register" role="tabpanel" aria-labelledby="register-tab">
+                      <form>
+                          <div class="mb-3">
+                              <label for="registerFirstName" class="form-label">Prénom</label>
+                              <input type="text" class="form-control" id="registerFirstName" required>
+                          </div>
+                          <div class="mb-3">
+                              <label for="registerLastName" class="form-label">Nom</label>
+                              <input type="text" class="form-control" id="registerLastName" required>
+                          </div>
+                          <div class="mb-3">
+                              <label for="registerEmail" class="form-label">Adresse email</label>
+                              <input type="email" class="form-control" id="registerEmail" required>
+                          </div>
+                          <div class="mb-3">
+                              <label for="registerPassword" class="form-label">Mot de passe</label>
+                              <input type="password" class="form-control" id="registerPassword" required>
+                          </div>
+                          <button type="submit" class="btn btn-primary">S'inscrire</button>
+                          <div class="mt-2">
+                            Vous avez déjà un compte? <a href="#login" data-bs-toggle="tab" role="tab" id="switch-to-login">Connectez-vous ici</a>.
+                        </div>
+                        
+                      </form>
+                  </div>
+              </div>
+          </div>
+          <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+          </div>
+      </div>
+  </div>
+</div>
 
-
-      
-      <!-- Modal de connexion -->
-      <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="loginModalLabel">Connexion</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              <!-- Formulaire de connexion (username, mot de passe) -->
+<!-- Mot de passe oublié Modal -->
+<div class="modal fade" id="forgotPasswordModal" tabindex="-1" aria-labelledby="forgotPasswordModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+          <div class="modal-header">
+              <h5 class="modal-title" id="forgotPasswordModalLabel">Mot de passe oublié</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+              <p>Entrez l'adresse email associée à votre compte. Nous vous enverrons un lien pour réinitialiser votre mot de passe.</p>
               <form>
-                <div class="form-group">
-                  <label for="username">Nom d'utilisateur</label>
-                  <input type="text" class="form-control" id="username" placeholder="Entrez votre nom d'utilisateur">
-                </div>
-                <div class="form-group">
-                  <label for="password">Mot de passe</label>
-                  <input type="password" class="form-control" id="password" placeholder="Entrez votre mot de passe">
-                </div>
-                <button type="submit" class="btn btn-primary">Se connecter</button>
-                <a href="#" class="float-right">Mot de passe oublié ?</a>
-                <p class="text-center mt-2">Pas encore de compte ? <a href="#" id="showRegister">Inscrivez-vous</a></p>
+                  <div class="mb-3">
+                      <label for="forgotPasswordEmail" class="form-label">Adresse email</label>
+                      <input type="email" class="form-control" id="forgotPasswordEmail" required>
+                  </div>
+                  <button type="submit" class="btn btn-primary">Envoyer le lien de réinitialisation</button>
               </form>
-            </div>
           </div>
-        </div>
-      </div>
-      
-      <!-- Modal d'inscription -->
-      <div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="registerModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="registerModalLabel">Inscription</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              <!-- Formulaire d'inscription -->
-              <form>
-                <div class="form-group">
-                    <label for="registerNom">Nom</label>
-                    <input type="text" class="form-control" id="registerNom" placeholder="Entrez votre nom">
-                </div>
-            
-                <div class="form-group">
-                    <label for="registerPrenom">Prenom</label>
-                    <input type="text" class="form-control" id="registerPrenom" placeholder="Entrez votre prénom">
-                </div>
-            
-                <div class="form-group">
-                    <label for="registerEmail">Email</label>
-                    <input type="email" class="form-control" id="registerEmail" placeholder="Entrez votre email">
-                </div>
-            
-                <div class="form-group">
-                    <label for="registerPassword">Mot de passe</label>
-                    <input type="password" class="form-control" id="registerPassword" placeholder="Entrez votre mot de passe">
-                </div>
-            
-                <button type="submit" class="btn btn-primary">S'inscrire</button>
-                <a href="#" class="float-right">Mot de passe oublié ?</a>
-            </form>
-            
-            </div>
+          <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
           </div>
-        </div>
       </div>
-      
-      <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-      <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
-      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-      
-      <script>
-        // Afficher le modal d'inscription lorsque l'utilisateur clique sur "Inscrivez-vous"
-        document.getElementById('showRegister').addEventListener('click', function() {
-          $('#loginModal').modal('hide');
-          $('#registerModal').modal('show');
-        });
-      </script>
-      
+  </div>
+</div>
+
+  
+<script>
+  document.getElementById('switch-to-register').addEventListener('click', function () {
+      var loginTabs = new bootstrap.Tab(document.getElementById('register-tab'));
+      loginTabs.show();
+  });
+
+  document.getElementById('switch-to-login').addEventListener('click', function () {
+      var loginTabs = new bootstrap.Tab(document.getElementById('login-tab'));
+      loginTabs.show();
+  });
+</script>
   </main>
   <div class="container">
     <div id="map"> <!-- Votre carte ici --> </div>
@@ -308,7 +348,17 @@
     <button id="backToTopBtn" title="Retour en haut">&#9650;</button>
     <p id="copyright">&copy; <span id="current-year"></span> Radio Marbial FM inc. Tous droits réservés.</p>
   </div>
+ <!-- Bibliothèque Font Awesome -->
+ <script src="https://kit.fontawesome.com/4675b5c56a.js" crossorigin="anonymous"></script>
+ <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+ <!-- Assurez-vous d'inclure la bibliothèque Font Awesome dans votre fichier HTML -->
+<script src="https://kit.fontawesome.com/4675b5c56a.js" crossorigin="anonymous"></script>
 
+ <!-- Scripts Bootstrap (JS) pour la barre de navigation -->
+ <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+ <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+ <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+ 
   <script src="SCRIPT/Date.js" defer></script>
   <script src="SCRIPT/menuScript.js" defer></script>
   <script src="SCRIPT/scriptMonterHaut.js" defer></script>
@@ -317,6 +367,10 @@
   <script src="SCRIPT/scriptFooter.js" defer></script>
   <script src="SCRIPT/scriptMap.js" defer></script>
   <script src="SCRIPT/audio.js" defer></script>
+  <script src="SCRIPT/scriptPanneauLateral.js" defer></script>
+  <script src="SCRIPT/iconeRecherche.js" defer></script>
+
+
 
 
 
