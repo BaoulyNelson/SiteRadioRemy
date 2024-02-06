@@ -47,3 +47,14 @@ function searchLinks() {
         noResultsMessage.style.display = 'block';
     }
 }
+
+searchInput.addEventListener('keyup', function(event) {
+    if (event.keyCode === 8 && searchInput.value === '') { // Vérifie si la touche pressée est la touche de suppression (Backspace) et que la zone de recherche est vide
+        // Cacher le formulaire de recherche
+        searchPreview.style.display = 'none';
+
+        // Réinitialiser les résultats de la recherche et le message d'aucun résultat
+        searchResults.innerHTML = '';
+        noResultsMessage.style.display = 'none';
+    }
+});

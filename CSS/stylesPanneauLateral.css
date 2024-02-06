@@ -20,15 +20,17 @@ body.no-scroll {
 
 
 #menu-icon {
-    font-size: 36px;
+    font-size: 30px;
     color: black;
     position: absolute;
-    top: 5%;
-    left: 20px;
+    top: 15px;
+    left: 0;
     cursor: pointer;
     z-index: 1000;
-    background-color: #e0e0e0; /* Changement de couleur de fond au survol */
+    background-color: #f0f0f0; /* Couleur de fond */
 
+
+    
 }
 
 #side-panel {
