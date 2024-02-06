@@ -49,7 +49,9 @@ body.no-scroll {
 }
 
 #side-panel li {
-    padding: 10px;
+    padding: 5px; /* Réduisez la valeur de la marge intérieure */
+    margin-bottom: 5px; /* Réduisez la marge entre les éléments <li> */
+
 }
 
 #side-panel a {
@@ -59,7 +61,7 @@ body.no-scroll {
     display: block;
     transition: 0.3s;
     border: 2px solid #ddd; /* Changement de la couleur de la bordure à une teinte plus claire */
-    padding: 10px; /* Espace intérieur pour le texte */
+    padding: 5px; /* Espace intérieur pour le texte */
     background-color: #f0f0f0; /* Couleur de fond */
 }
 
