@@ -82,14 +82,10 @@
         <li><a href="#" title="Podcast" data-target="podcasts"><i class="fas fa-headphones menu-icon"style="font-size: 16px;"></i>Podcasts</a></li>
         <li><a href="#" title="Presentateur" data-target="presentateurs"><i class="fas fa-users"style="font-size: 16px;"></i>Presentateur</a></li>
         <li><a href="#" title="Actualites" data-target="actualites"><i class="fas fa-globe"style="font-size: 16px;"></i>Actualites</a></li>
-        <li><a href="#projet-vedette" title="Projet en Vedette" data-target="projet-vedette"style="font-size: 16px;"><i class="fas fa-star"></i> Projet en Vedette</a></li>
-        <li><a href="#a-propos" title="À Propos de Moi" data-target="a-propos"><i class="fas fa-user"style="font-size: 16px;"></i> À Propos de MFM</a></li>
+       <li><a href="#a-propos" title="À Propos de Moi" data-target="a-propos"><i class="fas fa-user"style="font-size: 16px;"></i> À Propos de MFM</a></li>
         <li><a href="#contact" title="Contact" data-target="contact"><i class="fas fa-envelope"style="font-size: 16px;"></i> Contact</a></li>
-        <li><a href="#reseaux-sociaux" title="Réseaux Sociaux" data-target="reseaux-sociaux"><i class="fab fa-facebook"style="font-size: 16px;"></i> Réseaux Sociaux</a></li>
-        <li><a href="#blog" title="Blog" data-target="blog"><i class="fas fa-blog"style="font-size: 16px;"></i> Blog</a></li>
-       <li><a href="#temoignages" title="Témoignages" data-target="temoignages"><i class="fas fa-comments"style="font-size: 16px;"></i> Témoignages</a></li>
-   
-  </ul>
+        <li><a href="#reseaux-sociaux" title="Réseaux Sociaux"><i class="fab fa-facebook" style="font-size: 16px;"></i> Réseaux Sociaux</a></li>
+      </ul>
 </div>
     
 
@@ -104,6 +100,12 @@
 
     <section id="streaming" class="content-section hidden">
       <h2>En Direct</h2>
+            <!-- En-tête de la page -->
+<header class="jumbotron jumbotron-fluid text-center">
+  <div class="container">
+      <a href="#" class="btn btn-primary btn-lg">Écouter Maintenant</a>
+  </div>
+</header>
       <video src="video.mp4" controls poster="image_preview.jpg"></video>
       <!-- Contenu du streaming -->
       <div class="video">
@@ -116,24 +118,21 @@
       </div>
     </section>
 
-    <section id="podcasts" class="content-section hidden">
+
+    <section id="podcasts" class="content-section">
       <h2>Podcasts</h2>
       <!-- Contenu des podcasts -->
-      <audio controls>
-        <source src="chemin/vers/votre/fichier/audio.mp3" type="audio/mp3">
-        Votre navigateur ne supporte pas l'élément audio.
-      </audio>
-
-      <form action="/votre-endpoint-de-traitement" method="post" enctype="multipart/form-data">
-        <label for="podcastFile">Sélectionnez votre podcast :</label>
-        <input type="file" id="podcastFile" name="podcastFile" accept=".mp3, .ogg, .wav, .mp4" style="display: none;"
-          onchange="displayFileName(this)">
-        <label for="podcastFile" id="customLabel">Choisir un fichier</label>
-        <br>
-        <input type="submit" value="Envoyer le podcast">
-      </form>
+      <div class="episode">
+        <h3>Titre de l'épisode</h3>
+        <p>Description de l'épisode...</p>
+        <audio controls>
+          <source src="audio.mp3" type="audio/mp3">
+          Votre navigateur ne supporte pas l'élément audio.
+        </audio>
+      </div>
+      <!-- Ajouter d'autres épisodes ici -->
     </section>
-
+    
 
 
     <section id="presentateurs" class="content-section hidden">
@@ -184,36 +183,40 @@
       </table>
     </section>
 
-    <section id="projet-vedette" class="content-section hidden">
-      <h2>Projet en Vedette</h2>
-      <p>Découvrez mon projet le plus récent, un système de gestion de contenu révolutionnaire qui simplifie la création et la modification de contenu en ligne. Ce projet a été réalisé en collaboration avec une équipe talentueuse et a été salué pour son interface utilisateur intuitive et ses fonctionnalités innovantes.</p>
-  </section>
+
   
   <section id="a-propos" class="content-section hidden">
       <h2>À Propos de Moi</h2>
-      <p>Bienvenue sur mon portfolio ! Je suis passionné par la conception de solutions créatives et fonctionnelles. Mon parcours professionnel m'a permis de développer des compétences approfondies en développement web, conception d'interfaces utilisateur et gestion de projets. Explorez mon profil pour en savoir plus sur mon parcours et mes projets.</p>
+      <p></p>
   </section>
   
   <section id="contact" class="content-section hidden">
       <h2>Contact</h2>
       <p>N'hésitez pas à me contacter pour discuter de projets potentiels, collaborations ou simplement pour échanger des idées. Vous pouvez utiliser le formulaire de contact ci-dessous, et je vous répondrai dans les plus brefs délais. Merci de prendre le temps de visiter mon portfolio !</p>
-  </section>
+      <div class="container mt-5">
+        <form action="https://docs.google.com/forms/d/e/1FAIpQLSfvY8EMFk9Sp4D_-oyGils0Jar2-lE0shkCqCQdj253St001g/formResponse" method="post">
+          <div class="mb-3">
+            <label for="nom" class="form-label">Nom</label>
+            <input type="text" class="form-control" id="nom"placeholder="nom" name="entry.nom" required>
+          </div>
+          <div class="mb-3">
+            <label for="prenom" class="form-label">Prenom</label>
+            <input type="prenom" class="form-control" id="prenom" placeholder="prenom" name="entry.prenom" required>
+          </div>
+          <div class="mb-3">
+            <label for="message" class="form-label">Message</label>
+            <textarea class="form-control" id="message" name="entry.message" rows="4" maxlength="100" oninput="updateCharCount()" required></textarea>
+            <div id="charCount">0/100</div>
+        </div>
+          <button type="submit" class="btn btn-primary">Envoyer</button>
+        </form>
+      </div>
+    </section>
   
-  <section id="reseaux-sociaux" class="content-section hidden">
-      <h2>Réseaux Sociaux</h2>
-      <p>Restons connectés ! Suivez-moi sur les réseaux sociaux pour les dernières mises à jour, annonces de projets et partages d'articles intéressants. Je suis actif sur plusieurs plateformes, alors choisissez celle que vous préférez, et rejoignez la communauté.</p>
-  </section>
+ 
   
-  <section id="blog" class="content-section hidden">
-      <h2>Blog</h2>
-      <p>Explorez mon blog où je partage des articles sur les dernières tendances en matière de technologie, des tutoriels pratiques et des réflexions sur l'industrie. Mon objectif est de fournir du contenu informatif et engageant. N'hésitez pas à laisser des commentaires pour partager vos pensées et idées.</p>
-  </section>
-  
-  <section id="temoignages" class="content-section hidden">
-      <h2>Témoignages</h2>
-      <p>Découvrez ce que mes clients et collègues disent de moi et de mon travail. Leurs témoignages reflètent la qualité de mes services et mon engagement envers l'excellence. Si vous avez également eu une expérience de travail avec moi, n'hésitez pas à partager votre témoignage.</p>
-  </section>
-  
+ 
+
 <!-- Modal -->
 <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
@@ -344,8 +347,15 @@
       <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
       <a href="#" title="Email"><i class="fas fa-envelope"></i></a>
       <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
-
     </div>
+  </div>
+  
+  <!-- Section des réseaux sociaux -->
+  <section id="reseaux-sociaux" class="content-section hidden">
+    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Perferendis sunt quaerat reprehenderit rerum nulla laudantium perspiciatis quam libero. Natus eligendi odit nihil est quos, in qui ad necessitatibus autem laudantium.</p>
+    <!-- Contenu de la section des réseaux sociaux -->
+  </section>
+  
 
     <!-- Ajoutez ceci à l'endroit où vous voulez afficher la flèche -->
     <button id="backToTopBtn" title="Retour en haut">&#9650;</button>

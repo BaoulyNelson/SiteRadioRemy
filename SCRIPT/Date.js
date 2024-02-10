@@ -22,3 +22,13 @@ try {
     // En cas d'erreur, afficher l'erreur dans la console
     console.error("Erreur JavaScript :", error.message);
   }
+
+
+function updateCharCount() {
+  var textarea = document.getElementById('message');
+  var charCountElement = document.getElementById('charCount');
+  var currentLength = textarea.value.length;
+  var maxLength = textarea.maxLength;
+
+  charCountElement.textContent = currentLength + '/' + maxLength;
+}
