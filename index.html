@@ -27,8 +27,6 @@
 <body>
   
     <div id="date"></div>
-    
-  
     <nav id="navbar">
     
       <ul>
@@ -37,38 +35,41 @@
         <li><a href="#" title="En Direct" data-target="streaming"><i class="fas fa-broadcast-tower menu-icon"style="font-size: 16px;"></i>En
             Direct</a></li>
         <li><a href="#" title="Podcast" data-target="podcasts"><i class="fas fa-headphones menu-icon"style="font-size: 16px;"></i>Podcasts</a></li>
-           </ul>
-    
-      <div class="d-flex justify-content-center">
+                  <!-- Affichage de l'icône de recherche -->
+                  <i class="fas fa-search" style="cursor: pointer; color: white;" id="searchIcon"></i>
+         <!-- Formulaire de recherche et aperçu des liens -->
+         <div id="searchPreview" style="display: none;">
+          <form class="d-flex" id="searchForm">
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" id="searchInput" style="width: 150px; height: 30px;">
+             
+          </form>
+
+          <ul id="searchResults"></ul>
+          <p id="noResultsMessage" style="display: none;">Aucun lien trouvé.</p>
+      </div>
+  </div>
   
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#loginModal">
-          <i class="fas fa-user mr-2"></i> Connexion/Inscription
-        </button>
-         <!-- Titre h1 avec l'icône de radio et la police Script MT Bold -->
-   <h6 style="animation: blink 3.5s infinite;"> <i class="fas fa-broadcast-tower radio-icon" style="font-size: 16px; animation: rotate 5s linear infinite;"></i> 
-    MFM 99.5 
-    <i class="fas fa-headphones" style="color: white; font-size: 16px;"></i>
+      </ul>
+   
+      
+    
+           <div class="d-flex justify-content-center">
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#loginModal" title="Profil">
+                <i class="fas fa-user mr-2"></i>
+            </button>
+        </div>
 
   </h6>
       </div>
       <!-- Icône de menu -->
       <div id="menu-icon">&#9776;
       </div>
+      
       <div class="container mt-3">
-        <!-- Affichage de l'icône de recherche -->
-        <i class="fas fa-search" style="cursor: pointer;" id="searchIcon"></i>
-
-        <!-- Formulaire de recherche et aperçu des liens -->
-        <div id="searchPreview" style="display: none;">
-            <form class="d-flex" id="searchForm">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" id="searchInput" style="width: 150px; height: 30px;">
-                <button class="btn btn-outline-success" type="button" style="width: 80px; height: 8px; padding-bottom: 30px;">Search</button>
-            </form>
-
-            <ul id="searchResults"></ul>
-            <p id="noResultsMessage" style="display: none;">Aucun lien trouvé.</p>
-        </div>
-    </div>
+       <!-- Titre h1 avec l'icône de radio et la police Script MT Bold -->
+       <h6 style="animation: blink 3.5s infinite;"> <i class="fas fa-broadcast-tower radio-icon" style="font-size: 16px; animation: rotate 5s linear infinite;"></i> 
+        MFM 99.5 
+        <i class="fas fa-headphones" style="color: white; font-size: 16px;"></i>
     
     </nav>
 

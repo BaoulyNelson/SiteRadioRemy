@@ -14,6 +14,9 @@ searchIcon.addEventListener('click', function() {
 
     // Ajouter un écouteur d'événements pour le champ de recherche
     searchInput.addEventListener('input', searchLinks);
+    
+    // Activer le focus sur le champ de recherche
+    searchInput.focus();
 });
 
 function searchLinks() {
