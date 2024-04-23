@@ -1,0 +1,153 @@
+body {
+  background-image: url('../images/bac.jpg');
+  background-size: cover; /* Ajuste la taille de l'image pour couvrir tout l'arrière-plan */
+  background-repeat: no-repeat; /* Empêche la répétition de l'image */
+}
+.logo-expand {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: black; /* Couleur du texte */
+    color: white; /* Couleur du texte en blanc */
+}
+
+.logo {
+  width: 40px; /* Largeur du logo */
+  height: auto; /* Hauteur ajustée automatiquement pour conserver les proportions */
+  margin-right: 10px; /* Espace entre le logo et le texte */
+}
+
+.side-panel {
+  position: fixed;
+  left: -250px;
+  top: 0;
+  height: 100%;
+  width: 250px;
+  background-color: #333;
+  transition: left 0.5s;
+  padding: 20px;
+  box-sizing: border-box;
+  overflow-y: auto; /* Ajouter cette ligne pour activer le défilement vertical */
+  color: #fff;
+
+}
+.close-button {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  cursor: pointer;
+  font-size: 20px;
+}
+.close-button {
+  background-color: #fff; /* Arrière-plan blanc */
+  color: red; /* Couleur de l'icône en rouge */
+  padding: 0px;
+  border-radius: 50%;
+}
+
+.toggle-button {
+  position: relative; /* Changer de fixed à absolute */
+  left: 20px;
+  top: 0; /* Ajuster la valeur top selon vos besoins */
+  font-size: 24px;
+  cursor: pointer;
+}
+
+
+
+.menu a {
+  text-decoration: none;
+  color: #fff;
+}
+
+
+.side-title {
+  color: white;
+}
+
+.categories a,
+h3 {
+  text-decoration: none;
+  color: white;
+}
+
+.categories h3 {
+  margin-bottom: 10px;
+}
+
+.categories ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.menu {
+  list-style-type: none;
+}
+
+.menu li,.categories li{
+  margin-bottom: 10px;
+  /* Ajoutez un espacement entre chaque élément de la liste si nécessaire */
+}
+
+#resultMessage {
+  display: none; /* Le message sera initialement caché */
+  position: fixed; /* Pour que le message soit positionné de manière fixe */
+  top: 20px; /* Distance par rapport au haut de la fenêtre */
+  right: 50%; /* Pour centrer horizontalement */
+  transform: translateX(-50%); /* Pour centrer horizontalement */
+  background-color: red; /* Fond rouge */
+  color: white; /* Texte blanc */
+  padding: 10px 20px; /* Espacement intérieur */
+  border-radius: 5px; /* Coins arrondis */
+}
+
+.header {
+  background-color: #3b5998;
+  color: #fff;
+  padding: 10px 0;
+}
+
+#searchIcon {
+  position: absolute;
+  top: 0;
+  right: 0;
+  /* ou bien */
+  margin-top: 0;
+  margin-right: 0;
+}
+
+footer {
+  background-color: #333;
+  color: white;
+  padding: 20px;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.icon-container {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%; /* Créer des cercles */
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 10px; /* Espacement entre les icônes */
+}
+
+.icon-container a {
+  color: black;
+  font-size: 12px;
+}
+.navbar {
+  position: relative;
+  z-index: 9999; /* Assurez-vous que la barre de navigation est au-dessus du footer */
+}
