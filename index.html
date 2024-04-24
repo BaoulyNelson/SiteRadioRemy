@@ -31,21 +31,22 @@
                 
                 <div class="side-title">MENU</div>
                 <ul class="menu">
-                    <li><a href="#"><i class="fas fa-globe"></i> Découvrir</a></li>
-                    <li><a href="#"><i class="fas fa-chart-line"></i> Tendance</a></li>
-                    <li><a href="#"><i class="fas fa-play-circle"></i> Diffusion</a></li>
-                    <li><a href="#"><i class="fas fa-list"></i> Liste de Lecture</a></li>
-                    <li><a href="#"><i class="fas fa-bookmark"></i> Marque-Page</a></li>
+                    <li><a href="#" onclick="toggleContent('decouvrir')"><i class="fas fa-globe"></i> Découvrir</a></li>
+                    <li><a href="#" onclick="toggleContent('tendance')"><i class="fas fa-chart-line"></i> Tendance</a></li>
+                    <li><a href="#" onclick="toggleContent('diffusion')"><i class="fas fa-play-circle"></i> Diffusion</a></li>
+                    <li><a href="#" onclick="toggleContent('liste')"><i class="fas fa-list"></i> Liste de Lecture</a></li>
+                    <li><a href="#" onclick="toggleContent('marquePage')"><i class="fas fa-bookmark"></i> Marque-Page</a></li>
                 </ul>
                 <div class="categories">
                     <h3>Catégories</h3>
                     <ul>
-                        <li><a href="#"><i class="fas fa-broadcast-tower"></i> Diffusion en Direct</a></li>
-                        <li><a href="#"><i class="fas fa-chart-line"></i> Économie</a></li>
-                        <li><a href="#"><i class="fas fa-globe"></i> Culture</a></li>
-                        <li><a href="#"><i class="fas fa-futbol"></i> Sports</a></li>
+                        <li id="diffusionContent" style="display: none;"><a href="#"><i class="fas fa-broadcast-tower"></i> Diffusion en Direct</a></li>
+                        <li id="tendanceContent" style="display: none;"><a href="#"><i class="fas fa-chart-line"></i> Économie</a></li>
+                        <li id="decouvrirContent" style="display: none;"><a href="#"><i class="fas fa-globe"></i> Culture</a></li>
+                        <li id="listeContent" style="display: none;"><a href="#"><i class="fas fa-futbol"></i> Sports</a></li>
                     </ul>
                 </div>
+                
                 <div class="container">
                     <div class="custom-control custom-switch">
                       <input type="checkbox" class="custom-control-input" id="customSwitch">
@@ -66,7 +67,76 @@
             <div id="resultMessage"></div>
         </form>
     </nav>
-
+<main>
+        <section id="accueil" class="content-section hidden">
+        <h2>Accueil</h2>
+        <p>Bienvenue à la page d'accueil de la RMF</p>
+        
+        <!-- Lecteur vidéo YouTube -->
+        <div id="player"></div>
+    
+        <!-- Bouton pour démarrer la diffusion en direct -->
+        <button onclick="startLiveBroadcast()">Démarrer la diffusion en direct</button>
+        <div style="text-align:center;">
+            <div style="position: relative; padding-bottom: 56.25%; height: 0;">
+              <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://www.youtube.com/embed/YOUR_VIDEO_ID" frameborder="0" allowfullscreen></iframe>
+            </div>
+          </div>
+          
+    </section>
+    <section id="streaming" class="content-section hidden">
+        <h2>En Direct</h2>
+        <video src="video.mp4" controls poster="image_preview.jpg"></video>
+        <!-- Contenu du streaming -->
+        <div class="video">
+            <img src="video1_thumbnail.jpg" alt="Vidéo 1">
+            <h3>Titre de la Vidéo 1</h3>
+        </div>
+        <div class="video">
+            <img src="video2_thumbnail.jpg" alt="Vidéo 2">
+            <h3>Titre de la Vidéo 2</h3>
+        </div>
+      </section>
+      
+        <section id="podcasts" class="content-section hidden">
+          <h2>Podcasts</h2>
+          <!-- Contenu des podcasts -->
+          <audio controls>
+            <source src="chemin/vers/votre/fichier/audio.mp3" type="audio/mp3">
+            Votre navigateur ne supporte pas l'élément audio.
+          </audio>
+      
+          <form action="/votre-endpoint-de-traitement" method="post" enctype="multipart/form-data">
+            <label for="podcastFile">Sélectionnez votre podcast :</label>
+            <input type="file" id="podcastFile" name="podcastFile" accept=".mp3, .ogg, .wav, .mp4" style="display: none;" onchange="displayFileName(this)">
+            <label for="podcastFile" id="customLabel">Choisir un fichier</label>
+            <br>
+            <input type="submit" value="Envoyer le podcast">
+          </form>
+      </section>
+      
+      <section id="decouvrirContent" class="content-section hidden">
+        <h3>Découvrir</h3>
+        <!-- Contenu de la section Découvrir -->
+    </section>
+    <section id="tendanceContent" class="content-section hidden">
+        <h3>Tendance</h3>
+        <!-- Contenu de la section Tendance -->
+    </section>
+    <section id="diffusionContent" class="content-section hidden">
+        <h3>Diffusion</h3>
+        <!-- Contenu de la section Diffusion -->
+    </section>
+    <section id="listeContent" class="content-section hidden">
+        <h3>Liste de Lecture</h3>
+        <!-- Contenu de la section Liste de Lecture -->
+    </section>
+    <section id="marquePageContent" class="content-section hidden">
+        <h3>Marque-Page</h3>
+        <!-- Contenu de la section Marque-Page -->
+    </section>
+      
+</main>
     <footer>
         <div class="social-icons">
             <div class="icon-container"><a href="#"><i class="fab fa-twitter"></i></a></div>
@@ -79,6 +149,9 @@
         <div class="copyright">
             <p>&copy; 2008-<span id="currentYear"></span> Marbial fm, Inc.</p>
         </div>
+        <!-- Ajoutez ceci à l'endroit où vous voulez afficher la flèche -->
+  <button id="backToTopBtn" title="Retour en haut">&#9650;</button>
+ 
     </footer>
     
 
@@ -88,7 +161,8 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-  
+  <script src="https://apis.google.com/js/client.js?onload=init"></script>
+
 
 </body>
 

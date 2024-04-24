@@ -2,6 +2,36 @@ body {
   background-image: url('../images/bac.jpg');
   background-size: cover; /* Ajuste la taille de l'image pour couvrir tout l'arrière-plan */
   background-repeat: no-repeat; /* Empêche la répétition de l'image */
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Assure que le contenu s'étend sur toute la hauteur de la fenêtre */
+
+}
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+main {
+  flex: 1;
+}
+
+
+ /* Inclure la police Script MT Bold depuis une source externe si nécessaire */
+ @import url('https://fonts.googleapis.com/css2?family=Script+MT+Bold&display=swap');
+
+
+.header {
+  background-color: #3b5998;
+  color: #fff;
+  padding: 10px 0;
+}
+
+.radio-title {
+  text-align: center; /* Centrer le texte horizontalement */
 }
 .logo-expand {
   display: flex;
@@ -36,9 +66,7 @@ body {
   top: 20px;
   right: 20px;
   cursor: pointer;
-  font-size: 20px;
-}
-.close-button {
+  font-size: 24px;
   background-color: #fff; /* Arrière-plan blanc */
   color: red; /* Couleur de l'icône en rouge */
   padding: 0px;
@@ -57,9 +85,17 @@ body {
 
 .menu a {
   text-decoration: none;
-  color: #fff;
+  color: #fff; /* Couleur de texte par défaut */
 }
 
+.menu a:hover {
+background-color: white;
+  color: #ff0000; /* Couleur de texte lorsque survolé */
+}
+.categories a:hover{
+  color: #ff0000; /* Couleur de texte lorsque survolé */
+background-color: white;
+}
 
 .side-title {
   color: white;
@@ -89,41 +125,29 @@ h3 {
   /* Ajoutez un espacement entre chaque élément de la liste si nécessaire */
 }
 
-#resultMessage {
-  display: none; /* Le message sera initialement caché */
-  position: fixed; /* Pour que le message soit positionné de manière fixe */
-  top: 20px; /* Distance par rapport au haut de la fenêtre */
-  right: 50%; /* Pour centrer horizontalement */
-  transform: translateX(-50%); /* Pour centrer horizontalement */
-  background-color: red; /* Fond rouge */
-  color: white; /* Texte blanc */
-  padding: 10px 20px; /* Espacement intérieur */
-  border-radius: 5px; /* Coins arrondis */
+#date {
+  font-size: 18px;
+  background-color: #227;
+  font-family: Arial, sans-serif;
+  text-align: center;
+  margin-top: 10px;
+  color: beige;
+  display: inline-block; /* Ajout de cette propriété */
 }
 
-.header {
-  background-color: #3b5998;
-  color: #fff;
-  padding: 10px 0;
-}
 
-#searchIcon {
-  position: absolute;
-  top: 0;
-  right: 0;
-  /* ou bien */
-  margin-top: 0;
-  margin-right: 0;
-}
+
+
 
 footer {
   background-color: #333;
   color: white;
   padding: 20px;
-  position: absolute;
+  position: relative;
   bottom: 0;
   width: 100%;
   text-align: center;
+ 
 }
 
 .social-icons {
@@ -147,7 +171,33 @@ footer {
   color: black;
   font-size: 12px;
 }
+
+
+
+
+/* Ajoutez ce code à votre feuille de style CSS */
+#backToTopBtn {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+#backToTopBtn:hover {
+  background-color: #0056b3;
+}
+
+
 .navbar {
   position: relative;
   z-index: 9999; /* Assurez-vous que la barre de navigation est au-dessus du footer */
 }
+
