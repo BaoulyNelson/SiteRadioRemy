@@ -14,24 +14,27 @@
     <link rel="stylesheet" href="CSS/monterHaut.css">
     <link rel="stylesheet" href="CSS/footer.css">
     <link rel="stylesheet" href="CSS/contenu.css">
+    <link rel="stylesheet" href="CSS/jumbotron.css">
 
 </head>
 
 <body>
     <nav class="navbar navbar-dark bg-primary">
-        <div id="searchIcon"
-            style="color: white; cursor: pointer; position: absolute; top: 15px; right: 50%; transform: translateX(-50%);">
-            <i class="fas fa-search"></i>
-        </div>
+        <div id="searchIcon">
+        <i class="fas fa-search"></i>
+    </div>
 
         <button id="togglePanel" class="toggle-button"><i class="fas fa-bars"></i></button>
+
         <div id="sidePanel" class="side-panel">
+
             <span id="closeButton" class="close-button"><i class="fas fa-times"></i></span>
             <div class="sidebar">
                 <a class="logo-expand" href="#">
                     <img src="IMAGES/logo.jpg" alt="Logo" class="logo">
                     Radio Marbial FM
                 </a>
+                
                 <hr>
                 <!-- Formulaire de recherche (initialement caché) -->
                 <form id="searchForm" style="display: none;">
@@ -85,6 +88,56 @@
 
     <main>
 
+        <div class="jumbotron">
+            <div class="container">
+                <div class="welcome-container">
+                    <span class="welcome-letter"
+                        style="animation: fadeIn ease-in-out 1s forwards; animation-delay: 0s;"><span
+                            style="animation: changeColor 5s infinite alternate;">B</span></span>
+                    <span class="welcome-letter"
+                        style="animation: fadeIn ease-in-out 1s forwards; animation-delay: 1s;"><span
+                            style="animation: changeColor 5s infinite alternate; animation-delay: 1s;">i</span></span>
+                    <span class="welcome-letter"
+                        style="animation: fadeIn ease-in-out 1s forwards; animation-delay: 2s;"><span
+                            style="animation: changeColor 5s infinite alternate; animation-delay: 2s;">e</span></span>
+                    <span class="welcome-letter"
+                        style="animation: fadeIn ease-in-out 1s forwards; animation-delay: 3s;"><span
+                            style="animation: changeColor 5s infinite alternate; animation-delay: 3s;">n</span></span>
+                    <span class="welcome-letter"
+                        style="animation: fadeIn ease-in-out 1s forwards; animation-delay: 4s;"><span
+                            style="animation: changeColor 5s infinite alternate; animation-delay: 4s;">v</span></span>
+                    <span class="welcome-letter"
+                        style="animation: fadeIn ease-in-out 1s forwards; animation-delay: 5s;"><span
+                            style="animation: changeColor 5s infinite alternate; animation-delay: 5s;">e</span></span>
+                    <span class="welcome-letter"
+                        style="animation: fadeIn ease-in-out 1s forwards; animation-delay: 6s;"><span
+                            style="animation: changeColor 5s infinite alternate; animation-delay: 6s;">n</span></span>
+                    <span class="welcome-letter"
+                        style="animation: fadeIn ease-in-out 1s forwards; animation-delay: 7s;"><span
+                            style="animation: changeColor 5s infinite alternate; animation-delay: 7s;">u</span></span>
+                    <span class="welcome-letter"
+                        style="animation: fadeIn ease-in-out 1s forwards; animation-delay: 8s;"><span
+                            style="animation: changeColor 5s infinite alternate; animation-delay: 8s;">e</span></span>
+                    <br>
+                    <span class="welcome-letter"
+                        style="animation: fadeIn ease-in-out 1s forwards; animation-delay: 0s;"><span
+                            style="animation: changeColor 5s infinite alternate;">R</span></span>
+                    <span class="welcome-letter"
+                        style="animation: fadeIn ease-in-out 1s forwards; animation-delay: 1s;"><span
+                            style="animation: changeColor 5s infinite alternate; animation-delay: 1s;">M</span></span>
+                    <span class="welcome-letter"
+                        style="animation: fadeIn ease-in-out 1s forwards; animation-delay: 2s;"><span
+                            style="animation: changeColor 5s infinite alternate; animation-delay: 2s;">F</span></span>
+                    <span class="welcome-letter"
+                        style="animation: fadeIn ease-in-out 1s forwards; animation-delay: 3s;"><span
+                            style="animation: changeColor 5s infinite alternate; animation-delay: 3s;">M</span></span>
+
+                    <p>Découvrez nos differentes programmations.</p>
+                    <a href="#" class="btn btn-primary btn-lg">Cliquez ici</a>
+                </div>
+
+            </div>
+        </div>
         <div id="decouvrir" class="contenu" style="display: none;">
             <h2>Contenu pour Découvrir</h2>
             <p>Ce contenu est le même pour tous les liens de Menu.</p>
@@ -97,6 +150,8 @@
         <div id="diffusion" class="contenu" style="display: none;">
             <h2>Contenu pour Diffusion</h2>
             <p>Ce contenu est le même pour tous les liens de Menu.</p>
+            <div id="twitch-embed"></div>
+            <script src="https://embed.twitch.tv/embed/v1.js"></script>
         </div>
         <div id="liste" class="contenu" style="display: none;">
             <h2>Contenu pour Liste de Lecture</h2>
@@ -110,6 +165,8 @@
         <div id="diffusionContent" class="contenu" style="display: none;">
             <h2>Diffusion en Direct</h2>
             <p>Ce contenu est le même pour tous les liens de catégories.</p>
+            <div id="twitch-embed"></div>
+            <script src="https://embed.twitch.tv/embed/v1.js"></script>
         </div>
 
         <div id="economieContent" class="contenu" style="display: none;">
@@ -127,13 +184,6 @@
             <p>Ce contenu est le même pour tous les liens de catégories.</p>
         </div>
 
-        <div class="jumbotron">
-            <div class="container">
-                <h1>Bienvenue sur notre site web</h1>
-                <p>Découvrez mon site.</p>
-                <a href="#" class="btn btn-primary btn-lg">Découvrir nos produits</a>
-            </div>
-        </div>
 
     </main>
 

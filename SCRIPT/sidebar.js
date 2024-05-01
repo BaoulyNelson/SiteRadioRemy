@@ -46,3 +46,8 @@ function adjustPanelWidth() {
 window.addEventListener('load', adjustPanelWidth);
 // Appelle la fonction pour ajuster la largeur du panneau lors du redimensionnement de la fenêtre
 window.addEventListener('resize', adjustPanelWidth);
+
+// Ajoute un écouteur d'événement au clic sur l'icône de recherche dans la barre de navigation
+document.getElementById('search-icon').addEventListener('click', function() {
+    togglePanel(); // Appelle la fonction pour ouvrir ou fermer le panneau
+});

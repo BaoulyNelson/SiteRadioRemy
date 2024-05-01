@@ -9,8 +9,7 @@
     overflow-y: auto;
     padding-bottom: 50px; /* Vous pouvez ajuster cette valeur selon vos besoins */
     border: 1px solid gray;
-    margin-right: 20px; /* Ajustez la valeur selon vos besoins */
-
+    z-index: 1; /* Assure que l'icône est au-dessus du panneau */
 }
 
 /* Modifié pour la classe 'show' */
@@ -28,25 +27,5 @@
 }
 
 
-.close-button {
-    position: absolute;
-    top: 10px;
-    right: 20px;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    /* Crée un cercle */
-    background-color: red;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    /* Curseur pointer pour indiquer que c'est cliquable */
-}
-
-.close-icon i {
-    color: white;
-    font-size: 20px;
-}
 
 

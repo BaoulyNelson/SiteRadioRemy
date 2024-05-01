@@ -54,6 +54,8 @@ background-color: white;
 
 .side-title {
   color: black;
+  margin-left: 10px; /* Ajoute une marge à gauche de chaque élément de liste */
+
 }
 
 .menu,.categories {
@@ -75,6 +77,8 @@ background-color: white;
 h3 {
   text-decoration: none;
   color: black;
+  margin-left: 10px; /* Ajoute une marge à gauche de chaque élément de liste */
+
 }
 
 

@@ -6,8 +6,13 @@ main {
   align-items: center;
   justify-content: center;
   /* Assure que le contenu est au moins de la hauteur de la fenêtre */
+  margin-left: 0;
+  transition: margin-left 0.5s;
+  flex-grow: 1; /* Permet au contenu principal de prendre autant de place que possible */
+  margin-bottom: 100px; /* Laisser de l'espace pour le footer et la barre de navigation en bas */
 
 }
+
 
 .contenu>*:last-child {
   margin-bottom: 50px;
@@ -28,7 +33,7 @@ main {
 
 }
 
-.contenu h2,
+
 .contenu p {
   border: 1px solid #ccc;
   /* Bordure uniquement pour le titre et les paragraphes */
