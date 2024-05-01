@@ -1,0 +1,56 @@
+
+#date {
+    font-size: 18px;
+    background-color: #227;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin-top: 10px;
+    color: beige;
+    display: inline-block; /* Ajout de cette propriété */
+  }
+  
+  .footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #333; /* Couleur de fond de votre choix */
+    color: white; /* Couleur du texte de votre choix */
+    text-align: center; /* Pour centrer le contenu du footer */
+    padding: 10px 0; /* Espace intérieur haut/bas de votre choix */
+    margin-top: 50px;
+
+  }
+  
+  .social-icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+  }
+  
+  .icon-container {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%; /* Créer des cercles */
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 10px; /* Espacement entre les icônes */
+  }
+  
+  .icon-container a {
+    color: black;
+    font-size: 12px;
+  }
+  
+
+  .copyright {
+    display: flex;
+    justify-content: center; /* Aligner horizontalement */
+    align-items: center; /* Aligner verticalement */
+   }
+
+  
+  

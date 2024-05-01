@@ -1,26 +1,14 @@
-    document.getElementById("currentYear").innerHTML = new Date().getFullYear();
+window.onscroll = function() {scrollFunction()};
 
-    // Récupérer la date actuelle
-var date = new Date();
+function scrollFunction() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        document.getElementById("arrowTop").style.display = "block";
+    } else {
+        document.getElementById("arrowTop").style.display = "none";
+    }
+}
 
-// Tableaux des noms de jours et des noms de mois en français
-var jours = ["Dim", "Lun", "Mar", "Mer", "Jeu", "Ven", "Sam"];
-var mois = ["Janv", "Févr", "Mars", "Avr", "Mai", "Juin", "Juil", "Août", "Sept", "Oct", "Nov", "Déc"];
-
-// Formater la date
-var jourSemaine = jours[date.getDay()];
-var jour = date.getDate();
-var moisAnnee = mois[date.getMonth()];
-var annee = date.getFullYear();
-
-// Afficher la date dans la div avec l'id "date"
-document.getElementById("date").textContent = jourSemaine + ". " + jour + " " + moisAnnee + " " + annee;
-
-//l'anne a jour du footer
-try {
-    // Essayer d'exécuter le script
-    document.getElementById("current-year").textContent = new Date().getFullYear();
-  } catch (error) {
-    // En cas d'erreur, afficher l'erreur dans la console
-    console.error("Erreur JavaScript :", error.message);
-  }
+function scrollToTop() {
+    document.body.scrollTop = 0; // Pour les navigateurs Safari
+    document.documentElement.scrollTop = 0; // Pour les autres navigateurs
+}

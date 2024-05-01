@@ -1,28 +1,22 @@
 body {
-  background-image: url('../images/bac.jpg');
-  background-size: cover; /* Ajuste la taille de l'image pour couvrir tout l'arrière-plan */
-  background-repeat: no-repeat; /* Empêche la répétition de l'image */
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
   display: flex;
   flex-direction: column;
-  min-height: 100vh; /* Assure que le contenu s'étend sur toute la hauteur de la fenêtre */
+  min-height: 100vh;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+html{
+  overflow-x: hidden;
 
 }
-html, body {
-  height: 100%;
-  margin: 0;
-}
 
-main {
-  flex: 1;
+.navbar {
+  position: relative;
+  z-index: 9999; /* Assurez-vous que la barre de navigation est au-dessus du footer */
 }
-
 
  /* Inclure la police Script MT Bold depuis une source externe si nécessaire */
  @import url('https://fonts.googleapis.com/css2?family=Script+MT+Bold&display=swap');
-
 
 .header {
   background-color: #3b5998;
@@ -33,82 +27,63 @@ main {
 .radio-title {
   text-align: center; /* Centrer le texte horizontalement */
 }
+
 .logo-expand {
   display: flex;
   align-items: center;
   text-decoration: none;
   color: black; /* Couleur du texte */
-    color: white; /* Couleur du texte en blanc */
 }
 
 .logo {
-  width: 40px; /* Largeur du logo */
-  height: auto; /* Hauteur ajustée automatiquement pour conserver les proportions */
-  margin-right: 10px; /* Espace entre le logo et le texte */
+  width: 100px; /* ajustez la largeur selon vos préférences */
+  height: auto; /* maintenir le ratio hauteur/largeur */
 }
-
-.side-panel {
-  position: fixed;
-  left: -250px;
-  top: 0;
-  height: 100%;
-  width: 250px;
-  background-color: #333;
-  transition: left 0.5s;
-  padding: 20px;
-  box-sizing: border-box;
-  overflow-y: auto; /* Ajouter cette ligne pour activer le défilement vertical */
-  color: #fff;
-
-}
-.close-button {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  cursor: pointer;
-  font-size: 24px;
-  background-color: #fff; /* Arrière-plan blanc */
-  color: red; /* Couleur de l'icône en rouge */
-  padding: 0px;
-  border-radius: 50%;
-}
-
-.toggle-button {
-  position: relative; /* Changer de fixed à absolute */
-  left: 20px;
-  top: 0; /* Ajuster la valeur top selon vos besoins */
-  font-size: 24px;
-  cursor: pointer;
-}
-
 
 
 .menu a {
   text-decoration: none;
-  color: #fff; /* Couleur de texte par défaut */
+  color: black; /* Couleur de texte par défaut */
 }
 
 .menu a:hover {
 background-color: white;
   color: #ff0000; /* Couleur de texte lorsque survolé */
 }
+
+
+.side-title {
+  color: black;
+}
+
+.menu,.categories {
+  list-style-type: none;
+}
+
+.menu li,.categories li {
+  margin-bottom: 10px;
+  /* Ajoutez un espacement entre chaque élément de la liste si nécessaire */
+}
+
+
 .categories a:hover{
   color: #ff0000; /* Couleur de texte lorsque survolé */
 background-color: white;
 }
 
-.side-title {
-  color: white;
-}
-
 .categories a,
 h3 {
   text-decoration: none;
-  color: white;
+  color: black;
 }
 
-.categories h3 {
-  margin-bottom: 10px;
+
+.categories ul {
+  padding-left: 20px; /* Ajoute un padding à gauche de la liste */
+}
+
+.categories li {
+  margin-left: 10px; /* Ajoute une marge à gauche de chaque élément de liste */
 }
 
 .categories ul {
@@ -116,88 +91,10 @@ h3 {
   padding: 0;
 }
 
-.menu {
-  list-style-type: none;
-}
-
-.menu li,.categories li{
-  margin-bottom: 10px;
-  /* Ajoutez un espacement entre chaque élément de la liste si nécessaire */
-}
-
-#date {
-  font-size: 18px;
-  background-color: #227;
-  font-family: Arial, sans-serif;
-  text-align: center;
-  margin-top: 10px;
-  color: beige;
-  display: inline-block; /* Ajout de cette propriété */
-}
 
 
 
 
 
-footer {
-  background-color: #333;
-  color: white;
-  padding: 20px;
-  position: relative;
-  bottom: 0;
-  width: 100%;
-  text-align: center;
- 
-}
 
-.social-icons {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.icon-container {
-  width: 20px;
-  height: 20px;
-  border-radius: 50%; /* Créer des cercles */
-  background-color: white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 0 10px; /* Espacement entre les icônes */
-}
-
-.icon-container a {
-  color: black;
-  font-size: 12px;
-}
-
-
-
-
-/* Ajoutez ce code à votre feuille de style CSS */
-#backToTopBtn {
-  display: none;
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  padding: 10px;
-  font-size: 16px;
-  cursor: pointer;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-#backToTopBtn:hover {
-  background-color: #0056b3;
-}
-
-
-.navbar {
-  position: relative;
-  z-index: 9999; /* Assurez-vous que la barre de navigation est au-dessus du footer */
-}
 

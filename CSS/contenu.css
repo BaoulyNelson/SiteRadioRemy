@@ -1,0 +1,61 @@
+main {
+  flex: 1;
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /* Assure que le contenu est au moins de la hauteur de la fenêtre */
+
+}
+
+.contenu>*:last-child {
+  margin-bottom: 50px;
+  /* Espacement après le dernier élément à l'intérieur de .contenu */
+}
+
+.contenu {
+  margin: 20px auto;
+  /* Centrer horizontalement et ajouter un espacement en haut et en bas */
+  padding: 10px;
+  margin-bottom: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* Alignement vertical au centre */
+  max-width: 100%;
+  /* Assurer que le contenu ne dépasse pas la largeur de l'écran */
+
+}
+
+.contenu h2,
+.contenu p {
+  border: 1px solid #ccc;
+  /* Bordure uniquement pour le titre et les paragraphes */
+  padding: 10px;
+  /* Ajout de remplissage pour un meilleur espacement */
+  margin-bottom: 10px;
+  /* Espacement entre le titre et les paragraphes */
+}
+
+
+.contenu h2 {
+  color: #227dea;
+  text-align: center;
+  background-color: #e0e0e0;
+  /* Couleur d'arrière-plan des titres */
+  font-weight: bold;
+}
+
+.contenu p {
+  margin: 0 auto 10px;
+  /* Espacement en bas */
+}
+
+.post {
+  text-align: center;
+  max-width: 600px;
+  /* Ajustez selon vos besoins */
+  margin-bottom: 30px;
+  /* Espace entre chaque contenu chargé */
+}

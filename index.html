@@ -4,16 +4,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Panneau Latéral</title>
+    <title>Radio Marbial FM</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="CSS/styles.css">
-    <link rel="stylesheet" href="CSS/date.css">
+    <link rel="stylesheet" href="CSS/toggle.css">
+    <link rel="stylesheet" href="CSS/sidebar.css">
+    <link rel="stylesheet" href="CSS/recherche.css">
+    <link rel="stylesheet" href="CSS/monterHaut.css">
+    <link rel="stylesheet" href="CSS/footer.css">
+    <link rel="stylesheet" href="CSS/contenu.css">
 
 </head>
 
 <body>
-
     <nav class="navbar navbar-dark bg-primary">
         <div id="searchIcon"
             style="color: white; cursor: pointer; position: absolute; top: 15px; right: 50%; transform: translateX(-50%);">
@@ -28,141 +32,150 @@
                     <img src="IMAGES/logo.jpg" alt="Logo" class="logo">
                     Radio Marbial FM
                 </a>
-                
+                <hr>
+                <!-- Formulaire de recherche (initialement caché) -->
+                <form id="searchForm" style="display: none;">
+                    <div>
+                        <input type="search" id="mySearch" name="q" placeholder="Rechercher..." />
+                        <button type="submit" style="font-size: 10px; padding: 3px 8px;">Search</button>
+                    </div>
+                    <div id="resultMessage"></div>
+                </form>
                 <div class="side-title">MENU</div>
                 <ul class="menu">
                     <li><a href="#" onclick="toggleContent('decouvrir')"><i class="fas fa-globe"></i> Découvrir</a></li>
-                    <li><a href="#" onclick="toggleContent('tendance')"><i class="fas fa-chart-line"></i> Tendance</a></li>
-                    <li><a href="#" onclick="toggleContent('diffusion')"><i class="fas fa-play-circle"></i> Diffusion</a></li>
-                    <li><a href="#" onclick="toggleContent('liste')"><i class="fas fa-list"></i> Liste de Lecture</a></li>
-                    <li><a href="#" onclick="toggleContent('marquePage')"><i class="fas fa-bookmark"></i> Marque-Page</a></li>
+                    <li><a href="#" onclick="toggleContent('tendance')"><i class="fas fa-chart-line"></i> Tendance</a>
+                    </li>
+                    <li><a href="#" onclick="toggleContent('diffusion')"><i class="fas fa-play-circle"></i>
+                            Diffusion</a></li>
+                    <li><a href="#" onclick="toggleContent('liste')"><i class="fas fa-list"></i> Liste de Lecture</a>
+                    </li>
+                    <li><a href="#" onclick="toggleContent('marquePage')"><i class="fas fa-bookmark"></i>
+                            Marque-Page</a></li>
                 </ul>
+
+
                 <div class="categories">
                     <h3>Catégories</h3>
                     <ul>
-                        <li id="diffusionContent" style="display: none;"><a href="#"><i class="fas fa-broadcast-tower"></i> Diffusion en Direct</a></li>
-                        <li id="tendanceContent" style="display: none;"><a href="#"><i class="fas fa-chart-line"></i> Économie</a></li>
-                        <li id="decouvrirContent" style="display: none;"><a href="#"><i class="fas fa-globe"></i> Culture</a></li>
-                        <li id="listeContent" style="display: none;"><a href="#"><i class="fas fa-futbol"></i> Sports</a></li>
+                        <li><a href="#" onclick="toggleContent('diffusionContent')"><i
+                                    class="fas fa-broadcast-tower"></i> Diffusion en Direct</a></li>
+                        <li><a href="#" onclick="toggleContent('economieContent')"><i class="fas fa-chart-line"></i>
+                                Économie</a></li>
+                        <li><a href="#" onclick="toggleContent('cultureContent')"><i class="fas fa-globe"></i>
+                                Culture</a></li>
+                        <li><a href="#" onclick="toggleContent('sportsContent')"><i class="fas fa-futbol"></i>
+                                Sports</a></li>
                     </ul>
                 </div>
-                
+
+
+
                 <div class="container">
                     <div class="custom-control custom-switch">
-                      <input type="checkbox" class="custom-control-input" id="customSwitch">
-                      <label class="custom-control-label" for="customSwitch">Mode nuit</label>
+                        <input type="checkbox" class="custom-control-input" id="customSwitch">
+                        <label class="custom-control-label" for="customSwitch">Mode nuit</label>
                     </div>
-                    <a href="#" class="btn btn-primary">Contactez-nous</a>
-                    <a href="#" class="btn btn-danger">Alertez-nous</a>
-                  </div>
+                </div>
             </div>
-        </div>
-        <!-- Formulaire de recherche (initialement caché) -->
-        <form id="searchForm" style="display: none;">
-            <div>
-                <input type="search" id="mySearch" name="q" placeholder="Rechercher..." />
-                <button type="submit" style="font-size: 10px; padding: 3px 8px;">Search</button>
 
-            </div>
-            <div id="resultMessage"></div>
-        </form>
+        </div>
+
     </nav>
-<main>
-        <section id="accueil" class="content-section hidden">
-        <h2>Accueil</h2>
-        <p>Bienvenue à la page d'accueil de la RMF</p>
-        
-        <!-- Lecteur vidéo YouTube -->
-        <div id="player"></div>
-    
-        <!-- Bouton pour démarrer la diffusion en direct -->
-        <button onclick="startLiveBroadcast()">Démarrer la diffusion en direct</button>
-        <div style="text-align:center;">
-            <div style="position: relative; padding-bottom: 56.25%; height: 0;">
-              <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://www.youtube.com/embed/YOUR_VIDEO_ID" frameborder="0" allowfullscreen></iframe>
+
+    <main>
+
+        <div id="decouvrir" class="contenu" style="display: none;">
+            <h2>Contenu pour Découvrir</h2>
+            <p>Ce contenu est le même pour tous les liens de Menu.</p>
+        </div>
+
+        <div id="tendance" class="contenu" style="display: none;">
+            <h2>Contenu pour Tendance</h2>
+            <p>Ce contenu est le même pour tous les liens de Menu.</p>
+        </div>
+        <div id="diffusion" class="contenu" style="display: none;">
+            <h2>Contenu pour Diffusion</h2>
+            <p>Ce contenu est le même pour tous les liens de Menu.</p>
+        </div>
+        <div id="liste" class="contenu" style="display: none;">
+            <h2>Contenu pour Liste de Lecture</h2>
+            <p>Ce contenu est le même pour tous les liens de Menu.</p>
+        </div>
+        <div id="marquePage" class="contenu" style="display: none;">
+            <h2>Contenu pour Marque-Page</h2>
+            <p>Ce contenu est le même pour tous les liens de Menu.</p>
+        </div>
+
+        <div id="diffusionContent" class="contenu" style="display: none;">
+            <h2>Diffusion en Direct</h2>
+            <p>Ce contenu est le même pour tous les liens de catégories.</p>
+        </div>
+
+        <div id="economieContent" class="contenu" style="display: none;">
+            <h2>Économie</h2>
+            <p>Ce contenu est le même pour tous les liens de catégories.</p>
+        </div>
+
+        <div id="cultureContent" class="contenu" style="display: none;">
+            <h2>Culture</h2>
+            <p>Ce contenu est le même pour tous les liens de catégories.</p>
+        </div>
+
+        <div id="sportsContent" class="contenu" style="display: none;">
+            <h2>Sports</h2>
+            <p>Ce contenu est le même pour tous les liens de catégories.</p>
+        </div>
+
+        <div class="jumbotron">
+            <div class="container">
+                <h1>Bienvenue sur notre site web</h1>
+                <p>Découvrez mon site.</p>
+                <a href="#" class="btn btn-primary btn-lg">Découvrir nos produits</a>
             </div>
-          </div>
-          
-    </section>
-    <section id="streaming" class="content-section hidden">
-        <h2>En Direct</h2>
-        <video src="video.mp4" controls poster="image_preview.jpg"></video>
-        <!-- Contenu du streaming -->
-        <div class="video">
-            <img src="video1_thumbnail.jpg" alt="Vidéo 1">
-            <h3>Titre de la Vidéo 1</h3>
         </div>
-        <div class="video">
-            <img src="video2_thumbnail.jpg" alt="Vidéo 2">
-            <h3>Titre de la Vidéo 2</h3>
-        </div>
-      </section>
-      
-        <section id="podcasts" class="content-section hidden">
-          <h2>Podcasts</h2>
-          <!-- Contenu des podcasts -->
-          <audio controls>
-            <source src="chemin/vers/votre/fichier/audio.mp3" type="audio/mp3">
-            Votre navigateur ne supporte pas l'élément audio.
-          </audio>
-      
-          <form action="/votre-endpoint-de-traitement" method="post" enctype="multipart/form-data">
-            <label for="podcastFile">Sélectionnez votre podcast :</label>
-            <input type="file" id="podcastFile" name="podcastFile" accept=".mp3, .ogg, .wav, .mp4" style="display: none;" onchange="displayFileName(this)">
-            <label for="podcastFile" id="customLabel">Choisir un fichier</label>
-            <br>
-            <input type="submit" value="Envoyer le podcast">
-          </form>
-      </section>
-      
-      <section id="decouvrirContent" class="content-section hidden">
-        <h3>Découvrir</h3>
-        <!-- Contenu de la section Découvrir -->
-    </section>
-    <section id="tendanceContent" class="content-section hidden">
-        <h3>Tendance</h3>
-        <!-- Contenu de la section Tendance -->
-    </section>
-    <section id="diffusionContent" class="content-section hidden">
-        <h3>Diffusion</h3>
-        <!-- Contenu de la section Diffusion -->
-    </section>
-    <section id="listeContent" class="content-section hidden">
-        <h3>Liste de Lecture</h3>
-        <!-- Contenu de la section Liste de Lecture -->
-    </section>
-    <section id="marquePageContent" class="content-section hidden">
-        <h3>Marque-Page</h3>
-        <!-- Contenu de la section Marque-Page -->
-    </section>
-      
-</main>
-    <footer>
+
+    </main>
+
+    <footer class="footer bg-dark text-light text-center py-3">
         <div class="social-icons">
-            <div class="icon-container"><a href="#"><i class="fab fa-twitter"></i></a></div>
-            <div class="icon-container"><a href="#"><i class="fab fa-facebook"></i></a></div>
-            <div class="icon-container"><a href="#"><i class="fab fa-instagram"></i></a></div>
-            <div class="icon-container"><a href="#"><i class="fab fa-youtube"></i></a></div>
-            <div class="icon-container"><a href="#"><i class="fab fa-linkedin"></i></a></div>
-            <div class="icon-container"><a href="#"><i class="fab fa-tiktok"></i></a></div>
+            <div class="icon-container"><a href="https://twitter-api.com"><i class="fab fa-twitter"></i></a></div>
+            <div class="icon-container"><a href="https://facebook-api.com"><i class="fab fa-facebook"></i></a></div>
+            <div class="icon-container"><a href="https://instagram-api.com"><i class="fab fa-instagram"></i></a></div>
+            <div class="icon-container"><a href="https://youtube-api.com"><i class="fab fa-youtube"></i></a></div>
+            <div class="icon-container"><a href="https://linkedin-api.com"><i class="fab fa-linkedin"></i></a></div>
+            <div class="icon-container"><a href="https://tiktok-api.com"><i class="fab fa-tiktok"></i></a></div>
         </div>
+
         <div class="copyright">
             <p>&copy; 2008-<span id="currentYear"></span> Marbial fm, Inc.</p>
         </div>
-        <!-- Ajoutez ceci à l'endroit où vous voulez afficher la flèche -->
-  <button id="backToTopBtn" title="Retour en haut">&#9650;</button>
- 
-    </footer>
-    
 
+        <!-- Flèche de retour en haut -->
+        <div id="arrowTop" onclick="scrollToTop()" title="Retour en haut">&#9650;</div>
+
+    </footer>
+
+
+    <script src="SCRIPT/contenu.js"></script>
+    <script src="SCRIPT/date.js"></script>
+    <script src="SCRIPT/direct.js"></script>
+    <script src="SCRIPT/footer.js"></script>
+    <script src="SCRIPT/nav.js"></script>
     <script src="SCRIPT/script.js"></script>
+    <script src="SCRIPT/sidebar.js"></script>
+    <script src="SCRIPT/toggle.js"></script>
+    <script src="SCRIPT/mode.js"></script>
+    <script src="SCRIPT/scroller.js"></script>
     <script src="SCRIPT/scriptRecherche.js"></script>
     <script src="SCRIPT/scriptMonterHaut.js"></script>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-  <script src="https://apis.google.com/js/client.js?onload=init"></script>
 
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://apis.google.com/js/client.js?onload=init"></script>
 
 </body>
 

@@ -1,0 +1,9 @@
+.toggle-button {
+    position: fixe; /* Changer de fixed à absolute */
+    left: 20px;
+    top: 0; /* Ajuster la valeur top selon vos besoins */
+    font-size: 24px;
+    cursor: pointer;
+    color: red;
+  }
+  
