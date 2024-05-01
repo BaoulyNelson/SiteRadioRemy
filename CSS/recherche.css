@@ -9,6 +9,13 @@
   
 }
 
+.logo-right {
+  position: absolute;
+  top: -40px; /* Déplace l'image vers le haut */
+  right: 10px; /* Ajuste la position horizontale */
+  width: 100px; /* Ajuste la largeur de l'image */
+  height: auto; /* Maintient le ratio de l'image */
+}
 
 
 #searchForm {

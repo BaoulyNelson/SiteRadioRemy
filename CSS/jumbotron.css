@@ -54,6 +54,14 @@
   p:hover {
     color: #ff6600;
   }
+  /* Styles pour les petits écrans */
+@media screen and (max-width: 768px) {
+  .jumbotron p {
+      font-size: 1em; /* Ajuste la taille de la police pour les petits écrans */
+  }
+}
+
+
   /* Style pour le conteneur du message */
   .welcome-container {
     text-align: center;

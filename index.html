@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="CSS/footer.css">
     <link rel="stylesheet" href="CSS/contenu.css">
     <link rel="stylesheet" href="CSS/jumbotron.css">
+    <link rel="stylesheet" href="CSS/mode.css">
 
 </head>
 
@@ -25,6 +26,7 @@
     </div>
 
         <button id="togglePanel" class="toggle-button"><i class="fas fa-bars"></i></button>
+        <img src="IMAGES/rad-removebg-preview.png" alt="Logo" class="logo logo-right">
 
         <div id="sidePanel" class="side-panel">
 
@@ -32,7 +34,9 @@
             <div class="sidebar">
                 <a class="logo-expand" href="#">
                     <img src="IMAGES/logo.jpg" alt="Logo" class="logo">
-                    Radio Marbial FM
+                    Radio Marbial FM 99.5
+                       <!-- Utilisation de l'icône de radio -->
+       <img src="IMAGES/iso-removebg-preview.png" alt="Logo" class="logo">
                 </a>
                 
                 <hr>
@@ -47,7 +51,7 @@
                 <div class="side-title">MENU</div>
                 <ul class="menu">
                     <li><a href="#" onclick="toggleContent('decouvrir')"><i class="fas fa-globe"></i> Découvrir</a></li>
-                    <li><a href="#" onclick="toggleContent('tendance')"><i class="fas fa-chart-line"></i> Tendance</a>
+                    <li><a href="https://lenouvelliste.com/idees" onclick="toggleContent('tendance')"><i class="fas fa-chart-line"></i> Tendance</a>
                     </li>
                     <li><a href="#" onclick="toggleContent('diffusion')"><i class="fas fa-play-circle"></i>
                             Diffusion</a></li>
@@ -63,11 +67,11 @@
                     <ul>
                         <li><a href="#" onclick="toggleContent('diffusionContent')"><i
                                     class="fas fa-broadcast-tower"></i> Diffusion en Direct</a></li>
-                        <li><a href="#" onclick="toggleContent('economieContent')"><i class="fas fa-chart-line"></i>
+                        <li><a href="https://lenouvelliste.com/economie" onclick="toggleContent('economieContent')"><i class="fas fa-chart-line"></i>
                                 Économie</a></li>
-                        <li><a href="#" onclick="toggleContent('cultureContent')"><i class="fas fa-globe"></i>
+                        <li><a href="https://lenouvelliste.com/culture" onclick="toggleContent('cultureContent')"><i class="fas fa-globe"></i>
                                 Culture</a></li>
-                        <li><a href="#" onclick="toggleContent('sportsContent')"><i class="fas fa-futbol"></i>
+                        <li><a href="https://lenouvelliste.com/sport" onclick="toggleContent('sportsContent')"><i class="fas fa-futbol"></i>
                                 Sports</a></li>
                     </ul>
                 </div>
@@ -80,6 +84,7 @@
                         <label class="custom-control-label" for="customSwitch">Mode nuit</label>
                     </div>
                 </div>
+                
             </div>
 
         </div>
@@ -91,6 +96,7 @@
         <div class="jumbotron">
             <div class="container">
                 <div class="welcome-container">
+                    <i class="fas fa-broadcast-tower radio-icon"></i>
                     <span class="welcome-letter"
                         style="animation: fadeIn ease-in-out 1s forwards; animation-delay: 0s;"><span
                             style="animation: changeColor 5s infinite alternate;">B</span></span>
@@ -132,7 +138,9 @@
                         style="animation: fadeIn ease-in-out 1s forwards; animation-delay: 3s;"><span
                             style="animation: changeColor 5s infinite alternate; animation-delay: 3s;">M</span></span>
 
-                    <p>Découvrez nos differentes programmations.</p>
+                    <!-- Titre h1 avec l'icône de radio et la police Script MT Bold -->
+    <h1><i class="fas fa-broadcast-tower radio-icon"></i> MFM Radio 99.5 Marbial Haïti <i class="fas fa-headphones"></i></h1>
+
                     <a href="#" class="btn btn-primary btn-lg">Cliquez ici</a>
                 </div>
 
