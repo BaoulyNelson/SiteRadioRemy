@@ -56,7 +56,7 @@
   }
   /* Styles pour les petits écrans */
 @media screen and (max-width: 768px) {
-  .jumbotron p {
+  .jumbotron h1 {
       font-size: 1em; /* Ajuste la taille de la police pour les petits écrans */
   }
 }

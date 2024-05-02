@@ -22,7 +22,6 @@ main {
 .contenu {
   margin: 20px auto;
   /* Centrer horizontalement et ajouter un espacement en haut et en bas */
-  padding: 10px;
   margin-bottom: 50px;
   display: flex;
   flex-direction: column;
@@ -30,7 +29,10 @@ main {
   /* Alignement vertical au centre */
   max-width: 100%;
   /* Assurer que le contenu ne dépasse pas la largeur de l'écran */
-
+  background-color: #f0f0f0;
+  padding: 20px;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
 
 

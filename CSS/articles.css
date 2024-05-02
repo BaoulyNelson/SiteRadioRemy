@@ -1,0 +1,45 @@
+.container {
+    width: 80%;
+    margin: 0 auto;
+    background-color: #f0f0f0;
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.article {
+    background-color: #fff;
+    padding: 20px;
+    margin-bottom: 20px;
+    width: calc(50% - 10px); /* Deux articles par ligne avec un espace entre eux */
+}
+
+.article .content {
+    margin-bottom: 10px;
+}
+
+.article h2 {
+    color: #333;
+}
+
+.article p {
+    color: #666;
+}
+
+.article img {
+    max-width: 100%;
+    display: block;
+}
+
+/* Media query pour ajuster la disposition sur les petits écrans */
+@media screen and (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .article {
+        width: 100%; /* Article prend toute la largeur sur les petits écrans */
+    }
+}

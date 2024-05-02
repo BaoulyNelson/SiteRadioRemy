@@ -16,14 +16,16 @@
     <link rel="stylesheet" href="CSS/contenu.css">
     <link rel="stylesheet" href="CSS/jumbotron.css">
     <link rel="stylesheet" href="CSS/mode.css">
+    <link rel="stylesheet" href="CSS/tableau.css">
+    <link rel="stylesheet" href="CSS/articles.css">
 
 </head>
 
 <body>
     <nav class="navbar navbar-dark bg-primary">
         <div id="searchIcon">
-        <i class="fas fa-search"></i>
-    </div>
+            <i class="fas fa-search"></i>
+        </div>
 
         <button id="togglePanel" class="toggle-button"><i class="fas fa-bars"></i></button>
         <img src="IMAGES/rad-removebg-preview.png" alt="Logo" class="logo logo-right">
@@ -35,10 +37,10 @@
                 <a class="logo-expand" href="#">
                     <img src="IMAGES/logo.jpg" alt="Logo" class="logo">
                     Radio Marbial FM 99.5
-                       <!-- Utilisation de l'icône de radio -->
-       <img src="IMAGES/iso-removebg-preview.png" alt="Logo" class="logo">
+                    <!-- Utilisation de l'icône de radio -->
+                    <img src="IMAGES/iso-removebg-preview.png" alt="Logo" class="logo">
                 </a>
-                
+
                 <hr>
                 <!-- Formulaire de recherche (initialement caché) -->
                 <form id="searchForm" style="display: none;">
@@ -51,7 +53,8 @@
                 <div class="side-title">MENU</div>
                 <ul class="menu">
                     <li><a href="#" onclick="toggleContent('decouvrir')"><i class="fas fa-globe"></i> Découvrir</a></li>
-                    <li><a href="https://lenouvelliste.com/idees" onclick="toggleContent('tendance')"><i class="fas fa-chart-line"></i> Tendance</a>
+                    <li><a href="https://lenouvelliste.com/idees" onclick="toggleContent('tendance')"><i
+                                class="fas fa-chart-line"></i> Tendance</a>
                     </li>
                     <li><a href="#" onclick="toggleContent('diffusion')"><i class="fas fa-play-circle"></i>
                             Diffusion</a></li>
@@ -67,11 +70,14 @@
                     <ul>
                         <li><a href="#" onclick="toggleContent('diffusionContent')"><i
                                     class="fas fa-broadcast-tower"></i> Diffusion en Direct</a></li>
-                        <li><a href="https://lenouvelliste.com/economie" onclick="toggleContent('economieContent')"><i class="fas fa-chart-line"></i>
+                        <li><a href="https://lenouvelliste.com/economie" onclick="toggleContent('economieContent')"><i
+                                    class="fas fa-chart-line"></i>
                                 Économie</a></li>
-                        <li><a href="https://lenouvelliste.com/culture" onclick="toggleContent('cultureContent')"><i class="fas fa-globe"></i>
+                        <li><a href="https://lenouvelliste.com/culture" onclick="toggleContent('cultureContent')"><i
+                                    class="fas fa-globe"></i>
                                 Culture</a></li>
-                        <li><a href="https://lenouvelliste.com/sport" onclick="toggleContent('sportsContent')"><i class="fas fa-futbol"></i>
+                        <li><a href="https://lenouvelliste.com/sport" onclick="toggleContent('sportsContent')"><i
+                                    class="fas fa-futbol"></i>
                                 Sports</a></li>
                     </ul>
                 </div>
@@ -84,7 +90,7 @@
                         <label class="custom-control-label" for="customSwitch">Mode nuit</label>
                     </div>
                 </div>
-                
+
             </div>
 
         </div>
@@ -139,7 +145,12 @@
                             style="animation: changeColor 5s infinite alternate; animation-delay: 3s;">M</span></span>
 
                     <!-- Titre h1 avec l'icône de radio et la police Script MT Bold -->
-    <h1><i class="fas fa-broadcast-tower radio-icon"></i> MFM Radio 99.5 Marbial Haïti <i class="fas fa-headphones"></i></h1>
+                    <h1><i class="fas fa-broadcast-tower radio-icon"></i> MFM Radio 99.5 Marbial Haïti <i
+                            class="fas fa-headphones"></i></h1>
+                    <audio controls>
+                        <source src="chemin/vers/votre/fichier/audio.mp3" type="audio/mp3">
+                        Votre navigateur ne supporte pas l'élément audio.
+                    </audio>
 
                     <a href="#" class="btn btn-primary btn-lg">Cliquez ici</a>
                 </div>
@@ -147,8 +158,122 @@
             </div>
         </div>
         <div id="decouvrir" class="contenu" style="display: none;">
-            <h2>Contenu pour Découvrir</h2>
-            <p>Ce contenu est le même pour tous les liens de Menu.</p>
+
+            <h2>Presentateurs</h2>
+            <table>
+                <tr>
+                    <th>Evangelique</th>
+                    <th>Compas</th>
+                    <th>Rap</th>
+                </tr>
+                <tr>
+                    <td>Claude Jean Baptiste</td>
+                    <td>Robert Point Du Jour</td>
+                    <td>Marc Arthur</td>
+                </tr>
+                <tr>
+                    <td>Mackenson</td>
+                    <td>Billy Jean Baptiste</td>
+                    <td>Manno Dossous</td>
+                </tr>
+                <tr>
+                    <td>Lucien d'Haiti</td>
+                    <td>Mathieu Thomas</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>David Durandis</td>
+                    <td>Elie Jean Philipe</td>
+                    <td></td>
+                </tr>
+            </table>
+            <br>
+            <hr>
+            <h2>Programmation de la semaine</h2>
+
+
+            <table>
+                <tr>
+                    <th>Emissions</th>
+                    <th>Heure</th>
+                    <th>Date</th>
+                </tr>
+                <tr>
+                    <td>Rap</td>
+                    <td>6h30 - 6h45</td>
+                    <td>Lundi à Vendredi</td>
+                </tr>
+                <tr>
+                    <td>Compas</td>
+                    <td>6h00 - 6h30</td>
+                    <td>Lundi à Vendredi</td>
+                </tr>
+                <tr>
+                    <td>Evangelique</td>
+                    <td>6h45 - 7h00</td>
+                    <td>Lundi à Vendredi</td>
+                </tr>
+                <tr>
+                    <td>Love</td>
+                    <td>7h00 - 9h00</td>
+                    <td>Lundi à Vendredi</td>
+                </tr>
+                <tr>
+                    <td>Compas</td>
+                    <td>9h00 - 10h00</td>
+                    <td>Lundi-Mercredi-Vendredi</td>
+                </tr>
+                <tr>
+                    <td>Rap</td>
+                    <td>9h00 - 10h00</td>
+                    <td>Mardi</td>
+                </tr>
+                <tr>
+                    <td>Rap</td>
+                    <td>11h00 - 12h00</td>
+                    <td>Jeudi</td>
+                </tr>
+                <tr>
+                    <td>Plezi gaye</td>
+                    <td>12h00 - 12h30</td>
+                    <td>Lundi à Vendredi</td>
+                </tr>
+                <tr>
+                    <td>Reprise Compas</td>
+                    <td>12h30 - 14h00</td>
+                    <td>Lundi à Vendredi</td>
+                </tr>
+                <tr>
+                    <td>Lekol Lage</td>
+                    <td>14h00 - 17h00</td>
+                    <td>Lundi à Vendredi</td>
+                </tr>
+                <tr>
+                    <td>Jounal Tout Nouvel</td>
+                    <td>17h00 - 18h00</td>
+                    <td>Lundi à Vendredi</td>
+                </tr>
+                <tr>
+                    <td>Sport</td>
+                    <td>18h30 - 19h00</td>
+                    <td>Lundi à Vendredi</td>
+                </tr>
+                <tr>
+                    <td>Compas en folie</td>
+                    <td>19h00 - 21h00</td>
+                    <td>Mardi à Vendredi</td>
+                </tr>
+                <tr>
+                    <td>PDG Remy</td>
+                    <td>20h00 - 24h00</td>
+                    <td>Lundi</td>
+                </tr>
+                <tr>
+                    <td>Soyons Serieux ann Trip</td>
+                    <td>21h00 - 23h00</td>
+                    <td>Mardi-Vendredi</td>
+                </tr>
+            </table>
         </div>
 
         <div id="tendance" class="contenu" style="display: none;">
@@ -162,8 +287,26 @@
             <script src="https://embed.twitch.tv/embed/v1.js"></script>
         </div>
         <div id="liste" class="contenu" style="display: none;">
-            <h2>Contenu pour Liste de Lecture</h2>
-            <p>Ce contenu est le même pour tous les liens de Menu.</p>
+            <div class="container">
+                <div class="article">
+                    <div class="content">
+                        <h2>Titre de l'article 1</h2>
+                        <p>Contenu de l'article 1...</p>
+                    </div>
+                    <img src="image1.jpg" alt="Image de l'article 1">
+                </div>
+                
+                <div class="article">
+                    <div class="content">
+                        <h2>Titre de l'article 2</h2>
+                        <p>Contenu de l'article 2...</p>
+                    </div>
+                    <img src="image2.jpg" alt="Image de l'article 2">
+                </div>
+            
+                <!-- Ajoutez autant d'articles que nécessaire -->
+            </div>
+            
         </div>
         <div id="marquePage" class="contenu" style="display: none;">
             <h2>Contenu pour Marque-Page</h2>
@@ -172,9 +315,8 @@
 
         <div id="diffusionContent" class="contenu" style="display: none;">
             <h2>Diffusion en Direct</h2>
-            <p>Ce contenu est le même pour tous les liens de catégories.</p>
-            <div id="twitch-embed"></div>
-            <script src="https://embed.twitch.tv/embed/v1.js"></script>
+            <video src="video.mp4" controls poster="image_preview.jpg"></video>
+
         </div>
 
         <div id="economieContent" class="contenu" style="display: none;">
