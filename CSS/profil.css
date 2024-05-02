@@ -1,0 +1,25 @@
+
+.login-button {
+        position: absolute;
+        top: 10px;
+        right: 50px;
+        margin: 10px;
+        z-index: 2; /* Assure que l'icône est en premier plan */
+        border-radius: 50%; /* Optionnel: Arrondir les bords pour un aspect plus esthétique */
+        cursor: pointer;
+        background-color: red;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 24px;
+        transition: background-color 0.3s; /* Ajoutez une transition pour une animation fluide */
+  }
+  
+  .login-button .fas.fa-user {
+    color: black;
+    font-size: 20px;
+  }
+  
+  

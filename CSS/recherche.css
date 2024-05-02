@@ -1,13 +1,14 @@
-/* Style pour l'icône de recherche */
 #searchIcon {
   color: black; /* Laisser la couleur de l'icône en blanc */
   border-radius: 50%; /* Optionnel: Arrondir les bords pour un aspect plus esthétique */
   cursor: pointer;
   position: absolute;
-  left: 60%; /* Position par défaut pour les grands écrans */
+  left: 50%; /* Position horizontale centrée */
+  top: 50%; /* Position verticale centrée */
+  transform: translate(-50%, -50%); /* Décalage de l'icône de moitié de sa taille vers le haut et vers la gauche */
   z-index: 2; /* Assure que l'icône est au-dessus du panneau */
-  
 }
+
 
 .logo-right {
   position: absolute;

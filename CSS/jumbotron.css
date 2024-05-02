@@ -9,7 +9,7 @@
   
   .jumbotron h1 {
     color: #ff6600;
-    font-size: 3em;
+    font-size: 2em;
     margin-bottom: 20px;
     text-align: left;
     animation: bounce 1s infinite alternate;
@@ -68,12 +68,49 @@
 
 
   /* Style pour le conteneur du message */
+.welcome-container {
+  font-size: 38px;
+  font-family: Arial, sans-serif;
+}
+
+/* Style pour les petits écrans */
+@media screen and (max-width: 767px) {
+  .welcome-container {
+    text-align: left;
+  }
+}
+
+/* Style pour les grands écrans */
+@media screen and (min-width: 768px) {
   .welcome-container {
     text-align: center;
-    font-size: 48px;
-    font-family: Arial, sans-serif;
   }
-  
+}
+
+/* Style pour le titre h1 par défaut */
+h1 {
+  font-family: 'Script MT Bold', cursive;
+}
+
+/* Style pour les petits écrans */
+@media screen and (max-width: 767px) {
+  h1 {
+    font-size: 24px;
+    text-align: left; /* Alignement à gauche pour les petits écrans */
+    /* Ajoutez ici d'autres styles pour les petits écrans si nécessaire */
+  }
+}
+
+/* Style pour les grands écrans */
+@media screen and (min-width: 768px) {
+  h1 {
+    font-size: 36px;
+    text-align: center; /* Alignement au centre pour les grands écrans */
+    /* Ajoutez ici d'autres styles pour les grands écrans si nécessaire */
+  }
+}
+
+
   /* Style pour chaque lettre du message */
   .welcome-letter {
     display: inline-block;

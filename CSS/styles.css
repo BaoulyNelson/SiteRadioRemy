@@ -26,18 +26,6 @@ html{
   text-align: center; /* Centrer le texte horizontalement */
 }
 
-.logo-expand {
-  display: flex;
-  align-items: center;
-  text-decoration: none;
-  color: black; /* Couleur du texte */
-}
-
-.logo {
-  width: 100px; /* ajustez la largeur selon vos préférences */
-  height: auto; /* maintenir le ratio hauteur/largeur */
-}
-
 
 .menu a {
   text-decoration: none;

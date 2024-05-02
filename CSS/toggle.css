@@ -1,7 +1,7 @@
 .toggle-button {
-    position: fixe; /* Changer de fixed à absolute */
+    position: absolute; /* Changer de fixed à absolute */
     left: 10px;
-    top: 0; /* Ajuster la valeur top selon vos besoins */
+    top: 10px; /* Ajuster la valeur top selon vos besoins */
     font-size: 24px;
     cursor: pointer;
     width: 40px;
