@@ -16,28 +16,40 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
   
-    // Fonction pour filtrer les éléments en fonction de la saisie de l'utilisateur
     function filterItems(searchText) {
+        let found = false; // Variable pour suivre si au moins un lien correspond
+    
         // Filtrer les éléments du menu
         menuItems.forEach(function(item) {
             const menuItemText = item.textContent.toLowerCase();
             if (menuItemText.includes(searchText)) {
                 item.style.display = "block";
+                found = true; // Un lien correspond, donc trouvé est vrai
             } else {
                 item.style.display = "none";
             }
         });
-  
+    
         // Filtrer les éléments des catégories
         categoryItems.forEach(function(item) {
             const categoryItemText = item.textContent.toLowerCase();
             if (categoryItemText.includes(searchText)) {
                 item.style.display = "block";
+                found = true; // Un lien correspond, donc trouvé est vrai
             } else {
                 item.style.display = "none";
             }
         });
+    
+        // Afficher un message si aucun lien ne correspond
+        const resultMessage = document.getElementById('resultMessage');
+        if (!found) {
+            resultMessage.textContent = "Aucun lien correspond à votre recherche.";
+        } else {
+            resultMessage.textContent = ""; // Effacer le message s'il y a des liens correspondants
+        }
     }
+    
   
     function showContent(link) {
         // Création d'une instance de l'objet XMLHttpRequest

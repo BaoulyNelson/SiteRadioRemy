@@ -12,6 +12,12 @@ main {
   margin-bottom: 100px; /* Laisser de l'espace pour le footer et la barre de navigation en bas */
 
 }
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%; /* Assure que la hauteur de l'élément est remplie */
+}
 
 
 .contenu>*:last-child {
@@ -29,7 +35,7 @@ main {
   /* Alignement vertical au centre */
   max-width: 100%;
   /* Assurer que le contenu ne dépasse pas la largeur de l'écran */
-  background-color: #f0f0f0;
+  background-color: whitesmoke;
   padding: 20px;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -43,6 +49,8 @@ main {
   /* Ajout de remplissage pour un meilleur espacement */
   margin-bottom: 10px;
   /* Espacement entre le titre et les paragraphes */
+  margin: 0 auto 10px;
+  /* Espacement en bas */
 }
 
 
@@ -54,10 +62,7 @@ main {
   font-weight: bold;
 }
 
-.contenu p {
-  margin: 0 auto 10px;
-  /* Espacement en bas */
-}
+
 
 .post {
   text-align: center;

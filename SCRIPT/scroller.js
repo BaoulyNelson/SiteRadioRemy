@@ -8,7 +8,7 @@ function loadMoreContent() {
     // Simule le chargement de contenu supplémentaire
     const newContent = document.createElement('div');
     newContent.className = 'post';
-    newContent.innerHTML = '<h2>Autre Contenu</h2><p>Voici le nouveau contenu chargé...</p>';
+    newContent.innerHTML = '<h2>Autre Contenu</h2><p>Contenu en cours de chargement...</p>';
     document.querySelector('main').appendChild(newContent);
 }
 

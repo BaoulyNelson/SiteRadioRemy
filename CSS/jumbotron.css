@@ -4,15 +4,17 @@
     background-position: center;
     color: black;
     text-align: center;
-    padding: 100px 20px; /* Ajustez le rembourrage selon vos besoins */
+    padding: 80px 20px; /* Ajustez le rembourrage selon vos besoins */
   }
   
   .jumbotron h1 {
     color: #ff6600;
     font-size: 3em;
     margin-bottom: 20px;
-    text-align: center;
+    text-align: left;
     animation: bounce 1s infinite alternate;
+    margin-top: 20px; /* Ajoute un espace de 20 pixels en haut du titre */
+  
   }
 
   @keyframes bounce {
@@ -51,13 +53,16 @@
     transition: color 0.3s;
   }
 
-  p:hover {
+  .jumbotron p:hover {
     color: #ff6600;
   }
-  /* Styles pour les petits écrans */
-@media screen and (max-width: 768px) {
-  .jumbotron h1 {
-      font-size: 1em; /* Ajuste la taille de la police pour les petits écrans */
+
+
+
+/* Rendre l'icône de radio plus petite pour les petits écrans */
+@media only screen and (max-width: 600px) {
+  .radio-icon {
+      font-size: 20px; /* ou une taille appropriée pour les petits écrans */
   }
 }
 

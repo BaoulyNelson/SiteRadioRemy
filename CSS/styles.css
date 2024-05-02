@@ -4,16 +4,14 @@ body {
   min-height: 100vh;
   overflow-x: hidden;
   overflow-y: scroll;
+  background-color: white;
 }
+
 html{
   overflow-x: hidden;
 
 }
 
-.navbar {
-  position: relative;
-  z-index: 9999; /* Assurez-vous que la barre de navigation est au-dessus du footer */
-}
 
  /* Inclure la police Script MT Bold depuis une source externe si nécessaire */
  @import url('https://fonts.googleapis.com/css2?family=Script+MT+Bold&display=swap');
