@@ -21,6 +21,7 @@
     <link rel="stylesheet" href="CSS/profil.css">
     <link rel="stylesheet" href="CSS/logo.css">
     <link rel="stylesheet" href="CSS/navbar.css">
+    <link rel="stylesheet" href="CSS/animation.css">
 
 </head>
 
@@ -88,21 +89,16 @@
                                     class="fas fa-futbol"></i>
                                 Sports</a></li>
                     </ul>
-                </div>
-
-
-
-                <div class="cont">
-                    <div class="custom-control custom-switch">
-                        <input type="checkbox" class="custom-control-input" id="customSwitch">
-                        <label class="custom-control-label" for="customSwitch">
-                            <span id="modeIcon" class="mode-icon"><i class="fas fa-sun"></i></span>
-                            Mode nuit
-                        </label>
+                    <div class="cont">
+                        <div class="custom-control custom-switch">
+                            <input type="checkbox" class="custom-control-input" id="customSwitch">
+                            <label class="custom-control-label" for="customSwitch">
+                                <span id="modeIcon" class="mode-icon"><i class="fas fa-sun"></i></span>
+                                Mode nuit
+                            </label>
+                        </div>
                     </div>
                 </div>
-                
-
             </div>
 
         </div>
@@ -158,7 +154,10 @@
                             style="animation: changeColor 5s infinite alternate; animation-delay: 3s;">M</span></span>
                             <i class="fas fa-broadcast-tower radio-icon"></i>
                     <!-- Titre h1 avec l'icône de radio et la police Script MT Bold -->
-                    <h1>  Radio Marbial FM 99.5 </h1>
+<hr>
+                    <div id="animatedText" class="animated-text"></div>
+
+                    
                     <audio controls>
                         <source src="chemin/vers/votre/fichier/audio.mp3" type="audio/mp3">
                         Votre navigateur ne supporte pas l'élément audio.
@@ -331,6 +330,7 @@
         <div id="diffusionContent" class="contenu" style="display: none;">
             <h2>Diffusion en Direct</h2>
             <video src="video.mp4" controls poster="image_preview.jpg"></video>
+            <iframe width="100%" height="120" src="https://www.mixcloud.com/widget/iframe/?hide_cover=1&feed=%2Fframework_radio%2Fframework-886-20240421%2F" frameborder="0" ></iframe>
 
         </div>
 
@@ -388,6 +388,7 @@
     <script src="SCRIPT/mode.js"></script>
     <script src="SCRIPT/cookies.js"></script>
     <script src="SCRIPT/scroller.js"></script>
+    <script src="SCRIPT/animation.js"></script>
     <script src="SCRIPT/scriptRecherche.js"></script>
     <script src="SCRIPT/scriptMonterHaut.js"></script>
 

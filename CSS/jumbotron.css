@@ -7,15 +7,7 @@
     padding: 80px 20px; /* Ajustez le rembourrage selon vos besoins */
   }
   
-  .jumbotron h1 {
-    color: #ff6600;
-    font-size: 2em;
-    margin-bottom: 20px;
-    text-align: left;
-    animation: bounce 1s infinite alternate;
-    margin-top: 20px; /* Ajoute un espace de 20 pixels en haut du titre */
-  
-  }
+
 
   @keyframes bounce {
     0% {
@@ -47,7 +39,7 @@
   }
   
   .jumbotron p {
-    font-size: 1.5em;
+    font-size: 2.5em;
     margin-bottom: 20px;
     text-align: center;
     transition: color 0.3s;
