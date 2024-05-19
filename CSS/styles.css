@@ -1,13 +1,4 @@
 
- /* Inclure la police Script MT Bold depuis une source externe si nécessaire */
- @import url('https://fonts.googleapis.com/css2?family=Script+MT+Bold&display=swap');
-
-.header {
-  background-color: #3b5998;
-  color: #fff;
-  padding: 10px 0;
-}
-
 .radio-title {
   text-align: center; /* Centrer le texte horizontalement */
 }
@@ -65,32 +56,6 @@ h3 {
   list-style-type: none;
   padding: 0;
 }
-
- .main-content {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-    }
-    
-    h1 {
-        font-size: 48px;
-        margin: 0;
-    }
-    
-    button {
-        padding: 10px 20px;
-        font-size: 16px;
-        background-color: #fff;
-        color: #000;
-        border: none;
-        cursor: pointer;
-        margin-top: 20px;
-    }
-    
-    button:hover {
-        background-color: #ddd;
-    }
 
 
 

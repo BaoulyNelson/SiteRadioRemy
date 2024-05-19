@@ -23,18 +23,27 @@ header {
   padding: 0 20px;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Old English Text MT&display=swap');
+@font-face {
+  font-family: 'Old English Text MT';
+  src: url('fonts/OldEnglishTextMT.ttf') format('truetype');
+}
 
 .logo {
-  font-family: 'Old English Text MT', serif;        
+  font-family: 'Old English Text MT', 'MedievalSharp', serif;        
   font-size: 30px;
   margin: 0;
   color: white;
+  text-align: center; /* Centrer le texte */
 }
 
 
+.logo span {
+  display: flex;
+}
+
 .user-icon {
   text-decoration: none;
+  margin-right: 40px;
 }
 
 .profile-container {
@@ -55,16 +64,9 @@ header {
   
 }
 
-
-.line {
-  height: 4px; /* Increased height for thicker line */
-  background-color: #FF6F6F;
-  margin-top: 10px;
-}
-  
 .icon-wrapper {
   display: flex;
-  flex-wrap: wrap; /* Permet aux liens de passer à la ligne suivante si nécessaire */
+  flex-wrap: nowrap; /*ne  Permet aux liens de passer à la ligne suivante si nécessaire */
   justify-content: center;
   align-items: center;
 }
@@ -107,6 +109,7 @@ header {
   }
 
   .icon-wrapper .icon-text {
+    font-weight: bold;
     font-size: 12px; /* Réduit la taille du texte pour les petits écrans */
   }
 }

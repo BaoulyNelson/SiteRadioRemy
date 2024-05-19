@@ -1,75 +1,72 @@
-main {
-  flex: 1;
-  margin-top: 50px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  /* Assure que le contenu est au moins de la hauteur de la fenêtre */
-  margin-left: 0;
-  transition: margin-left 0.5s;
-  flex-grow: 1; /* Permet au contenu principal de prendre autant de place que possible */
-  margin-bottom: 100px; /* Laisser de l'espace pour le footer et la barre de navigation en bas */
-
-}
-.center {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100%; /* Assure que la hauteur de l'élément est remplie */
-}
-
-
-.contenu>*:last-child {
-  margin-bottom: 50px;
-  /* Espacement après le dernier élément à l'intérieur de .contenu */
-}
-
-.contenu {
-  margin: 20px auto;
-  /* Centrer horizontalement et ajouter un espacement en haut et en bas */
-  margin-bottom: 50px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  /* Alignement vertical au centre */
-  max-width: 100%;
-  /* Assurer que le contenu ne dépasse pas la largeur de l'écran */
-  background-color: whitesmoke;
-  padding: 20px;
-  flex-wrap: wrap;
-  justify-content: space-between;
-}
-
-
-.contenu p {
-  border: 1px solid #ccc;
-  /* Bordure uniquement pour le titre et les paragraphes */
-  padding: 10px;
-  /* Ajout de remplissage pour un meilleur espacement */
-  margin-bottom: 10px;
-  /* Espacement entre le titre et les paragraphes */
-  margin: 0 auto 10px;
-  /* Espacement en bas */
-}
-
-
-.contenu h2 {
-  color: #227dea;
-  text-align: center;
-  background-color: #e0e0e0;
-  /* Couleur d'arrière-plan des titres */
-  font-weight: bold;
-}
-
-
-
 .post {
   text-align: center;
-  max-width: 600px;
-  /* Ajustez selon vos besoins */
-  margin-bottom: 30px;
-  /* Espace entre chaque contenu chargé */
+  margin-top: 20px; /* Espace supplémentaire au-dessus du contenu */
+}
+
+.post h2 {
+  font-size: 24px; /* Taille de la police pour le titre */
+  margin-bottom: 10px; /* Espace supplémentaire sous le titre */
+}
+
+.post p {
+  font-size: 16px; /* Taille de la police pour le paragraphe */
+  margin-bottom: 20px; /* Espace supplémentaire sous le paragraphe */
+}
+
+
+.section-content {
+  display: none;
+}
+.section-content.active {
+  display: block;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center horizontally */
+  justify-content: center; /* Center vertically */
+  height: 100vh; /* Full height viewport */
+}
+
+.section-content {
+  display: none;
+  text-align: center; /* Center text */
+}
+
+.section-content.active {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center horizontally */
+  justify-content: center; /* Center vertically */
+  height: 100%; /* Full height of container */
+}
+
+/* Style pour les titres */
+h1, h2, h3, h4, h5, h6 {
+  padding: 10px 20px; /* Ajouter un peu de rembourrage pour l'arrière-plan */
+  display: inline-block; /* Permet d'occuper uniquement l'espace nécessaire autour du texte */
+}
+
+
+
+h2 {
+  background-color: #e6e6e6; /* Couleur de fond pour les titres h2 */
+}
+
+h3 {
+  background-color: #d9d9d9; /* Couleur de fond pour les titres h3 */
+}
+
+h4 {
+  background-color: #cccccc; /* Couleur de fond pour les titres h4 */
+}
+
+h5 {
+  background-color: #bfbfbf; /* Couleur de fond pour les titres h5 */
+}
+
+h6 {
+  background-color: #b3b3b3; /* Couleur de fond pour les titres h6 */
 }
 
 

@@ -7,7 +7,9 @@
         content="Impressionnez vos fans grâce à ce template en une page, idéal pour les musiciens et les groupes. Profitez de l&#39;arrière-plan vidéo et utilisez l&#39;espace pour télécharger votre musique, vos vidéos et images et créez un site inoubliable. Personnalisez le texte et téléchargez vos propres vidéos et votre musique pour passer en ligne dès aujourd&#39;hui !" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Radio Marbial FM</title>
-    <link href="https://fonts.googleapis.com/css2?family=Old+English+Text+MT:wght@400&display=swap" rel="stylesheet">
+    <!-- Inclure Google Fonts pour la police de secours -->
+    <link href="https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="CSS/styles.css">
@@ -56,14 +58,25 @@
                     </div>
                 </div>
             </a>
-
-
         </div>
+
         <div class="icon-wrapper">
-                <a href="#"onclick="showSection('diffusion')" class="icon-link"><i class="fas fa-play-circle"></i>Diffusion</a>
-                <a href="#"onclick="showSection('musique')" class="icon-link"><i class="fas fa-music"></i> Musique</a>
-                <a href="#"onclick="showSection('video')" class="icon-link"><i class="fas fa-video"></i> Video</a>
-                <a href="#"onclick="showSection('live')" class="icon-link"><i class="fas fa-broadcast-tower"></i> Live</a>
+            <a href="#home" onclick="showSection('home')" class="icon-link">
+                <i class="fas fa-home"></i>
+                Accueil
+            </a>
+            <a href="#directs" onclick="showSection('live')" class="icon-link">
+                <i class="fas fa-play-circle"></i>
+                Direct
+            </a>
+            <a href="#podcasts" onclick="showSection('podcasts')" class="icon-link">
+                <i class="fas fa-podcast"></i>
+                Podcasts
+            </a>
+            <a href="#video" onclick="showSection('video')" class="icon-link">
+                <i class="fas fa-video"></i>
+                Vidéo
+            </a>
         </div>
     </header>
 
@@ -73,16 +86,16 @@
         <span id="closeButton" class="close-button"><i class="fas fa-times"></i></span>
 
         <div class="sidebar">
-           
-            <a class="logo-expand" href="#">
-                <img src="IMAGES/logo.jpg" alt="Logo" id="logo" class="logo">
 
-            </a>
-         
- <!-- Structure HTML de l'icône de recherche -->
- <div id="searchIcon">
-    <i class="fa fa-search"></i> <!-- Assurez-vous que la bibliothèque de polices d'icônes est chargée -->
-  </div>
+            <div class="logo-expand">
+                <img src="IMAGES/logo.jpg" alt="Logo" id="logo">
+                <!-- Structure HTML de l'icône de recherche -->
+                <div id="searchIcon">
+                    <i class="fa fa-search"></i>
+                </div>
+            </div>
+
+
             <!-- Formulaire de recherche (initialement caché) -->
             <form id="searchForm" style="display: none;">
                 <div>
@@ -93,34 +106,28 @@
             </form>
             <div class="line"></div>
 
+
             <div class="side-title">MENU</div>
             <ul class="menu">
-                <li><a href="#" onclick="toggleContent('decouvrir')"><i class="fas fa-globe"></i> Découvrir</a></li>
-                <li><a href="#" onclick="toggleContent('tendance')"><i class="fas fa-chart-line"></i> Tendance</a>
-                </li>
-                <li><a href="#" onclick="toggleContent('diffusion')"><i class="fas fa-play-circle"></i>
-                        Diffusion</a></li>
-                <li><a href="#" onclick="toggleContent('liste')"><i class="fas fa-list"></i> Liste de Lecture</a>
-                </li>
-                <li><a href="#" onclick="toggleContent('marquePage')"><i class="fas fa-bookmark"></i>
-                        Marque-Page</a></li>
+                <li><a href="#" onclick="showSection('decouvrir')"><i class="fas fa-globe"></i> Découvrir</a></li>
+                <li><a href="#" onclick="showSection('tendance')"><i class="fas fa-chart-line"></i> Tendance</a></li>
+                <li><a href="#" onclick="showSection('diffusion')"><i class="fas fa-play-circle"></i> Diffusion</a></li>
+                <li><a href="#" onclick="showSection('liste')"><i class="fas fa-list"></i> Liste de Lecture</a></li>
+                <li><a href="#" onclick="showSection('marquePage')"><i class="fas fa-bookmark"></i> Marque-Page</a></li>
             </ul>
 
             <div class="categories">
                 <h3>Catégories</h3>
                 <ul>
-                    <li><a href="#" onclick="toggleContent('diffusionContent')"><i class="fas fa-broadcast-tower"></i>
+                    <li><a href="#" onclick="showSection('diffusionContent')"><i class="fas fa-broadcast-tower"></i>
                             Diffusion en Direct</a></li>
-                    <li><a href="#" onclick="toggleContent('economieContent')"><i
-                                class="fas fa-chart-line"></i>
+                    <li><a href="#" onclick="showSection('economieContent')"><i class="fas fa-chart-line"></i>
                             Économie</a></li>
-                    <li><a href="#" onclick="toggleContent('cultureContent')"><i
-                                class="fas fa-globe"></i>
-                            Culture</a></li>
-                    <li><a href="#" onclick="toggleContent('sportsContent')"><i
-                                class="fas fa-futbol"></i>
-                            Sports</a></li>
+                    <li><a href="#" onclick="showSection('cultureContent')"><i class="fas fa-globe"></i> Culture</a>
+                    </li>
+                    <li><a href="#" onclick="showSection('sportsContent')"><i class="fas fa-futbol"></i> Sports</a></li>
                 </ul>
+                <hr>
                 <div class="cont">
                     <div class="custom-control custom-switch">
                         <input type="checkbox" class="custom-control-input" id="customSwitch">
@@ -130,241 +137,128 @@
                         </label>
                     </div>
                 </div>
+                <div class="line"></div>
+
             </div>
         </div>
     </div>
     </nav>
-   
+
     <main>
-
-        <section id="musique" style="display:none;">
-            <h1>Musique</h1>
-            <p>Écoutez notre sélection musicale!</p>
-            <div class="player">
-                <div class="track-info">
-                    <span id="track-title">Alan cave - In The Morning Light</span>
+      
+        <div class="container">
+                <div id="home" class="section-content active">
+                  <h1>Accueil</h1>
+                  <p>Contenu de la section Accueil</p>
                 </div>
 
-                <div class="controls">
-                    <button id="prev">&#9664;&#9664;</button>
-                    <button id="play">&#9654;</button>
-                    <button id="next">&#9654;&#9654;</button>
-                </div>
 
-                <div class="track-list">
-                    <div class="track" onclick="playTrack(0)">
-                        <span class="track-number">1</span>
-                        <span class="track-name">The Great Enlightenment</span>
-                        <span class="track-duration">04:20</span>
-                    </div>
+            <div id="live" class="section-content">
+                <h1>Direct</h1>
+                <div class="live-item">
+                    <h5>Émission en direct: Le journal de 20h</h5>
+                    <p>En cours...</p>
+                    <button class="btn btn-danger">Regarder</button>
+                </div>
+                <div class="live-item">
+                    <h5>Concert en direct: Groupe XYZ</h5>
+                    <p>Début: 21h</p>
+                    <button class="btn btn-danger">Regarder</button>
                 </div>
             </div>
-            <audio id="audio-player" src="path/to/your/music/file.mp3"></audio>
-        </section>
-    
-        <section id="video" style="display:none;">
-            <h1>VIDÉOS</h1>
-            <div class="video-container">
-                <iframe src="https://player.vimeo.com/video/76979871" width="640" height="360" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
-            </div>
-        </section>
-    
-        <section id="live" style="display:none;">
-            <h1>Live</h1>
-            <p>Rejoignez-nous en direct.</p>
-        </section>
 
 
-        <div id="decouvrir" class="contenu" style="display: none;">
-
-            <h2>Presentateurs</h2>
-            <table>
-                <tr>
-                    <th>Evangelique</th>
-                    <th>Compas</th>
-                    <th>Rap</th>
-                </tr>
-                <tr>
-                    <td>Claude Jean Baptiste</td>
-                    <td>Robert Point Du Jour</td>
-                    <td>Marc Arthur</td>
-                </tr>
-                <tr>
-                    <td>Mackenson</td>
-                    <td>Billy Jean Baptiste</td>
-                    <td>Manno Dossous</td>
-                </tr>
-                <tr>
-                    <td>Lucien d'Haiti</td>
-                    <td>Mathieu Thomas</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>David Durandis</td>
-                    <td>Elie Jean Philipe</td>
-                    <td></td>
-                </tr>
-            </table>
-            <br>
-            <hr>
-            <h2>Programmation de la semaine</h2>
-
-
-            <table>
-                <tr>
-                    <th>Emissions</th>
-                    <th>Heure</th>
-                    <th>Date</th>
-                </tr>
-                <tr>
-                    <td>Rap</td>
-                    <td>6h30 - 6h45</td>
-                    <td>Lundi à Vendredi</td>
-                </tr>
-                <tr>
-                    <td>Compas</td>
-                    <td>6h00 - 6h30</td>
-                    <td>Lundi à Vendredi</td>
-                </tr>
-                <tr>
-                    <td>Evangelique</td>
-                    <td>6h45 - 7h00</td>
-                    <td>Lundi à Vendredi</td>
-                </tr>
-                <tr>
-                    <td>Love</td>
-                    <td>7h00 - 9h00</td>
-                    <td>Lundi à Vendredi</td>
-                </tr>
-                <tr>
-                    <td>Compas</td>
-                    <td>9h00 - 10h00</td>
-                    <td>Lundi-Mercredi-Vendredi</td>
-                </tr>
-                <tr>
-                    <td>Rap</td>
-                    <td>9h00 - 10h00</td>
-                    <td>Mardi</td>
-                </tr>
-                <tr>
-                    <td>Rap</td>
-                    <td>11h00 - 12h00</td>
-                    <td>Jeudi</td>
-                </tr>
-                <tr>
-                    <td>Plezi gaye</td>
-                    <td>12h00 - 12h30</td>
-                    <td>Lundi à Vendredi</td>
-                </tr>
-                <tr>
-                    <td>Reprise Compas</td>
-                    <td>12h30 - 14h00</td>
-                    <td>Lundi à Vendredi</td>
-                </tr>
-                <tr>
-                    <td>Lekol Lage</td>
-                    <td>14h00 - 17h00</td>
-                    <td>Lundi à Vendredi</td>
-                </tr>
-                <tr>
-                    <td>Jounal Tout Nouvel</td>
-                    <td>17h00 - 18h00</td>
-                    <td>Lundi à Vendredi</td>
-                </tr>
-                <tr>
-                    <td>Sport</td>
-                    <td>18h30 - 19h00</td>
-                    <td>Lundi à Vendredi</td>
-                </tr>
-                <tr>
-                    <td>Compas en folie</td>
-                    <td>19h00 - 21h00</td>
-                    <td>Mardi à Vendredi</td>
-                </tr>
-                <tr>
-                    <td>PDG Remy</td>
-                    <td>20h00 - 24h00</td>
-                    <td>Lundi</td>
-                </tr>
-                <tr>
-                    <td>Soyons Serieux ann Trip</td>
-                    <td>21h00 - 23h00</td>
-                    <td>Mardi-Vendredi</td>
-                </tr>
-            </table>
-        </div>
-
-        <div id="tendance" class="contenu" style="display: none;">
-            <h2>Contenu pour Tendance</h2>
-            <p>Ce contenu est le même pour tous les liens de Menu.</p>
-        </div>
-        <div id="diffusion" class="contenu" style="display: none;">
-            <h2>Contenu pour Diffusion</h2>
-            <p>Ce contenu est le même pour tous les liens de Menu.</p>
-            <div id="twitch-embed" class="center"></div>
-
-            <script src="https://embed.twitch.tv/embed/v1.js"></script>
-        </div>
-        <div id="liste" class="contenu" style="display: none;">
-            <div class="container">
-                <div class="article">
-                    <div class="content">
-                        <h2>Titre de l'article 1</h2>
-                        <p>Contenu de l'article 1...</p>
-                    </div>
-                    <img src="images/bac.jpg" alt="Image de l'article 1">
+            <div id="podcasts" class="section-content">
+                <h1>Podcasts</h1>
+                <div class="podcast-item">
+                    <h5>Podcast 1: Introduction à la programmation</h5>
+                    <p>Durée: 30 min</p>
+                    <button class="btn btn-primary">Écouter</button>
                 </div>
 
-                <div class="article">
-                    <div class="content">
-                        <h2>Titre de l'article 2</h2>
-                        <p>Contenu de l'article 2...</p>
-                    </div>
-                    <img src="/IMAGES/logo.jpg" alt="Image de l'article 2">
+                <div class="podcast-item">
+                    <h5>Podcast 2: Les nouveautés technologiques</h5>
+                    <p>Durée: 45 min</p>
+                    <button class="btn btn-primary">Écouter</button>
                 </div>
-
-                <!-- Ajoutez autant d'articles que nécessaire -->
             </div>
 
-        </div>
-        <div id="marquePage" class="contenu" style="display: none;">
-            <h2>Contenu pour Marque-Page</h2>
-            <p>Ce contenu est le même pour tous les liens de Menu.</p>
-        </div>
 
-        <div id="diffusionContent" class="contenu" style="display: none;">
-            <h2>Diffusion en Direct</h2>
-            <video src="video.mp4" controls poster="image_preview.jpg"></video>
-            <iframe width="100%" height="120"
-                src="https://www.mixcloud.com/widget/iframe/?hide_cover=1&feed=%2Fframework_radio%2Fframework-886-20240421%2F"
-                frameborder="0"></iframe>
+            <div id="video" class="section-content">
+                <h1>Vidéo</h1>
+                <div class="video-item">
+                    <h5>Vidéo 1: Tutoriel de cuisine</h5>
+                    <p>Durée: 10 min</p>
+                    <button class="btn btn-secondary">Regarder</button>
+                </div>
 
-        </div>
+                <div class="video-item">
+                    <h5>Vidéo 2: Voyage au Japon</h5>
+                    <p>Durée: 20 min</p>
+                    <button class="btn btn-secondary">Regarder</button>
+                </div>
+            </div>
 
-        <div id="economieContent" class="contenu" style="display: none;">
-            <h2>Économie</h2>
-            <p>Ce contenu est le même pour tous les liens de catégories.</p>
-        </div>
+            <!-- New sections for sidebar links -->
+            <div id="decouvrir" class="section-content">
 
-        <div id="cultureContent" class="contenu" style="display: none;">
-            <h2>Culture</h2>
-            <p>Ce contenu est le même pour tous les liens de catégories.</p>
-        </div>
+                <h1>Decouvrir</h1>
+                <p>en voici</p>
+                
+            </div>
 
-        <div id="sportsContent" class="contenu" style="display: none;">
-            <h2>Sports</h2>
-            <p>Ce contenu est le même pour tous les liens de catégories.</p>
+            <div id="tendance" class="section-content">
+                <h1>Tendance</h1>
+                <p>Contenu de la section Tendance</p>
+            </div>
+
+            <div id="diffusion" class="section-content">
+                <h1>Diffusion</h1>
+                <p>Contenu de la section Diffusion</p>
+            </div>
+
+            <div id="liste" class="section-content">
+                <h1>Liste de Lecture</h1>
+                <p>Contenu de la section Liste de Lecture</p>
+            </div>
+
+            <div id="marquePage" class="section-content">
+                <h1>Marque-Page</h1>
+                <p>Contenu de la section Marque-Page</p>
+            </div>
+
+            <!-- New sections for category links -->
+            <div id="diffusionContent" class="section-content">
+                <h1>Diffusion en Direct</h1>
+                <p>Contenu de la section Diffusion en Direct</p>
+            </div>
+
+            <div id="economieContent" class="section-content">
+                <h1>Économie</h1>
+                <p>Contenu de la section Économie</p>
+            </div>
+
+            <div id="cultureContent" class="section-content">
+                <h1>Culture</h1>
+                <p>Contenu de la section Culture</p>
+            </div>
+
+            <div id="sportsContent" class="section-content">
+                <h1>Sports</h1>
+                <p>Contenu de la section Sports</p>
+            </div>
         </div>
 
 
     </main>
 
-    <<footer class="footer bg-dark text-light text-center py-3 footer-visible">
+    <footer class="footer bg-dark text-light text-center py-3 footer-visible">
         <div id="cookie-notification" style="display: none;">
-            Ce site utilise des cookies pour améliorer l'expérience utilisateur. En continuant à utiliser ce site, vous acceptez notre utilisation des cookies. <a href="/politique-cookies">En savoir plus</a>
+            Ce site utilise des cookies pour améliorer l'expérience utilisateur. En continuant à utiliser ce site, vous
+            acceptez notre utilisation des cookies. <a href="/politique-cookies">En savoir plus</a>
             <button id="accept-cookies-btn">Accepter</button>
         </div>
-    
+
         <div class="social-icons">
             <div class="icon-container"><a href="https://twitter-api.com"><i class="fab fa-twitter"></i></a></div>
             <div class="icon-container"><a href="https://facebook-api.com"><i class="fab fa-facebook"></i></a></div>
@@ -373,15 +267,15 @@
             <div class="icon-container"><a href="https://linkedin-api.com"><i class="fab fa-linkedin"></i></a></div>
             <div class="icon-container"><a href="https://tiktok-api.com"><i class="fab fa-tiktok"></i></a></div>
         </div>
-    
+
         <div class="copyright">
             <p>&copy; 2008-<span id="currentYear"></span> Marbial fm, Inc.</p>
         </div>
-    
+
         <!-- Flèche de retour en haut -->
         <div id="arrowTop" onclick="scrollToTop()" title="Retour en haut">&#9650;</div>
     </footer>
-    
+
 
     <script src="SCRIPT/contenu.js"></script>
     <script src="SCRIPT/simulation.js"></script>
