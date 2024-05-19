@@ -21,3 +21,25 @@ window.addEventListener('scroll', () => {
         loadMoreContent();
     }
 });
+
+
+document.addEventListener("DOMContentLoaded", function() {
+    var footer = document.querySelector(".footer");
+    var lastScrollTop = 0;
+
+    window.addEventListener("scroll", function() {
+        var currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+
+        if (currentScroll > lastScrollTop) {
+            // Scrolling down
+            footer.classList.add("footer-hidden");
+            footer.classList.remove("footer-visible");
+        } else {
+            // Scrolling up
+            footer.classList.remove("footer-hidden");
+            footer.classList.add("footer-visible");
+        }
+
+        lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // For Mobile or negative scrolling
+    }, false);
+});

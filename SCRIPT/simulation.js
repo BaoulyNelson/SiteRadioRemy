@@ -24,7 +24,7 @@ function playTrack(trackIndex) {
     audioPlayer.play();
     isPlaying = true;
     playButton.innerHTML = '&#10074;&#10074;';
-    trackTitle.textContent = "Geva Alon - In The Morning Light";  // Mettez à jour avec le titre de la piste
+    trackTitle.textContent = "Alan Cave - In The Morning Light";  // Mettez à jour avec le titre de la piste
 }
 
 playButton.addEventListener('click', () => {

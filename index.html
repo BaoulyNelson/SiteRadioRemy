@@ -7,6 +7,7 @@
         content="Impressionnez vos fans grâce à ce template en une page, idéal pour les musiciens et les groupes. Profitez de l&#39;arrière-plan vidéo et utilisez l&#39;espace pour télécharger votre musique, vos vidéos et images et créez un site inoubliable. Personnalisez le texte et téléchargez vos propres vidéos et votre musique pour passer en ligne dès aujourd&#39;hui !" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Radio Marbial FM</title>
+    <link href="https://fonts.googleapis.com/css2?family=Old+English+Text+MT:wght@400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="CSS/styles.css">
@@ -59,11 +60,10 @@
 
         </div>
         <div class="icon-wrapper">
-            <a href="#"onclick="showSection('musique')" class="icon-link">
-                <i class="fas fa-play-circle"></i>DIFFUSION
-                <a href="#" class="icon-link"><i class="fas fa-music"></i> MUSIQUE</a>
-                <a href="#"onclick="showSection('video')" class="icon-link"><i class="fas fa-video"></i> VIDÉO</a>
-                <a href="#"onclick="showSection('live')" class="icon-link"><i class="fas fa-broadcast-tower"></i> LIVE</a>
+                <a href="#"onclick="showSection('diffusion')" class="icon-link"><i class="fas fa-play-circle"></i>Diffusion</a>
+                <a href="#"onclick="showSection('musique')" class="icon-link"><i class="fas fa-music"></i> Musique</a>
+                <a href="#"onclick="showSection('video')" class="icon-link"><i class="fas fa-video"></i> Video</a>
+                <a href="#"onclick="showSection('live')" class="icon-link"><i class="fas fa-broadcast-tower"></i> Live</a>
         </div>
     </header>
 
@@ -79,7 +79,10 @@
 
             </a>
          
-
+ <!-- Structure HTML de l'icône de recherche -->
+ <div id="searchIcon">
+    <i class="fa fa-search"></i> <!-- Assurez-vous que la bibliothèque de polices d'icônes est chargée -->
+  </div>
             <!-- Formulaire de recherche (initialement caché) -->
             <form id="searchForm" style="display: none;">
                 <div>
@@ -90,12 +93,10 @@
             </form>
             <div class="line"></div>
 
-
             <div class="side-title">MENU</div>
             <ul class="menu">
                 <li><a href="#" onclick="toggleContent('decouvrir')"><i class="fas fa-globe"></i> Découvrir</a></li>
-                <li><a href="https://lenouvelliste.com/idees" onclick="toggleContent('tendance')"><i
-                            class="fas fa-chart-line"></i> Tendance</a>
+                <li><a href="#" onclick="toggleContent('tendance')"><i class="fas fa-chart-line"></i> Tendance</a>
                 </li>
                 <li><a href="#" onclick="toggleContent('diffusion')"><i class="fas fa-play-circle"></i>
                         Diffusion</a></li>
@@ -110,13 +111,13 @@
                 <ul>
                     <li><a href="#" onclick="toggleContent('diffusionContent')"><i class="fas fa-broadcast-tower"></i>
                             Diffusion en Direct</a></li>
-                    <li><a href="https://lenouvelliste.com/economie" onclick="toggleContent('economieContent')"><i
+                    <li><a href="#" onclick="toggleContent('economieContent')"><i
                                 class="fas fa-chart-line"></i>
                             Économie</a></li>
-                    <li><a href="https://lenouvelliste.com/culture" onclick="toggleContent('cultureContent')"><i
+                    <li><a href="#" onclick="toggleContent('cultureContent')"><i
                                 class="fas fa-globe"></i>
                             Culture</a></li>
-                    <li><a href="https://lenouvelliste.com/sport" onclick="toggleContent('sportsContent')"><i
+                    <li><a href="#" onclick="toggleContent('sportsContent')"><i
                                 class="fas fa-futbol"></i>
                             Sports</a></li>
                 </ul>
@@ -131,14 +132,9 @@
                 </div>
             </div>
         </div>
-
     </div>
-
     </nav>
-    <!-- <div class="main-content">
-        <h1>MFM</h1>
-        <button>ÉCOUTER</button>
-    </div> -->
+   
     <main>
 
         <section id="musique" style="display:none;">
@@ -146,13 +142,15 @@
             <p>Écoutez notre sélection musicale!</p>
             <div class="player">
                 <div class="track-info">
-                    <span id="track-title">Geva Alon - In The Morning Light</span>
+                    <span id="track-title">Alan cave - In The Morning Light</span>
                 </div>
+
                 <div class="controls">
                     <button id="prev">&#9664;&#9664;</button>
                     <button id="play">&#9654;</button>
                     <button id="next">&#9654;&#9654;</button>
                 </div>
+
                 <div class="track-list">
                     <div class="track" onclick="playTrack(0)">
                         <span class="track-number">1</span>
@@ -361,13 +359,12 @@
 
     </main>
 
-    <footer class="footer bg-dark text-light text-center py-3">
+    <<footer class="footer bg-dark text-light text-center py-3 footer-visible">
         <div id="cookie-notification" style="display: none;">
-            Ce site utilise des cookies pour améliorer l'expérience utilisateur. En continuant à utiliser ce site, vous
-            acceptez notre utilisation des cookies. <a href="/politique-cookies">En savoir plus</a>
+            Ce site utilise des cookies pour améliorer l'expérience utilisateur. En continuant à utiliser ce site, vous acceptez notre utilisation des cookies. <a href="/politique-cookies">En savoir plus</a>
             <button id="accept-cookies-btn">Accepter</button>
         </div>
-
+    
         <div class="social-icons">
             <div class="icon-container"><a href="https://twitter-api.com"><i class="fab fa-twitter"></i></a></div>
             <div class="icon-container"><a href="https://facebook-api.com"><i class="fab fa-facebook"></i></a></div>
@@ -376,16 +373,15 @@
             <div class="icon-container"><a href="https://linkedin-api.com"><i class="fab fa-linkedin"></i></a></div>
             <div class="icon-container"><a href="https://tiktok-api.com"><i class="fab fa-tiktok"></i></a></div>
         </div>
-
+    
         <div class="copyright">
             <p>&copy; 2008-<span id="currentYear"></span> Marbial fm, Inc.</p>
         </div>
-
+    
         <!-- Flèche de retour en haut -->
         <div id="arrowTop" onclick="scrollToTop()" title="Retour en haut">&#9650;</div>
-
     </footer>
-
+    
 
     <script src="SCRIPT/contenu.js"></script>
     <script src="SCRIPT/simulation.js"></script>

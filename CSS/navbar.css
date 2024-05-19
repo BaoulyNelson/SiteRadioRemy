@@ -1,26 +1,19 @@
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
+  font-family: 'Times New Roman', Times, serif; /* Supprimer 'sans-serif' */
+  height: 100%;
+  line-height: 1.6; /* Hauteur de ligne pour une meilleure lisibilité */
+  padding: 0; /* Supprime les espacements internes par défaut */
+  background-color: #f7f7f7; /* Couleur de fond */
+  overflow-x: hidden;
 }
+
 
 header {
   background-color: #007BFF;
   color: white;
   padding: 10px 0;
   overflow-x: hidden;
-}
-
-.top-bar {
-  display: flex;
-  justify-content: center;
-  padding: 0 20px;
-  font-size: 14px;
-}
-
-.language {
-  color: gold;
-  text-decoration: none;
-  margin-left: 10px;
 }
 
 .header-main {
@@ -30,9 +23,11 @@ header {
   padding: 0 20px;
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Old English Text MT&display=swap');
+
 .logo {
   font-family: 'Old English Text MT', serif;        
-  font-size: 34px;
+  font-size: 30px;
   margin: 0;
   color: white;
 }
@@ -67,3 +62,52 @@ header {
   margin-top: 10px;
 }
   
+.icon-wrapper {
+  display: flex;
+  flex-wrap: wrap; /* Permet aux liens de passer à la ligne suivante si nécessaire */
+  justify-content: center;
+  align-items: center;
+}
+
+.icon-wrapper .fas {
+  margin: 0 10px; /* Espace entre les icônes, ajustez selon vos besoins */
+}
+
+.icon-wrapper .icon-link {
+  display: flex;
+  align-items: center;
+  margin: 0 10px; /* Espace entre les groupes icône-texte */
+  text-decoration: none; /* Enlève le soulignement des liens */
+  color: inherit; /* Utilise la couleur du texte par défaut */
+  white-space: nowrap; /* Empêche le texte de se casser sur plusieurs lignes */
+}
+
+.icon-wrapper .icon-link i {
+  margin-right: 5px; /* Espace entre l'icône et le texte */
+}
+/* Styles pour les petits écrans */
+@media (max-width: 600px) {
+  .icon-wrapper {
+    display: flex;
+    flex-direction: row; /* Aligne les icônes horizontalement */
+    justify-content: space-between; /* Ajoute de l'espace entre chaque icône */
+    align-items: center; /* Aligne verticalement les icônes au centre */
+    flex-wrap: nowrap; /* Empêche les icônes de passer à la ligne suivante */
+  }
+
+  .icon-wrapper .icon-link {
+    margin: 0 5px; /* Ajoute de l'espace horizontal entre les groupes icône-texte */
+    flex: 1 1 auto; /* Permet aux icônes de se redimensionner en fonction de l'espace disponible */
+    min-width: 0; /* Permet de réduire la taille au minimum si nécessaire */
+    text-align: center; /* Centre le texte sous les icônes */
+  }
+
+  .icon-wrapper .fas {
+    margin: 0 2px; /* Réduit l'espace entre les icônes */
+  }
+
+  .icon-wrapper .icon-text {
+    font-size: 12px; /* Réduit la taille du texte pour les petits écrans */
+  }
+}
+
