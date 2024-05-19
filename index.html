@@ -3,6 +3,8 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta property="og:description"
+        content="Impressionnez vos fans grâce à ce template en une page, idéal pour les musiciens et les groupes. Profitez de l&#39;arrière-plan vidéo et utilisez l&#39;espace pour télécharger votre musique, vos vidéos et images et créez un site inoubliable. Personnalisez le texte et téléchargez vos propres vidéos et votre musique pour passer en ligne dès aujourd&#39;hui !" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Radio Marbial FM</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -21,155 +23,160 @@
     <link rel="stylesheet" href="CSS/profil.css">
     <link rel="stylesheet" href="CSS/logo.css">
     <link rel="stylesheet" href="CSS/navbar.css">
-    <link rel="stylesheet" href="CSS/animation.css">
+    <link rel="stylesheet" href="CSS/stylesDate.css">
 
 </head>
 
 <body>
-    <nav class="navbar navbar-dark bg-primary">
-        <div id="searchIcon">
-            <i class="fas fa-search"></i>
-        </div>
-        <!-- icone "Log In" -->
-<hr>
-<a href="inscription.html" class="login-button">
-    <i class="fas fa-user"></i>
-</a>
+
+    <!-- Barre de navigation -->
+    <header>
+        <!-- Horloge actuelle (peut être déplacée en CSS si nécessaire) -->
+        <p id="current-time"><i class="fa fa-clock-o"></i></p>
+
+        <div class="header-main">
+            <div class="menu-icon" aria-label="Menu">
+                <button id="togglePanel" class="toggle-button"><i class="fas fa-bars"></i></button>
+            </div>
 
 
-        <button id="togglePanel" class="toggle-button"><i class="fas fa-bars"></i></button>
-            <!-- Utilisation de l'icône de radio -->
-            <!-- <img src="IMAGES/iso-removebg-preview.png" alt="Logo" class="logo logo-right"> -->
+            <h1 class="logo">
+                <span>Radio</span>
+                <span>Marbial</span>
+                <span>FM</span>
+                <span>99.5</span>
+            </h1>
 
-        <div id="sidePanel" class="side-panel">
 
-            <span id="closeButton" class="close-button"><i class="fas fa-times"></i></span>
-            <div class="sidebar">
-                <a class="logo-expand" href="#">
-                    <img src="IMAGES/logo.jpg" alt="Logo" class="logo">
-                    Radio Marbial FM 99.5
-                                   </a>
-
-                <hr>
-                <!-- Formulaire de recherche (initialement caché) -->
-                <form id="searchForm" style="display: none;">
-                    <div>
-                        <input type="search" id="mySearch" name="q" placeholder="Rechercher..." />
-                        <button type="submit" style=>Search</button>
+            <a href="inscription.html" class="user-icon">
+                <div class="profile-container">
+                    <div class="profile-icon">
+                        <i class="fas fa-user"></i>
                     </div>
-                    <div id="resultMessage"></div>
-                </form>
-                <div class="side-title">MENU</div>
-                <ul class="menu">
-                    <li><a href="#" onclick="toggleContent('decouvrir')"><i class="fas fa-globe"></i> Découvrir</a></li>
-                    <li><a href="https://lenouvelliste.com/idees" onclick="toggleContent('tendance')"><i
-                                class="fas fa-chart-line"></i> Tendance</a>
-                    </li>
-                    <li><a href="#" onclick="toggleContent('diffusion')"><i class="fas fa-play-circle"></i>
-                            Diffusion</a></li>
-                    <li><a href="#" onclick="toggleContent('liste')"><i class="fas fa-list"></i> Liste de Lecture</a>
-                    </li>
-                    <li><a href="#" onclick="toggleContent('marquePage')"><i class="fas fa-bookmark"></i>
-                            Marque-Page</a></li>
+                </div>
+            </a>
+
+
+        </div>
+        <div class="icon-wrapper">
+            <a href="#"onclick="showSection('musique')" class="icon-link">
+                <i class="fas fa-play-circle"></i>DIFFUSION
+                <a href="#" class="icon-link"><i class="fas fa-music"></i> MUSIQUE</a>
+                <a href="#"onclick="showSection('video')" class="icon-link"><i class="fas fa-video"></i> VIDÉO</a>
+                <a href="#"onclick="showSection('live')" class="icon-link"><i class="fas fa-broadcast-tower"></i> LIVE</a>
+        </div>
+    </header>
+
+
+    <!-- panneau lateral gauche -->
+    <div id="sidePanel" class="side-panel">
+        <span id="closeButton" class="close-button"><i class="fas fa-times"></i></span>
+
+        <div class="sidebar">
+           
+            <a class="logo-expand" href="#">
+                <img src="IMAGES/logo.jpg" alt="Logo" id="logo" class="logo">
+
+            </a>
+         
+
+            <!-- Formulaire de recherche (initialement caché) -->
+            <form id="searchForm" style="display: none;">
+                <div>
+                    <input type="search" id="mySearch" name="q" placeholder="Rechercher..." />
+                    <button type="submit" style=>Search</button>
+                </div>
+                <div id="resultMessage"></div>
+            </form>
+            <div class="line"></div>
+
+
+            <div class="side-title">MENU</div>
+            <ul class="menu">
+                <li><a href="#" onclick="toggleContent('decouvrir')"><i class="fas fa-globe"></i> Découvrir</a></li>
+                <li><a href="https://lenouvelliste.com/idees" onclick="toggleContent('tendance')"><i
+                            class="fas fa-chart-line"></i> Tendance</a>
+                </li>
+                <li><a href="#" onclick="toggleContent('diffusion')"><i class="fas fa-play-circle"></i>
+                        Diffusion</a></li>
+                <li><a href="#" onclick="toggleContent('liste')"><i class="fas fa-list"></i> Liste de Lecture</a>
+                </li>
+                <li><a href="#" onclick="toggleContent('marquePage')"><i class="fas fa-bookmark"></i>
+                        Marque-Page</a></li>
+            </ul>
+
+            <div class="categories">
+                <h3>Catégories</h3>
+                <ul>
+                    <li><a href="#" onclick="toggleContent('diffusionContent')"><i class="fas fa-broadcast-tower"></i>
+                            Diffusion en Direct</a></li>
+                    <li><a href="https://lenouvelliste.com/economie" onclick="toggleContent('economieContent')"><i
+                                class="fas fa-chart-line"></i>
+                            Économie</a></li>
+                    <li><a href="https://lenouvelliste.com/culture" onclick="toggleContent('cultureContent')"><i
+                                class="fas fa-globe"></i>
+                            Culture</a></li>
+                    <li><a href="https://lenouvelliste.com/sport" onclick="toggleContent('sportsContent')"><i
+                                class="fas fa-futbol"></i>
+                            Sports</a></li>
                 </ul>
-
-
-                <div class="categories">
-                    <h3>Catégories</h3>
-                    <ul>
-                        <li><a href="#" onclick="toggleContent('diffusionContent')"><i
-                                    class="fas fa-broadcast-tower"></i> Diffusion en Direct</a></li>
-                        <li><a href="https://lenouvelliste.com/economie" onclick="toggleContent('economieContent')"><i
-                                    class="fas fa-chart-line"></i>
-                                Économie</a></li>
-                        <li><a href="https://lenouvelliste.com/culture" onclick="toggleContent('cultureContent')"><i
-                                    class="fas fa-globe"></i>
-                                Culture</a></li>
-                        <li><a href="https://lenouvelliste.com/sport" onclick="toggleContent('sportsContent')"><i
-                                    class="fas fa-futbol"></i>
-                                Sports</a></li>
-                    </ul>
-                    <div class="cont">
-                        <div class="custom-control custom-switch">
-                            <input type="checkbox" class="custom-control-input" id="customSwitch">
-                            <label class="custom-control-label" for="customSwitch">
-                                <span id="modeIcon" class="mode-icon"><i class="fas fa-sun"></i></span>
-                                Mode nuit
-                            </label>
-                        </div>
+                <div class="cont">
+                    <div class="custom-control custom-switch">
+                        <input type="checkbox" class="custom-control-input" id="customSwitch">
+                        <label class="custom-control-label" for="customSwitch">
+                            <span id="modeIcon" class="mode-icon"><i class="fas fa-sun"></i></span>
+                            Mode nuit
+                        </label>
                     </div>
                 </div>
             </div>
-
         </div>
+
+    </div>
 
     </nav>
-
+    <!-- <div class="main-content">
+        <h1>MFM</h1>
+        <button>ÉCOUTER</button>
+    </div> -->
     <main>
 
-        <div class="jumbotron">
-            <div class="container">
-                <div class="welcome-container">
-                       <span class="welcome-letter"
-                        style="animation: fadeIn ease-in-out 1s forwards; animation-delay: 0s;"><span
-                            style="animation: changeColor 5s infinite alternate;">B</span></span>
-                    <span class="welcome-letter"
-                        style="animation: fadeIn ease-in-out 1s forwards; animation-delay: 1s;"><span
-                            style="animation: changeColor 5s infinite alternate; animation-delay: 1s;">i</span></span>
-                    <span class="welcome-letter"
-                        style="animation: fadeIn ease-in-out 1s forwards; animation-delay: 2s;"><span
-                            style="animation: changeColor 5s infinite alternate; animation-delay: 2s;">e</span></span>
-                    <span class="welcome-letter"
-                        style="animation: fadeIn ease-in-out 1s forwards; animation-delay: 3s;"><span
-                            style="animation: changeColor 5s infinite alternate; animation-delay: 3s;">n</span></span>
-                    <span class="welcome-letter"
-                        style="animation: fadeIn ease-in-out 1s forwards; animation-delay: 4s;"><span
-                            style="animation: changeColor 5s infinite alternate; animation-delay: 4s;">v</span></span>
-                    <span class="welcome-letter"
-                        style="animation: fadeIn ease-in-out 1s forwards; animation-delay: 5s;"><span
-                            style="animation: changeColor 5s infinite alternate; animation-delay: 5s;">e</span></span>
-                    <span class="welcome-letter"
-                        style="animation: fadeIn ease-in-out 1s forwards; animation-delay: 6s;"><span
-                            style="animation: changeColor 5s infinite alternate; animation-delay: 6s;">n</span></span>
-                    <span class="welcome-letter"
-                        style="animation: fadeIn ease-in-out 1s forwards; animation-delay: 7s;"><span
-                            style="animation: changeColor 5s infinite alternate; animation-delay: 7s;">u</span></span>
-                    <span class="welcome-letter"
-                        style="animation: fadeIn ease-in-out 1s forwards; animation-delay: 8s;"><span
-                            style="animation: changeColor 5s infinite alternate; animation-delay: 8s;">e</span></span>
-                    <br>
-                    <i
-                            class="fas fa-headphones"></i>
-                    <span class="welcome-letter"
-                        style="animation: fadeIn ease-in-out 1s forwards; animation-delay: 0s;"><span
-                            style="animation: changeColor 5s infinite alternate;">R</span></span>
-                    <span class="welcome-letter"
-                        style="animation: fadeIn ease-in-out 1s forwards; animation-delay: 1s;"><span
-                            style="animation: changeColor 5s infinite alternate; animation-delay: 1s;">M</span></span>
-                    <span class="welcome-letter"
-                        style="animation: fadeIn ease-in-out 1s forwards; animation-delay: 2s;"><span
-                            style="animation: changeColor 5s infinite alternate; animation-delay: 2s;">F</span></span>
-                    <span class="welcome-letter"
-                        style="animation: fadeIn ease-in-out 1s forwards; animation-delay: 3s;"><span
-                            style="animation: changeColor 5s infinite alternate; animation-delay: 3s;">M</span></span>
-                            <i class="fas fa-broadcast-tower radio-icon"></i>
-                    <!-- Titre h1 avec l'icône de radio et la police Script MT Bold -->
-<hr>
-                    <div id="animatedText" class="animated-text"></div>
-
-                    
-                    <audio controls>
-                        <source src="chemin/vers/votre/fichier/audio.mp3" type="audio/mp3">
-                        Votre navigateur ne supporte pas l'élément audio.
-                    </audio>
-
-                    <div style="display: flex; justify-content: center; margin-top: 20px;">
-                        <a href="#" class="btn btn-primary btn-lg">Cliquez ici</a>
+        <section id="musique" style="display:none;">
+            <h1>Musique</h1>
+            <p>Écoutez notre sélection musicale!</p>
+            <div class="player">
+                <div class="track-info">
+                    <span id="track-title">Geva Alon - In The Morning Light</span>
+                </div>
+                <div class="controls">
+                    <button id="prev">&#9664;&#9664;</button>
+                    <button id="play">&#9654;</button>
+                    <button id="next">&#9654;&#9654;</button>
+                </div>
+                <div class="track-list">
+                    <div class="track" onclick="playTrack(0)">
+                        <span class="track-number">1</span>
+                        <span class="track-name">The Great Enlightenment</span>
+                        <span class="track-duration">04:20</span>
                     </div>
-                     </div>
-
+                </div>
             </div>
-        </div>
+            <audio id="audio-player" src="path/to/your/music/file.mp3"></audio>
+        </section>
+    
+        <section id="video" style="display:none;">
+            <h1>VIDÉOS</h1>
+            <div class="video-container">
+                <iframe src="https://player.vimeo.com/video/76979871" width="640" height="360" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+            </div>
+        </section>
+    
+        <section id="live" style="display:none;">
+            <h1>Live</h1>
+            <p>Rejoignez-nous en direct.</p>
+        </section>
+
+
         <div id="decouvrir" class="contenu" style="display: none;">
 
             <h2>Presentateurs</h2>
@@ -309,7 +316,7 @@
                     </div>
                     <img src="images/bac.jpg" alt="Image de l'article 1">
                 </div>
-                
+
                 <div class="article">
                     <div class="content">
                         <h2>Titre de l'article 2</h2>
@@ -317,10 +324,10 @@
                     </div>
                     <img src="/IMAGES/logo.jpg" alt="Image de l'article 2">
                 </div>
-            
+
                 <!-- Ajoutez autant d'articles que nécessaire -->
             </div>
-            
+
         </div>
         <div id="marquePage" class="contenu" style="display: none;">
             <h2>Contenu pour Marque-Page</h2>
@@ -330,7 +337,9 @@
         <div id="diffusionContent" class="contenu" style="display: none;">
             <h2>Diffusion en Direct</h2>
             <video src="video.mp4" controls poster="image_preview.jpg"></video>
-            <iframe width="100%" height="120" src="https://www.mixcloud.com/widget/iframe/?hide_cover=1&feed=%2Fframework_radio%2Fframework-886-20240421%2F" frameborder="0" ></iframe>
+            <iframe width="100%" height="120"
+                src="https://www.mixcloud.com/widget/iframe/?hide_cover=1&feed=%2Fframework_radio%2Fframework-886-20240421%2F"
+                frameborder="0"></iframe>
 
         </div>
 
@@ -354,10 +363,11 @@
 
     <footer class="footer bg-dark text-light text-center py-3">
         <div id="cookie-notification" style="display: none;">
-            Ce site utilise des cookies pour améliorer l'expérience utilisateur. En continuant à utiliser ce site, vous acceptez notre utilisation des cookies. <a href="/politique-cookies">En savoir plus</a>
+            Ce site utilise des cookies pour améliorer l'expérience utilisateur. En continuant à utiliser ce site, vous
+            acceptez notre utilisation des cookies. <a href="/politique-cookies">En savoir plus</a>
             <button id="accept-cookies-btn">Accepter</button>
         </div>
-        
+
         <div class="social-icons">
             <div class="icon-container"><a href="https://twitter-api.com"><i class="fab fa-twitter"></i></a></div>
             <div class="icon-container"><a href="https://facebook-api.com"><i class="fab fa-facebook"></i></a></div>
@@ -376,8 +386,9 @@
 
     </footer>
 
-   
+
     <script src="SCRIPT/contenu.js"></script>
+    <script src="SCRIPT/simulation.js"></script>
     <script src="SCRIPT/date.js"></script>
     <script src="SCRIPT/direct.js"></script>
     <script src="SCRIPT/footer.js"></script>
@@ -388,6 +399,7 @@
     <script src="SCRIPT/mode.js"></script>
     <script src="SCRIPT/cookies.js"></script>
     <script src="SCRIPT/scroller.js"></script>
+    <script src="SCRIPT/scriptDate.js"></script>
     <script src="SCRIPT/animation.js"></script>
     <script src="SCRIPT/scriptRecherche.js"></script>
     <script src="SCRIPT/scriptMonterHaut.js"></script>

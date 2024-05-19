@@ -1,23 +1,33 @@
-.toggle-button {
-    position: absolute; /* Changer de fixed à absolute */
-    left: 10px;
-    top: 10px; /* Ajuster la valeur top selon vos besoins */
-    font-size: 24px;
-    cursor: pointer;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background-color: white;
-    color: red;
-    transition: background-color 0.3s; /* Ajoutez une transition pour une animation fluide */
+.menu-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+ }
 
-   }
-   
+.toggle-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px; /* Ajustez selon vos besoins */
+  height: 50px; /* Ajustez selon vos besoins */
+  border: none;
+  border-radius: 50%; /* Bordure arrondie */
+  background-color: #fff; /* Couleur de fond, ajustez selon vos besoins */
+  cursor: pointer;
+}
+
+
+.toggle-button i {
+  font-size: 24px; /* Taille de l'icône, ajustez selon vos besoins */
+  color: #000; /* Couleur de l'icône, ajustez selon vos besoins */
+}
+
 
    .toggle-button:hover {
     background-color: gold; /* Changez la couleur de fond au survol */
     color: darkred; /* Changez la couleur du texte au survol */
 }
+
 /* Media query pour les grands écrans */
 @media screen and (min-width: 768px) {
   .toggle-button {
@@ -37,15 +47,17 @@
   height: 40px;
   border-radius: 50%;
   /* Crée un cercle */
-  background-color: red;
   display: flex;
   justify-content: center;
   align-items: center;
   cursor: pointer;
   /* Curseur pointer pour indiquer que c'est cliquable */
+    border: none;
+    background-color: #fff; /* Couleur de fond, ajustez selon vos besoins */
 }
 
 .close-icon i {
   color: white;
   font-size: 20px;
 }
+

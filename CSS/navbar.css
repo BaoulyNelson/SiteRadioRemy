@@ -1,3 +1,69 @@
-.navbar {
-    height: 80px; /* Remplacez 80px par la hauteur souhaitée */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
 }
+
+header {
+  background-color: #007BFF;
+  color: white;
+  padding: 10px 0;
+  overflow-x: hidden;
+}
+
+.top-bar {
+  display: flex;
+  justify-content: center;
+  padding: 0 20px;
+  font-size: 14px;
+}
+
+.language {
+  color: gold;
+  text-decoration: none;
+  margin-left: 10px;
+}
+
+.header-main {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.logo {
+  font-family: 'Old English Text MT', serif;        
+  font-size: 34px;
+  margin: 0;
+  color: white;
+}
+
+
+.user-icon {
+  text-decoration: none;
+}
+
+.profile-container {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+}
+
+.profile-container:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.profile-icon i {
+  color: white;
+  
+}
+
+
+.line {
+  height: 4px; /* Increased height for thicker line */
+  background-color: #FF6F6F;
+  margin-top: 10px;
+}
+  

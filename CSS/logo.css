@@ -10,8 +10,37 @@
   
   }
   
-  .logo {
+  #logo {
     width: 100px; /* ajustez la largeur selon vos préférences */
     height: auto; /* maintenir le ratio hauteur/largeur */
   }
   
+  .logo {
+    text-align: center; /* Centrer le texte */
+    margin: 0; /* Supprimer les marges par défaut */
+}
+.logo span {
+    display: block;
+}
+
+.icon-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.icon-wrapper .fas {
+  margin: 0 10px; /* Espace entre les icônes, ajustez selon vos besoins */
+  }
+
+.icon-wrapper .icon-link {
+  display: flex;
+  align-items: center;
+  margin: 0 10px; /* Espace entre les groupes icône-texte */
+  text-decoration: none; /* Enlève le soulignement des liens */
+  color: inherit; /* Utilise la couleur du texte par défaut */
+}
+
+.icon-wrapper .icon-link i {
+  margin-right: 5px; /* Espace entre l'icône et le texte */
+}

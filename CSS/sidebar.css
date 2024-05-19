@@ -27,5 +27,13 @@
 }
 
 
+.line {
+    height: 4px; /* Increased height for thicker line */
+    background-color: #FF6F6F;
+    margin-top: 10px;
+  }
+    
+
+
 
 
