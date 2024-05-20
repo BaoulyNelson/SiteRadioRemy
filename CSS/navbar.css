@@ -1,116 +1,85 @@
 body {
   margin: 0;
-  font-family: 'Times New Roman', Times, serif; /* Supprimer 'sans-serif' */
-  height: 100%;
-  line-height: 1.6; /* Hauteur de ligne pour une meilleure lisibilité */
-  padding: 0; /* Supprime les espacements internes par défaut */
-  background-color: #f7f7f7; /* Couleur de fond */
-  overflow-x: hidden;
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  overflow-y: scroll;
+  background-color: #f0f0f0;
+
 }
 
+.user-icon{
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 1.5em;
+  cursor: pointer;
+  color: white;
+}
 
 header {
-  background-color: #007BFF;
+  background-color: #007bff;
   color: white;
+  text-align: center;
   padding: 10px 0;
+  position: relative;
+  overflow-x: hidden;
+}
+@import url("https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&display=swap");
+
+header h1 {
+    font-family: 'Old English Text MT', 'Cinzel Decorative', serif;
+    font-size: 2em;
+    margin: 10px 0;
+}
+
+header .date {
+  font-size: 0.9em;
+}
+
+nav {
+  background-color: #007bff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 0;
+  flex-wrap: nowrap; /* Empêche les éléments de passer à la ligne suivante */
   overflow-x: hidden;
 }
 
-.header-main {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 20px;
-}
-
-@font-face {
-  font-family: 'Old English Text MT';
-  src: url('fonts/OldEnglishTextMT.ttf') format('truetype');
-}
-
-.logo {
-  font-family: 'Old English Text MT', 'MedievalSharp', serif;        
-  font-size: 30px;
-  margin: 0;
-  color: white;
-  text-align: center; /* Centrer le texte */
-}
-
-
-.logo span {
-  display: flex;
-}
-
-.user-icon {
-  text-decoration: none;
-  margin-right: 40px;
-}
-
-.profile-container {
+nav a {
+  list-style: none; /* Supprime les puces des listes */
+  color: white; /* Couleur du texte */
+  text-decoration: none; /* Retire le soulignement */
+  margin: 0 10px;
+  font-size: 1.2em;
   display: flex;
   align-items: center;
-  padding: 10px;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  transition: box-shadow 0.3s ease;
+  white-space: nowrap; /* Empêche le retour à la ligne pour les éléments de navigation */
 }
 
-.profile-container:hover {
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+/* Style pour les liens lors du survol */
+nav a:hover {
+  background-color: red;
+   color: #ddd; /* Change la couleur au survol */
 }
 
-.profile-icon i {
-  color: white;
-  
+nav a i {
+  margin-right: 8px; /* Espace entre l'icône et le texte */
 }
 
-.icon-wrapper {
-  display: flex;
-  flex-wrap: nowrap; /*ne  Permet aux liens de passer à la ligne suivante si nécessaire */
-  justify-content: center;
-  align-items: center;
+/* Supprime les décorations indésirables pour toutes les icônes */
+nav a i {
+  list-style: none; /* Au cas où l'icône serait dans une liste */
+  text-decoration: none; /* Retire toute décoration de texte */
+  margin: 0; /* Remet à zéro les marges */
+  padding: 0; /* Remet à zéro les espacements */
 }
 
-.icon-wrapper .fas {
-  margin: 0 10px; /* Espace entre les icônes, ajustez selon vos besoins */
-}
-
-.icon-wrapper .icon-link {
-  display: flex;
-  align-items: center;
-  margin: 0 10px; /* Espace entre les groupes icône-texte */
-  text-decoration: none; /* Enlève le soulignement des liens */
-  color: inherit; /* Utilise la couleur du texte par défaut */
-  white-space: nowrap; /* Empêche le texte de se casser sur plusieurs lignes */
-}
-
-.icon-wrapper .icon-link i {
-  margin-right: 5px; /* Espace entre l'icône et le texte */
-}
-/* Styles pour les petits écrans */
+/* Media query pour les petits écrans */
 @media (max-width: 600px) {
-  .icon-wrapper {
-    display: flex;
-    flex-direction: row; /* Aligne les icônes horizontalement */
-    justify-content: space-between; /* Ajoute de l'espace entre chaque icône */
-    align-items: center; /* Aligne verticalement les icônes au centre */
-    flex-wrap: nowrap; /* Empêche les icônes de passer à la ligne suivante */
-  }
-
-  .icon-wrapper .icon-link {
-    margin: 0 5px; /* Ajoute de l'espace horizontal entre les groupes icône-texte */
-    flex: 1 1 auto; /* Permet aux icônes de se redimensionner en fonction de l'espace disponible */
-    min-width: 0; /* Permet de réduire la taille au minimum si nécessaire */
-    text-align: center; /* Centre le texte sous les icônes */
-  }
-
-  .icon-wrapper .fas {
-    margin: 0 2px; /* Réduit l'espace entre les icônes */
-  }
-
-  .icon-wrapper .icon-text {
-    font-weight: bold;
-    font-size: 12px; /* Réduit la taille du texte pour les petits écrans */
+  nav a {
+      font-size: 1em; /* Taille réduite pour les petits écrans */
   }
 }
-

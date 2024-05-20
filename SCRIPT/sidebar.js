@@ -2,21 +2,21 @@
 function togglePanel() {
     var sidePanel = document.getElementById('sidePanel');
     var toggleButton = document.getElementById('togglePanel');
-    
+
     // Vérifie si le panneau est ouvert
     var isOpen = sidePanel.classList.contains('show');
-    
-    if (isOpen) {
-        // Si le panneau est ouvert, le ferme
-        sidePanel.classList.remove('show');
-        toggleButton.innerHTML = '&#9776;'; // Change l'icône en menu
-    } else {
-        // Si le panneau est fermé, l'ouvre
-        sidePanel.classList.add('show');
-        toggleButton.innerHTML = '&times;'; // Change l'icône en croix de fermeture
-    }
-}
 
+    if (isOpen) {
+      // Si le panneau est ouvert, le ferme
+      sidePanel.classList.remove('show');
+      toggleButton.innerHTML = '&#9776;'; // Change l'icône en menu
+    } else {
+      // Si le panneau est fermé, l'ouvre
+      sidePanel.classList.add('show');
+      toggleButton.innerHTML = '&times;'; // Change l'icône en croix de fermeture
+    }
+  }
+  
 // Fonction pour fermer le panneau
 function closePanel() {
     var sidePanel = document.getElementById('sidePanel');
@@ -59,6 +59,16 @@ sidePanelLinks.forEach(function(link) {
         closePanel(); // Appelle la fonction pour fermer le panneau
     });
 });
+
+// Sélection du switch personnalisé
+var customSwitch = document.getElementById('customSwitch');
+
+// Ajout d'un écouteur d'événement au changement de l'état du switch
+customSwitch.addEventListener('change', function() {
+    // Fermer le panneau (ou exécuter toute autre action que vous souhaitez)
+    closePanel();
+});
+
 
 // Ajoute un écouteur d'événement au clic sur l'icône de recherche dans la barre de navigation
 document.getElementById('search-icon').addEventListener('click', function() {

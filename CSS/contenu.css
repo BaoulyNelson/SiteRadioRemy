@@ -1,72 +1,33 @@
-.post {
-  text-align: center;
-  margin-top: 20px; /* Espace supplémentaire au-dessus du contenu */
-}
-
-.post h2 {
-  font-size: 24px; /* Taille de la police pour le titre */
-  margin-bottom: 10px; /* Espace supplémentaire sous le titre */
-}
-
-.post p {
-  font-size: 16px; /* Taille de la police pour le paragraphe */
-  margin-bottom: 20px; /* Espace supplémentaire sous le paragraphe */
-}
-
-
-.section-content {
-  display: none;
-}
-.section-content.active {
-  display: block;
-}
 .container {
-  display: flex;
-  flex-direction: column;
-  align-items: center; /* Center horizontally */
-  justify-content: center; /* Center vertically */
-  height: 100vh; /* Full height viewport */
+    display: none; /* Masque le contenu de la classe container */
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    margin-top: 20px;
+    text-align: center;
+    overflow-x: hidden;
+}
+.container.active {
+    display: block; /* Affiche le contenu de la classe container lorsque actif */
+}
+.container h2 {
+    color: #0056b3;
+    margin-top: 0;
+    background: #333;
+    display: inline-block; /* Permet au fond de couleur de s'adapter uniquement à la largeur du texte */
+    padding: 5px 10px; /* Ajoutez un peu de marge intérieure pour plus d'espace autour du texte */
 }
 
-.section-content {
-  display: none;
-  text-align: center; /* Center text */
+.container p {
+    color: #333;
+
 }
 
-.section-content.active {
-  display: flex;
-  flex-direction: column;
-  align-items: center; /* Center horizontally */
-  justify-content: center; /* Center vertically */
-  height: 100%; /* Full height of container */
+.container img, .container video {
+    max-width: 100%;
+    height: auto;
+    margin: 10px 0;
+    overflow-y: scroll;
+
 }
-
-/* Style pour les titres */
-h1, h2, h3, h4, h5, h6 {
-  padding: 10px 20px; /* Ajouter un peu de rembourrage pour l'arrière-plan */
-  display: inline-block; /* Permet d'occuper uniquement l'espace nécessaire autour du texte */
-}
-
-
-
-h2 {
-  background-color: #e6e6e6; /* Couleur de fond pour les titres h2 */
-}
-
-h3 {
-  background-color: #d9d9d9; /* Couleur de fond pour les titres h3 */
-}
-
-h4 {
-  background-color: #cccccc; /* Couleur de fond pour les titres h4 */
-}
-
-h5 {
-  background-color: #bfbfbf; /* Couleur de fond pour les titres h5 */
-}
-
-h6 {
-  background-color: #b3b3b3; /* Couleur de fond pour les titres h6 */
-}
-
-

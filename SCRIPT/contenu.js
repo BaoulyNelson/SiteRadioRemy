@@ -1,12 +1,16 @@
 function showSection(sectionId) {
     // Hide all sections
-    var sections = document.getElementsByClassName('section-content');
-    for (var i = 0; i < sections.length; i++) {
-        sections[i].classList.remove('active');
-    }
+    const sections = document.querySelectorAll('.container');
+    sections.forEach(section => section.classList.remove('active'));
 
-    // Show the clicked section
-    document.getElementById(sectionId).classList.add('active');
+    // Show the selected section
+    const selectedSection = document.getElementById(sectionId);
+    if (selectedSection) {
+        selectedSection.classList.add('active');
+    }
 }
 
-
+document.addEventListener("DOMContentLoaded", function() {
+    // Show "accueil" by default
+    showSection('accueil');
+});

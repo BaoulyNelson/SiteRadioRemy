@@ -1,69 +1,70 @@
 #date {
-    font-size: 18px;
-    background-color: #227;
-    font-family: Arial, sans-serif;
-    text-align: center;
-    margin-top: 10px;
-    color: beige;
-    display: inline-block; /* Ajout de cette propriété */
-  }
-  
-  .footer {
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    background-color: #333; /* Couleur de fond de votre choix */
-    color: white; /* Couleur du texte de votre choix */
-    text-align: center; /* Pour centrer le contenu du footer */
-    padding: 10px 0; /* Espace intérieur haut/bas de votre choix */
-    margin-top: auto;
-    border-top: 1px solid #f8f9fa; 
-    overflow-x: hidden;
-    transition: transform 0.3s ease;
-     }
-  
-
-  .footer-hidden {
-    transform: translateY(100%);
-    transition: transform 0.3s ease-in-out;
+  font-size: 18px;
+  background-color: #227;
+  font-family: Arial, sans-serif;
+  text-align: center;
+  margin-top: 10px;
+  color: beige;
+  display: inline-block;
+  /* Ajout de cette propriété */
 }
 
-.footer-visible {
-    transform: translateY(0);
-    transition: transform 0.3s ease-in-out;
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+  transition: transform 0.3s ease;
+}
+
+.hidden-footer {
+  transform: translateY(100%);
 }
 
 
-  .social-icons {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+footer .social-icons a {
+  color: white;
+  text-decoration: none;
+  margin: 0 10px;
+}
 
-  }
-  
-  .icon-container {
-    width: 20px;
-    height: 20px;
-    border-radius: 50%; /* Créer des cercles */
-    background-color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0 10px; /* Espacement entre les icônes */
-  }
-  
-  .icon-container a {
-    color: black;
-    font-size: 12px;
-  }
-  
 
-  .copyright {
-    display: flex;
-    justify-content: center; /* Aligner horizontalement */
-    align-items: center; /* Aligner verticalement */
-   }
 
-  
-  
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.icon-container {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  /* Créer des cercles */
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 10px;
+  /* Espacement entre les icônes */
+}
+
+.icon-container a {
+  color: black;
+  font-size: 12px;
+}
+
+
+.copyright {
+  display: flex;
+  justify-content: center;
+  /* Aligner horizontalement */
+  align-items: center;
+  /* Aligner verticalement */
+}

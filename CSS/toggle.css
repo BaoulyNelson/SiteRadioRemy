@@ -1,8 +1,11 @@
 .menu-icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
- }
+  position: absolute;
+  top: 10px;
+  left: 5px;
+  font-size: 1.5em;
+  cursor: pointer;
+  color: white;
+}
 
 .toggle-button {
   display: flex;
@@ -54,10 +57,12 @@
   /* Curseur pointer pour indiquer que c'est cliquable */
     border: none;
     background-color: #fff; /* Couleur de fond, ajustez selon vos besoins */
-}
+  }
 
 .close-icon i {
   color: white;
   font-size: 20px;
 }
+
+
 

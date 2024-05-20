@@ -1,5 +1,6 @@
 
 .radio-title {
+  font-weight: bold;
   text-align: center; /* Centrer le texte horizontalement */
 }
 
@@ -18,7 +19,7 @@ background-color: white;
 .side-title {
   color: black;
   margin-left: 10px; /* Ajoute une marge à gauche de chaque élément de liste */
-
+  font-weight: bold;
 }
 
 .menu,.categories {
