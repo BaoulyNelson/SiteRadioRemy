@@ -24,6 +24,7 @@ footer {
 .hidden-footer {
   transform: translateY(100%);
 }
+
 .hidden-footer {
   display: none;
 }
@@ -38,8 +39,6 @@ footer .social-icons a {
   text-decoration: none;
   margin: 0 10px;
 }
-
-
 
 
 .social-icons {

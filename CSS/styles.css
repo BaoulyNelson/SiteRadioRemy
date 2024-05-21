@@ -11,8 +11,10 @@
 }
 
 .menu a:hover {
-background-color: white;
-  color: #ff0000; /* Couleur de texte lorsque survolé */
+  text-decoration: none;
+  background-color: red;
+  color: #ddd;
+  /* Change la couleur au survol */
 }
 
 
@@ -33,8 +35,10 @@ background-color: white;
 
 
 .categories a:hover{
-  color: #ff0000; /* Couleur de texte lorsque survolé */
-  background-color: white;
+  text-decoration: none;
+  background-color: red;
+  color: #ddd;
+  /* Change la couleur au survol */
 }
 
 .categories a,

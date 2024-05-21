@@ -1,79 +1,113 @@
+/* Applique un reset global pour supprimer les marges par défaut */
+body,
+html {
+    margin: 0;
+    padding: 0;
+}
+
 body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  overflow-y: scroll;
-  background-color: #f0f0f0;
-
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    overflow-y: scroll;
+    background-color: #f0f0f0;
 }
 
-.user-icon{
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  font-size: 1.5em;
-  cursor: pointer;
-  color: white;
-}
-
-header {
-  background-color: #007bff;
-  color: white;
-  text-align: center;
-  padding: 10px 0;
-  position: relative;
-  overflow-x: hidden;
-}
-@import url("https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&display=swap");
-
-header h1 {
-    font-family: 'Old English Text MT', 'Cinzel Decorative', serif;
-    font-size: 2em;
-    margin: 10px 0;
-    text-align: center;
+.user-icon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 1.5em;
+    cursor: pointer;
+    color: white;
 }
 
 header .date {
-  font-size: 0.9em;
+    font-size: 0.9em;
 }
 
-nav {
-  background-color: #007bff;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 10px 0;
-  flex-wrap: nowrap; /* Empêche les éléments de passer à la ligne suivante */
-  overflow-x: hidden;
+/* Style pour le header */
+header {
+    background-color: #007bff;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    width: 100%;
+    box-sizing: border-box;
+    overflow-x: hidden;
+    position: relative;
+    /* Inclut le padding dans la largeur totale */
 }
 
-nav a {
-  list-style: none; /* Supprime les puces des listes */
-  color: white; /* Couleur du texte */
-  text-decoration: none; /* Retire le soulignement */
-  margin: 0 10px;
-  display: flex;
-  align-items: center;
-  white-space: nowrap; /* Empêche le retour à la ligne pour les éléments de navigation */
+/* Conteneur pour les éléments du haut du header */
+.header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #007bff;
+    padding: 10px 0;
+    flex-wrap: nowrap;
+    /* Empêche les éléments de passer à la ligne suivante */
+    overflow-x: hidden;
 }
 
-/* Style pour les liens lors du survol */
-nav a:hover {
-  background-color: red;
-   color: #ddd; /* Change la couleur au survol */
+.header-top .date {
+    flex: 1;
+    text-align: center;
 }
 
-nav a i {
-  margin-right: 5px; /* Espace entre l'icône et le texte */
+.header-top .menu-icon,
+.header-top .user-icon {
+    cursor: pointer;
 }
 
-/* Supprime les décorations indésirables pour toutes les icônes */
-nav a i {
-  list-style: none; /* Au cas où l'icône serait dans une liste */
-  text-decoration: none; /* Retire toute décoration de texte */
-  margin: 0; /* Remet à zéro les marges */
-  padding: 0; /* Remet à zéro les espacements */
+/* Titre centré */
+@import url("https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&display=swap");
+header h1 {
+    font-family: 'Old English Text MT', 'Cinzel Decorative', serif;
+    margin: 10px 0;
+    flex: 1 100%;
+    /* Prend toute la largeur disponible */
+    text-align: center;
 }
 
+/* Conteneur pour les liens de navigation */
+.header-bottom {
+    display: flex;
+    justify-content: center;
+    padding: 10px 0;
+}
+
+.header-bottom a {
+    color: white;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    list-style: none;
+    /* Supprime les puces des listes */
+    /* Couleur du texte */
+    margin: 0 10px;
+    white-space: nowrap;
+    /* Empêche le retour à la ligne pour les éléments de navigation */
+
+}
+
+.header-bottom a i {
+    margin-right: 5px;
+    list-style: none;
+    /* Au cas où l'icône serait dans une liste */
+    text-decoration: none;
+    /* Retire toute décoration de texte */
+    margin: 0;
+    /* Remet à zéro les marges */
+    padding: 0;
+    /* Remet à zéro les espacements */
+}
+
+.header-bottom a:hover {
+    text-decoration: none;
+    background-color: red;
+    color: #ddd;
+    /* Change la couleur au survol */
+}

@@ -1,4 +1,4 @@
-//Fonction pour afficher la section sélectionnée
+// Fonction pour afficher la section sélectionnée
 function showSection(sectionId) {
     // Cacher toutes les sections
     const sections = document.querySelectorAll('.container');
@@ -10,7 +10,7 @@ function showSection(sectionId) {
         selectedSection.classList.add('active');
     }
 
-    // Masquer le footer
+    // Masquer le footer lorsque une section est affichée
     var footer = document.querySelector('footer');
     footer.classList.add('hidden-footer');
 }
