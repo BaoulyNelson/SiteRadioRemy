@@ -32,6 +32,7 @@ header h1 {
     font-family: 'Old English Text MT', 'Cinzel Decorative', serif;
     font-size: 2em;
     margin: 10px 0;
+    text-align: center;
 }
 
 header .date {
@@ -53,7 +54,6 @@ nav a {
   color: white; /* Couleur du texte */
   text-decoration: none; /* Retire le soulignement */
   margin: 0 10px;
-  font-size: 1.2em;
   display: flex;
   align-items: center;
   white-space: nowrap; /* Empêche le retour à la ligne pour les éléments de navigation */
@@ -66,7 +66,7 @@ nav a:hover {
 }
 
 nav a i {
-  margin-right: 8px; /* Espace entre l'icône et le texte */
+  margin-right: 5px; /* Espace entre l'icône et le texte */
 }
 
 /* Supprime les décorations indésirables pour toutes les icônes */
@@ -77,9 +77,3 @@ nav a i {
   padding: 0; /* Remet à zéro les espacements */
 }
 
-/* Media query pour les petits écrans */
-@media (max-width: 600px) {
-  nav a {
-      font-size: 1em; /* Taille réduite pour les petits écrans */
-  }
-}
