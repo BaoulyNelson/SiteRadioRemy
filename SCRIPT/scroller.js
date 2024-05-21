@@ -1,5 +1,17 @@
 // Afficher ou masquer la flèche pour remonter
-window.onscroll = function() { scrollFunction(); checkScrollDirection(); };
+window.onscroll = function() { 
+    scrollFunction(); 
+    checkScrollDirection(); 
+};
+
+
+// Fonction pour remonter en haut de la page
+function scrollToTop() {
+    document.documentElement.scrollTo({
+        top: 0,
+        behavior: 'smooth' // Pour un défilement fluide
+    });
+}
 
 function scrollFunction() {
     const arrowTop = document.getElementById("arrowTop");
@@ -8,12 +20,6 @@ function scrollFunction() {
     } else {
         arrowTop.style.display = "none";
     }
-}
-
-// Fonction pour remonter en haut de la page
-function scrollToTop() {
-    document.body.scrollTop = 0; // Pour les navigateurs Safari
-    document.documentElement.scrollTop = 0; // Pour les autres navigateurs
 }
 
 // Vérifier la direction du scroll pour afficher ou masquer le footer

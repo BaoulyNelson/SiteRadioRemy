@@ -19,19 +19,16 @@ footer {
   text-align: center;
   padding: 10px 0;
   transition: transform 0.3s ease;
+  transition: opacity 0.5s;
+  overflow-x: hidden;
+
 }
 
 .hidden-footer {
   transform: translateY(100%);
+  display: none; /* Assure-toi de garder cette propriété */
 }
 
-.hidden-footer {
-  display: none;
-}
-
-footer {
-  transition: opacity 0.5s;
-}
 
 
 footer .social-icons a {

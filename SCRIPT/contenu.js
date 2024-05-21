@@ -15,7 +15,12 @@ function showSection(sectionId) {
     footer.classList.add('hidden-footer');
 }
 
+// Appeler showSection() une fois que le document est chargé
 document.addEventListener("DOMContentLoaded", function() {
     // Afficher "accueil" par défaut
     showSection('accueil');
+
+    // Afficher le footer par défaut
+    var footer = document.querySelector('footer');
+    footer.classList.remove('hidden-footer');
 });
