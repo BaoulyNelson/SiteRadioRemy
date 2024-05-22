@@ -7,7 +7,9 @@
     margin-top: 20px;
     text-align: center;
     overflow-x: hidden;
+    margin-bottom: 60px; /* Espace pour la barre de navigation inférieure */
 }
+
 .container.active {
     display: block; /* Affiche le contenu de la classe container lorsque actif */
 }

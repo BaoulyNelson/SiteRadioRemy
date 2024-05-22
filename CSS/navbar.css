@@ -6,12 +6,10 @@ html {
 }
 
 body {
+    margin: 0;
     font-family: Arial, sans-serif;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    overflow-y: scroll;
     background-color: #f0f0f0;
+    overflow-y: auto;
 }
 
 .user-icon {
@@ -32,12 +30,17 @@ header {
     background-color: #007bff;
     color: white;
     text-align: center;
+    align-items: center;
     padding: 10px 0;
     width: 100%;
     box-sizing: border-box;
     overflow-x: hidden;
-    position: relative;
     /* Inclut le padding dans la largeur totale */
+    z-index: 1000;
+    position: relative;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    top: 0;
+    
 }
 
 /* Conteneur pour les éléments du haut du header */
@@ -53,28 +56,16 @@ header {
 }
 
 
-
-/* Ajouter de l'espace avant le lien "Accueil" */
-.header-bottom a:nth-child(1) {
-    margin-left: 10px; /* Ajouter de l'espace à gauche uniquement sur les petits écrans */
-}
-
-/* Ajouter de l'espace après le lien "Vidéo" */
-.header-bottom a:nth-child(4) {
-    margin-right: 10px; /* Ajouter de l'espace à droite uniquement sur les petits écrans */
-}
-
-/* Media Query pour les petits écrans */
+/* Styles for small screens */
 @media (max-width: 767px) {
-    .header-bottom a:nth-child(1) {
-        margin-left: 10px; /* Ajouter de l'espace à gauche sur les petits écrans */
+    .header-bottom .home-link i {
+        margin-left: 20px; /* Space before the home icon on small screens */
     }
-    
-    .header-bottom a:nth-child(4) {
-        margin-right: 10px; /* Ajouter de l'espace à droite sur les petits écrans */
+
+    .header-bottom .video-link {
+        margin-right: 20px; /* Space after the video text on small screens */
     }
 }
-
 
 .header-top .date {
     flex: 1;
