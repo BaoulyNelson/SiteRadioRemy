@@ -35,12 +35,8 @@ header {
     width: 100%;
     box-sizing: border-box;
     overflow-x: hidden;
-    /* Inclut le padding dans la largeur totale */
-    z-index: 1000;
-    position: relative;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     top: 0;
-    
 }
 
 /* Conteneur pour les éléments du haut du header */
@@ -59,11 +55,11 @@ header {
 /* Styles for small screens */
 @media (max-width: 767px) {
     .header-bottom .home-link i {
-        margin-left: 20px; /* Space before the home icon on small screens */
+        margin-right: 20px; /* Space before the home icon on small screens */
     }
 
     .header-bottom .video-link {
-        margin-right: 20px; /* Space after the video text on small screens */
+        margin-left: 20px; /* Space after the video text on small screens */
     }
 }
 
@@ -86,7 +82,6 @@ header h1 {
     /* Prend toute la largeur disponible */
     text-align: center;
 }
-
 /* Conteneur pour les liens de navigation */
 .header-bottom {
     display: flex; /* Utilisation de flexbox pour aligner horizontalement les éléments */
@@ -97,27 +92,32 @@ header h1 {
 .header-bottom a {
     color: white; /* Couleur du texte des liens */
     text-decoration: none; /* Suppression du soulignement par défaut des liens */
-     align-items: center; /* Centrer verticalement les éléments enfants */
+    align-items: center; /* Centrer verticalement les éléments enfants */
     list-style: none; /* Suppression des puces pour les listes (cas où les liens seraient dans une liste) */
     margin: 0 10px; /* Ajouter un peu d'espace entre les liens */
     white-space: nowrap; /* Empêche le retour à la ligne pour les éléments de navigation */
-    /* Cette propriété assure que les éléments de navigation restent sur une seule ligne,
-       même s'ils ne rentrent pas tous dans la largeur de leur conteneur. */
-       display: inline-flex;
-     
-    }
-
+    display: inline-flex; /* Assurer l'affichage en ligne et flex des liens */
+}
 
 .header-bottom a i {
-    margin-right: 5px;
-    list-style: none;
-    /* Au cas où l'icône serait dans une liste */
-    text-decoration: none;
-    /* Retire toute décoration de texte */
-    margin: 0;
-    /* Remet à zéro les marges */
-    padding: 0;
-    /* Remet à zéro les espacements */
+    margin-right: 5px; /* Espace entre l'icône et le texte */
+    list-style: none; /* Suppression des puces pour les listes (cas où les icônes seraient dans une liste) */
+    text-decoration: none; /* Retire toute décoration de texte */
+    margin: 0; /* Remet à zéro les marges */
+    padding: 0; /* Remet à zéro les espacements */
+}
+
+/* Media query pour les petits écrans */
+@media (max-width: 600px) {
+    /* Ajout d'espace avant l'icône Accueil */
+    .header-bottom a:first-child {
+        margin-left: 20px; /* Espace avant l'icône Accueil */
+    }
+
+    /* Ajout d'espace après le texte Vidéo */
+    .header-bottom a:nth-child(4) {
+        margin-right: 20px; /* Espace après le texte Vidéo */
+    }
 }
 
 .header-bottom a:hover {
