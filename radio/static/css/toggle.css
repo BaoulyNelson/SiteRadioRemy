@@ -1,0 +1,52 @@
+
+
+.toggle-button i {
+  font-size: 24px;
+  /* Taille de l'icône, ajustez selon vos besoins */
+  color: #000;
+  /* Couleur de l'icône, ajustez selon vos besoins */
+}
+
+
+
+/* Style pour le bouton lorsque survolé */
+.menu-icon .toggle-button:hover {
+  background-color: rgba(255, 255, 255, 0.2); /* Changer la couleur de fond lors du survol */
+  border-radius: 5px; /* Ajout de coins arrondis */
+  transition: background-color 0.3s; /* Ajout d'une transition pour un effet plus fluide */
+}
+/* Media query pour les grands écrans */
+@media screen and (min-width: 768px) {
+  .toggle-button {
+    width: 60px;
+    /* Ajustez la taille du bouton pour les grands écrans selon vos besoins */
+    height: 60px;
+    font-size: 32px;
+    /* Augmentez la taille de la police si nécessaire */
+  }
+}
+
+
+.close-button {
+  font-size: 24px;
+  position: absolute;
+  top: 0;
+  right: 10px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  /* Crée un cercle */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  /* Curseur pointer pour indiquer que c'est cliquable */
+  border: none;
+  background-color: #fff;
+  /* Couleur de fond, ajustez selon vos besoins */
+}
+
+.close-icon i {
+  color: white;
+  font-size: 20px;
+}

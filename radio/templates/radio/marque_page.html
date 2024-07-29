@@ -1,0 +1,19 @@
+{% extends 'radio/base.html' %}
+{% block title %}Marque-Page - Mon Site Radio{% endblock %}
+
+{% block content %}
+<h1>Marque-Page</h1>
+
+<div class="article-list">
+    {% for article in articles %}
+        <div class="article-item">
+            <h2>{{ article.titre }}</h2>
+            <p>{{ article.contenu|truncatewords:30 }}</p>
+            {% if article.image %}
+                <img src="{{ article.image.url }}" alt="{{ article.titre }}" style="max-width:100%;">
+            {% endif %}
+            <p><a href="{% url 'article_detail' article.id %}">Lire la suite</a></p>
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}

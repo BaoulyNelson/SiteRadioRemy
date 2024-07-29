@@ -1,0 +1,206 @@
+body {
+  background-color: #e0e6ed;
+  justify-content: center; /* Centre horizontalement */
+  align-items: center; /* Centre verticalement */
+  height: 100vh;
+  margin: 0;
+  overflow-x: hidden;
+  font-family: "Times New Roman", Times, serif;
+}
+
+
+
+.top-bar {
+  background-color: #227;
+  color: #fff;
+  padding: 5px 0;
+  display: flex; /* Utilise Flexbox pour aligner les éléments en ligne */
+  align-items: center; /* Aligne verticalement les éléments au centre */
+}
+
+.top-bar a {
+  text-align: justify;
+  font-size: 10px; /* Taille de police par défaut pour les petits écrans */
+  color: #fff;
+  margin: 0 10px;
+  text-decoration: none; /* Supprime la sous-ligne par défaut des liens */
+  transition: transform 0.3s ease; /* Ajoute une transition pour la transformation */
+}
+
+/* Styles pour le survol des liens */
+.top-bar a:hover {
+  background-color: red;
+  transform: scale(1.2); /* Agrandit les liens au survol */
+}
+
+/* Media query pour les grands écrans */
+@media (min-width: 768px) {
+  .top-bar a {
+    text-align: center;
+    font-size: 16px; /* Taille de police pour les grands écrans */
+  }
+}
+
+
+.header-main {
+  background-color: #1B6FF0;
+  color: #fff;
+  padding: 10px 0;
+  position: relative;
+}
+
+p{
+  text-align: center;
+}
+
+
+.header-main .logo {
+  font-family: 'Old English Text MT', serif;
+  font-size: 36px;
+  text-align: center;
+}
+
+.header-main .language-switch {
+  position: absolute;
+  top: 5px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 14px;
+  text-decoration: none;
+}
+
+
+.navbar-main {
+  background-color: #227dea;
+  padding: 0;
+}
+
+.navbar-main .navbar-nav .nav-link {
+  color: #fff;
+  font-size: 16px;
+}
+
+.nav-link:hover {
+  transform: scale(1.2); /* Agrandit les liens au survol */
+}
+
+
+.navbar-main .nav-item.active .nav-link {
+  font-weight: bold;
+}
+
+.navbar-main .navbar-toggler {
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.navbar-main .navbar-toggler-icon {
+  color: #fff;
+}
+
+
+.header-main .logo {
+  font-family: 'Old English Text MT', serif;
+  font-size: 36px;
+}
+
+
+h1, h2,h4, h5, h6 {
+  font-family: Helvetica, sans-serif;
+  text-align: center;
+}
+
+
+p{
+  text-align: center;
+}
+p, li, blockquote {
+  font-family: "Times New Roman", Times, serif;
+}
+
+
+
+.center-paragraphe h1 {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.center-paragraphe {
+  padding-bottom: 100px; /* Pour s'assurer que le contenu n'est pas masqué par le footer */
+}
+
+.center-paragraphe p {
+  justify-content: center; /* Centre horizontalement */
+  align-items: center; /* Centre verticalement */
+  background-color: #fff; /* Définit un fond blanc pour tous les paragraphes */
+  padding: 10px; /* Ajoute un peu de padding pour l'espacement interne */
+  margin: 10px 0; /* Ajoute de l'espacement externe entre les paragraphes */
+  border-radius: 5px; /* Ajoute des coins arrondis (optionnel) */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Ajoute une légère ombre (optionnel) */
+  box-sizing: border-box; /* Assure que le padding et la bordure sont inclus dans la largeur et la hauteur totale */
+}
+
+
+.radio-title {
+  font-weight: bold;
+  text-align: center;
+}
+
+.menu a {
+  text-decoration: none;
+  color: black;
+}
+
+.menu a:hover {
+  text-decoration: none;
+  background-color: red;
+  color: #ddd;
+  transform: scale(1.2); /* Agrandit les liens au survol */
+  
+}
+
+.side-title {
+  color: black;
+  margin-left: 10px;
+  font-weight: bold;
+}
+
+.menu,
+.categories {
+  list-style-type: none;
+}
+
+.menu li,
+.categories li {
+  margin-bottom: 10px;
+}
+
+.categories a:hover {
+  text-decoration: none;
+  background-color: red;
+  color: #ddd;
+}
+
+.categories a,
+h3 {
+  text-decoration: none;
+  color: black;
+  margin-left: 10px;
+}
+
+.categories ul {
+  padding-left: 20px;
+  list-style-type: none;
+  padding: 0;
+}
+
+.categories li {
+  margin-left: 10px;
+}
+
+.categories li a:hover {
+  transform: scale(1.1);
+}
+
+
+

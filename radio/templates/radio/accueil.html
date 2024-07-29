@@ -1,0 +1,29 @@
+{% extends 'radio/base.html' %}
+
+{% block title %}Accueil - Radio Marbial FM 99.5{% endblock %}
+{% load static %}
+
+{% block content %}
+    <div class="container mt-4">
+        <h1>Bienvenue sur Radio MFM</h1>
+        <p>Explorez nos émissions, découvrez nos animateurs et restez à l'écoute pour les dernières tendances.</p>
+        <div class="container d-flex justify-content-center">
+            <!-- Exemple d'affichage des émissions -->
+            <div class="row justify-content-center">
+                {% for emission in emissions %}
+                    <div class="col-md-4 mb-4">
+                        <div class="card">
+                            <img src="{% static 'images/radi.jpg' %}" class="card-img-top" alt="{{ emission.nom }}">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ emission.nom }}</h5>
+                                <p class="card-text">{{ emission.description }}</p>
+                                <a href="{% url 'emission_detail' emission_id=emission.id %}" class="btn btn-primary">Voir plus</a>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+        
+    </div>
+{% endblock %}

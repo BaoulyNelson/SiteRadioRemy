@@ -1,0 +1,26 @@
+{% extends 'radio/base.html' %}
+
+{% block title %}Contact{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h1>Contact</h1>
+    <div class="row">
+        {% for contact in contacts %}
+            <div class="col-md-4 mb-4">
+                <div class="card text-white bg-info">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ contact.nom }}</h5>
+                        <p class="card-text">
+                            Email: {{ contact.email }}<br>
+                            Téléphone: {{ contact.telephone }}<br>
+                            Message: {{ contact.message }}<br>
+                            Reçu le: {{ contact.date_reception }}
+                        </p>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

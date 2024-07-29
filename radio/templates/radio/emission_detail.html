@@ -1,0 +1,15 @@
+{% extends 'radio/base.html' %}
+
+{% block title %}{{ emission.titre }} - Détails{% endblock %}
+
+{% block content %}
+<div class="emission-detail">
+    <h1>{{ emission.titre }}</h1>
+    <p><strong>Description :</strong> {{ emission.description }}</p>
+    <p><strong>Animateur :</strong> {{ emission.animateur.prenom }} {{ emission.animateur.nom }}</p>
+    <p><strong>Date :</strong> {{ emission.date }}</p>
+    <p><strong>Heure de début :</strong> {{ emission.heure_debut }}</p>
+    <p><strong>Heure de fin :</strong> {{ emission.heure_fin }}</p>
+    <p><strong>En direct :</strong> {% if emission.en_direct %} Oui {% else %} Non {% endif %}</p>
+</div>
+{% endblock %}

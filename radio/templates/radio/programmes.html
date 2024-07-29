@@ -1,0 +1,20 @@
+{% extends 'radio/base.html' %}
+
+{% block title %}Programmes{% endblock %}
+
+{% block content %}
+    <div class="container mt-4">
+        <h1>Programmes</h1>
+        <p>Découvrez nos programmes.</p>
+        <!-- Affichage de la liste des programmes -->
+        <ul>
+            {% for programme in programmes %}
+                <li>
+                    <a href="{% url 'programme_detail' programme_id=programme.id %}">{{ programme.nom }}</a>
+                </li>
+            {% empty %}
+                <li>Aucun programme disponible.</li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock %}

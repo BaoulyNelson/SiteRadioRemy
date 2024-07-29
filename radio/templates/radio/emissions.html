@@ -1,0 +1,16 @@
+{% extends 'radio/base.html' %}
+
+{% block title %}Émissions{% endblock %}
+
+{% block content %}
+<div class="emission-list">
+    {% for emission in emissions %}
+        <div class="emission-item">
+            <h2 class="{% if emission.en_direct %}live{% endif %}">{{ emission.titre }}</h2>
+            <p>{{ emission.description }}</p>
+            <p>De {{ emission.heure_debut }} à {{ emission.heure_fin }}</p>
+            <p>Date : {{ emission.date }}</p>
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends 'radio/base.html' %}
+
+{% block title %}Vidéo - Mon Site Radio{% endblock %}
+
+{% block content %}
+<p>Bienvenue sur la page vidéo !</p>
+
+<div class="video-list">
+    {% for video in videos %}
+        <div class="video-item">
+            <h2>{{ video.titre }}</h2>
+            <p>{{ video.description }}</p>
+            <div class="video-container">
+                {% if video.video_file %}
+                    <video controls>
+                        <source src="{{ video.video_file.url }}" type="video/mp4">
+                        Votre navigateur ne supporte pas l'élément vidéo.
+                    </video>
+                {% elif video.url %}
+                    <iframe src="{{ video.url }}" width="600" style="height: 400px;" frameborder="0" scrolling="no" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                {% else %}
+                    <p>Pas de vidéo disponible.</p>
+                {% endif %}
+            </div>
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}

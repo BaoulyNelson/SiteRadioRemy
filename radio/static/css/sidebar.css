@@ -1,0 +1,51 @@
+.side-panel {
+    width: 0;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: -100%; /* Modifié pour que le panneau soit initialement fermé */
+    background-color: #fff; /* Couleur de fond du panneau latéral */
+    transition: left 0.5s; /* Modifié pour la transition de la propriété 'left' */
+    overflow-y: auto;
+    padding-bottom: 50px; /* Vous pouvez ajuster cette valeur selon vos besoins */
+    border: 1px solid gray;
+    z-index: 1; /* Assure que l'icône est au-dessus du panneau */
+}
+
+/* Modifié pour la classe 'show' */
+.side-panel.show {
+    left: 0; /* Affiche le panneau latéral lorsqu'il est ouvert */
+    width: 50%; /* Sur les grands écrans, le panneau s'ouvre à moitié */
+}
+
+@media screen and (max-width: 768px) {
+    /* Modifié pour les écrans de petite taille */
+    .side-panel.show {
+        left: 0; /* Affiche le panneau latéral lorsqu'il est ouvert */
+        width: 100%; /* Sur les petits écrans, le panneau occupe toute la largeur */
+    }
+}
+
+
+.line {
+    height: 4px; /* Increased height for thicker line */
+    background-color: #FF6F6F;
+    margin-top: 10px;
+  }
+
+
+ 
+  
+  
+
+  
+  
+  
+
+
+    
+
+
+
+
+

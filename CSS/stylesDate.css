@@ -1,8 +1,0 @@
-#current-time {
-    text-align: center; /* Pour centrer le texte */
-    color: white; /* Pour définir la couleur du texte en blanc */
-    background-size: 18px; /* Ajuster la taille de l'icône horloge à 18px */
-    background-repeat: no-repeat; /* Empêcher la répétition de l'icône horloge */
-    padding-left: 20px; /* Ajouter un espacement à gauche pour l'icône horloge */
-    font-size: 0.9em;
-}

@@ -1,0 +1,14 @@
+{% extends 'radio/base.html' %}
+
+{% block title %}Détails du Programme{% endblock %}
+
+{% block content %}
+    <div class="container mt-4">
+        <h1>{{ programme.nom }}</h1>
+        <p><strong>Date de Diffusion:</strong> {{ programme.date_diffusion }}</p>
+        <p><strong>Heure de Début:</strong> {{ programme.heure_debut }}</p>
+        <p><strong>Heure de Fin:</strong> {{ programme.heure_fin }}</p>
+        <p><strong>Émission:</strong> {{ programme.emission.titre }}</p>
+        <!-- Autres détails sur le programme -->
+    </div>
+{% endblock %}

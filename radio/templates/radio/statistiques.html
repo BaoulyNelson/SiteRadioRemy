@@ -1,0 +1,18 @@
+{% extends 'radio/base.html' %}
+
+{% block title %}Statistiques{% endblock %}
+
+{% block content %}
+    <div class="container mt-4">
+        <h1>Statistiques</h1>
+        <p>Consultez les statistiques de notre radio.</p>
+        <!-- Affichage des statistiques -->
+        <ul>
+            {% for statistique in statistiques %}
+                <li>{{ statistique.nom }} - {{ statistique.valeur }}</li>
+            {% empty %}
+                <li>Aucune statistique disponible.</li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock %}

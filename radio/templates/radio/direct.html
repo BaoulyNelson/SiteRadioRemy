@@ -1,0 +1,26 @@
+{% extends 'radio/base.html' %}
+
+{% block title %}Direct - Mon Site Radio{% endblock %}
+
+{% block content %}
+<p>Bienvenue sur la page de Direct !</p>
+
+<div class="direct-list">
+    {% for direct in directs %}
+        <div class="direct-item">
+            <h2>{{ direct.titre }}</h2>
+            <p>{{ direct.description }}</p>
+            {% if 'youtube.com' in direct.url %}
+                <!-- Pour les vidéos YouTube -->
+                <iframe src="https://www.youtube.com/embed/{{ direct.url|slice:'*?v=' }}?autoplay=1" width="600" style="height: 400px;" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            {% elif 'facebook.com' in direct.url %}
+                <!-- Pour les vidéos Facebook -->
+                <iframe src="https://www.facebook.com/plugins/video.php?href={{ direct.url }}&autoplay=1" width="600" style="height: 400px;" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            {% else %}
+                <!-- Autres types de vidéos -->
+                <iframe src="{{ direct.url }}?autoplay=1" width="600" style="height: 400px;" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            {% endif %}
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}

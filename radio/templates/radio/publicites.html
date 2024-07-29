@@ -1,0 +1,18 @@
+{% extends 'radio/base.html' %}
+
+{% block title %}Publicités{% endblock %}
+
+{% block content %}
+    <div class="container mt-4">
+        <h1>Publicités</h1>
+        <p>Voici nos publicités en cours.</p>
+        <!-- Affichage de la liste des publicités -->
+        <ul>
+            {% for publicite in publicites %}
+                <li>{{ publicite.nom }} - {{ publicite.description }}</li>
+            {% empty %}
+                <li>Aucune publicité disponible.</li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock %}

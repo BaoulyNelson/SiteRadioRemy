@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Radio Marbial FM 99.5 FM{% endblock %}</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+
+    {% block extra_head %}
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'css/footer.css' %}">
+        <link rel="stylesheet" href="{% static 'css/mode.css' %}">
+        <link rel="stylesheet" href="{% static 'css/monterHaut.css' %}">
+        <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
+        <link rel="stylesheet" href="{% static 'css/recherche.css' %}">
+        <link rel="stylesheet" href="{% static 'css/sidebar.css' %}">
+        <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+        <link rel="stylesheet" href="{% static 'css/tableau.css' %}">
+        <link rel="stylesheet" href="{% static 'css/toggle.css' %}">
+        <link rel="stylesheet" href="{% static 'css/logo.css' %}">
+        <link rel="stylesheet" href="{% static 'css/stylesCommuns.css' %}">
+    {% endblock %}
+
+</head>
+<body>
+
+        {% include 'radio/partials/header.html' %}
+
+        <!-- Menu latéral commun -->
+        <div id="sidePanel" class="side-panel">
+            <span id="closeButton" class="close-button"><i class="fas fa-times"></i></span>
+            <div class="sidebar">
+                <div class="logo-expand">
+                    <img src="{% static 'images/logo.jpg' %}" alt="Logo" id="logo">
+                    <!-- Structure HTML de l'icône de recherche -->
+                    <div id="searchIcon">
+                        <i class="fa fa-search"></i>
+                    </div>
+                </div>
+
+                <form id="searchForm" action="{% url 'search' %}" method="get">
+                    <input type="search" name="q" placeholder="Rechercher...">
+                    <button type="submit">Rechercher</button>
+                </form>
+
+                <div class="side-title">MENU</div>
+                <ul class="menu">
+                    <li>
+                        <a href="{% url 'decouvrir' %}" class="{% if request.path == '/decouvrir/' %}active{% endif %}">
+                            <i class="fas fa-globe"></i> Découvrir
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{% url 'tendance' %}" class="{% if request.path == '/tendance/' %}active{% endif %}">
+                            <i class="fas fa-chart-line"></i> Tendance
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{% url 'video' %}" class="{% if request.path == '/video/' %}active{% endif %}">
+                            <i class="fas fa-play-circle"></i> Diffusion
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{% url 'liste_de_lecture' %}" class="{% if request.path == '/liste_de_lecture/' %}active{% endif %}">
+                            <i class="fas fa-list"></i> Liste de Lecture
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{% url 'marque_page' %}" class="{% if request.path == '/marque_page/' %}active{% endif %}">
+                            <i class="fas fa-bookmark"></i> Marque-Page
+                        </a>
+                    </li>
+                </ul>
+
+                <div class="categories">
+                    <h3>Catégories</h3>
+                    <ul>
+                        <li>
+                            <a href="{% url 'direct' %}" class="{% if direct_is_live %}live{% endif %}">
+                                <i class="fas fa-broadcast-tower"></i> Diffusion en Direct
+                                {% if direct_is_live %}
+                                    <span class="live-indicator"></span>
+                                {% endif %}
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{% url 'economie' %}" class="{% if request.path == '/economie/' %}active{% endif %}">
+                                <i class="fas fa-chart-line"></i> Économie
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{% url 'culture' %}" class="{% if request.path == '/culture/' %}active{% endif %}">
+                                <i class="fas fa-theater-masks"></i> Culture
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{% url 'sports' %}" class="{% if request.path == '/sports/' %}active{% endif %}">
+                                <i class="fas fa-futbol"></i> Sports
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{% url 'statistiques' %}" class="{% if request.resolver_match.url_name == 'statistiques' %}active{% endif %}">
+                                <i class="fas fa-chart-line"></i> Statistiques
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{% url 'publicites' %}" class="{% if request.resolver_match.url_name == 'publicites' %}active{% endif %}">
+                                <i class="fas fa-bullhorn"></i> Publicités
+                            </a>
+                        </li>
+                       
+                    </ul>
+                </div>
+                <hr>
+                <div class="cont">
+                    <div class="custom-control custom-switch">
+                        <input type="checkbox" class="custom-control-input" id="customSwitch">
+                        <label class="custom-control-label" for="customSwitch">
+                            <span id="modeIcon" class="mode-icon"><i class="fas fa-sun"></i></span>
+                            <span id="modeText" class="mode-text">Mode nuit</span>
+                        </label>
+                    </div>
+                </div>
+                <div class="line"></div>
+            </div>
+        </div>
+        
+    <div class="center-paragraphe">
+       
+            {% block content %}
+            
+            {% endblock %}
+    </div>
+
+    {% include 'radio/partials/footer.html' %}
+
+   
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.min.js"></script>
+
+
+    <!-- Inclusion du fichier JavaScript -->
+    <script src="{% static 'js/date.js' %}"></script>
+    <script src="{% static 'js/mode.js' %}"></script>
+    <script src="{% static 'js/scriptRecherche.js' %}"></script>
+    <script src="{% static 'js/scroller.js' %}"></script>
+    <script src="{% static 'js/sidebar.js' %}"></script>
+</body>
+</html>

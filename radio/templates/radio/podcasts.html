@@ -1,0 +1,29 @@
+{% extends 'radio/base.html' %}
+
+{% block title %}Podcasts - Mon Site Radio{% endblock %}
+
+{% block content %}
+<p>Bienvenue sur la page des podcasts !</p>
+
+<div class="podcast-list">
+    {% for podcast in podcasts %}
+        <div class="podcast-item">
+            <h2>{{ podcast.titre }}</h2>
+            <p>{{ podcast.description }}</p>
+            {% if podcast.audio_file %}
+                <audio controls>
+                    <source src="{{ podcast.audio_file.url }}" type="audio/mpeg">
+                    Votre navigateur ne supporte pas l'élément audio.
+                </audio>
+            {% elif podcast.url %}
+                <audio controls>
+                    <source src="{{ podcast.url }}" type="audio/mpeg">
+                    Votre navigateur ne supporte pas l'élément audio.
+                </audio>
+            {% else %}
+                <p>Pas de fichier audio disponible.</p>
+            {% endif %}
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}

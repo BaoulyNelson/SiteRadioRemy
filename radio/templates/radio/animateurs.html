@@ -1,0 +1,21 @@
+{% extends 'radio/base.html' %}
+{% block title %}Animateurs - Mon Site Radio{% endblock %}
+
+
+{% block content %}
+    <div class="container mt-4">
+        <div class="row">
+            {% for animateur in animateurs %}
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ animateur.prenom }} {{ animateur.nom }}</h5>
+                            <p class="card-text">{{ animateur.bio }}</p>
+                            <p class="card-text"><small class="text-muted">{{ animateur.email }}</small></p>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

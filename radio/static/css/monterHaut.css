@@ -1,0 +1,46 @@
+#arrowTop {
+  display: none; /* Masquer par défaut */
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 99;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
+
+#arrowTop {
+  display: none; /* Masquer par défaut */
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 99;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  background-color: #007bff; /* Couleur de la flèche */
+  border-radius: 50%;
+  text-align: center;
+  line-height: 30px;
+  font-size: 20px;
+  color: white;
+  transition: background-color 0.3s ease;
+}
+
+#arrowTop:hover {
+  background-color: #0056b3; /* Changement de couleur au survol */
+}
+
+#arrowTop span:first-child {
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  border-bottom-color: #007bff; /* Couleur de la flèche */
+}
+
+#arrowTop span:last-child {
+  top: 5px;
+  left: 0;
+  border-bottom-color: transparent;
+  border-right-color: #007bff; /* Couleur de la flèche */
+}

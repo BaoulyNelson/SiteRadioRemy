@@ -1,0 +1,18 @@
+{% extends 'radio/base.html' %}
+
+{% block title %}Auditeurs{% endblock %}
+
+{% block content %}
+    <div class="container mt-4">
+        <p>Voici la liste des auditeurs :</p>
+        <div class="list-group">
+            {% for auditeur in auditeurs %}
+                <a href="{% url 'auditeur_detail' id=auditeur.id %}" class="list-group-item list-group-item-action">
+                    {{ auditeur.nom }}
+                </a>
+            {% empty %}
+                <p>Aucun auditeur trouvé.</p>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

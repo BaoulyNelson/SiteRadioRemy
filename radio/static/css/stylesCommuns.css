@@ -1,0 +1,120 @@
+/* styles.css */
+
+/* Container for the video list */
+.video-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    padding: 20px;
+}
+
+/* Individual video item styling */
+.video-item {
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Video item hover effect */
+.video-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Video title styling */
+.video-item h2 {
+    font-size: 1.2em;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+/* Video description styling */
+.video-item p {
+    font-size: 0.9em;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+/* Link styling */
+.video-item a {
+    text-decoration: none;
+    color: #007bff;
+    font-weight: bold;
+}
+
+.video-item a:hover {
+    text-decoration: underline;
+}
+
+
+/* styles.css */
+
+/* Card customization */
+.card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+    transform: scale(1.02);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.card-title {
+    font-size: 1.1em;
+    color: #333;
+}
+
+.card-text {
+    color: #555;
+}
+
+.direct-list {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.direct-item {
+    text-align: center;
+    margin: 10px; /* Ajustez la marge selon vos besoins */
+}
+
+
+.podcast-list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center; /* Centre le texte à l'intérieur des éléments */
+}
+.podcast-item {
+    margin: 10px; /* Ajustez la marge selon vos besoins */
+}
+
+/* styles.css */
+.article-item img {
+    max-width: 100%;  /* Ne pas dépasser la largeur du conteneur */
+    height: auto;     /* Ajuster la hauteur proportionnellement */
+    display: block;   /* S'assurer que les images sont des éléments de bloc */
+    margin: 0 auto;   /* Centrer les images */
+}
+
+.article-item {
+    max-width: 600px;  /* Largeur maximale pour le conteneur */
+    margin: 0 auto;    /* Centrer le conteneur sur la page */
+    text-align: center; /* Centrer le texte et les images à l'intérieur */
+}
+
+.article-item img {
+    width: auto;
+    max-width: 100%;
+    height: auto;
+}

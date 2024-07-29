@@ -1,0 +1,16 @@
+{% extends 'radio/base.html' %}
+{% block title %}{{ article.titre }}{% endblock %}
+
+{% block content %}
+<h1>{{ article.titre }}</h1>
+<div class="article-content">
+    <p>{{ article.contenu }}</p>
+    {% if article.image %}
+        <img src="{{ article.image.url }}" alt="{{ article.titre }}" style="max-width:100%;">
+    {% endif %}
+</div>
+<p>Par {{ article.auteur }}</p>
+<p>Publié le {{ article.date_publication }}</p>
+
+
+{% endblock %}

@@ -1,0 +1,24 @@
+/* Style pour l'icône de menu */
+.menu-icon {
+    position: absolute;
+    top: 10px; /* Ajustez cette valeur selon votre besoin */
+    left: 10px; /* Ajustez cette valeur selon votre besoin */
+    width: 50px; /* Taille du cercle */
+    height: 50px; /* Taille du cercle */
+    background-color: red; /* Couleur de fond du cercle */
+    border-radius: 50%; /* Pour rendre le fond circulaire */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Style pour le bouton à l'intérieur de l'icône de menu */
+.menu-icon .toggle-button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 34px; /* Taille de l'icône */
+    cursor: pointer;
+    line-height: 1; /* Pour centrer verticalement l'icône */
+}
+

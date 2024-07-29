@@ -1,0 +1,25 @@
+{% extends 'radio/base.html' %}
+
+{% block title %}Parrains{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h1>Parrains</h1>
+    <div class="row">
+        {% for parrain in parrains %}
+            <div class="col-md-4 mb-4">
+                <div class="card text-white bg-success">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ parrain.nom }}</h5>
+                        <img src="{{ parrain.logo.url }}" alt="{{ parrain.nom }}" style="width: 100px; height: auto;">
+                        <p class="card-text">
+                            Description: {{ parrain.description }}<br>
+                            <a href="{{ parrain.site_web }}" class="btn btn-light">Site Web</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

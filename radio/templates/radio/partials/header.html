@@ -1,0 +1,110 @@
+<header>
+  <!-- Top Bar -->
+  <div class="top-bar d-flex justify-content-between align-items-center px-3">
+    <div class="d-flex justify-content-center flex-grow-1">
+      <div>
+        <a
+          href="{% url 'animateurs' %}"
+          class="{% if request.resolver_match.url_name == 'animateurs' %}active{% endif %}"
+        >
+          <i class="fas fa-microphone"></i> Animateurs
+        </a>
+        <a
+          href="{% url 'programmes' %}"
+          class="{% if request.resolver_match.url_name == 'programmes' %}active{% endif %}"
+        >
+          <i class="fas fa-calendar-alt"></i> Programme
+        </a>
+
+        <a
+          href="{% url 'contacts' %}"
+          class="{% if request.resolver_match.url_name == 'contacts' %}active{% endif %}"
+        >
+          <i class="fas fa-envelope"></i> Contact
+        </a>
+
+        <a
+          href="{% url 'parrains' %}"
+          class="{% if request.resolver_match.url_name == 'parrains' %}active{% endif %}"
+        >
+          <i class="fas fa-handshake"></i> Parainneurs
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Main Header -->
+  <div class="header-main text-center">
+    <div class="container">
+      <div class="language-switch">
+        <a
+          href="?language=fr"
+          class="text-white {% if LANGUAGE_CODE == 'fr' %}active{% endif %}"
+          >FRANÇAIS</a
+        >
+        |
+        <a
+          href="?language=en"
+          class="text-white {% if LANGUAGE_CODE == 'en' %}active{% endif %}"
+          >ENGLISH</a
+        >
+      </div>
+
+      <div class="logo">Radio MFM 99.5</div>
+      <div class="user-actions">
+        {% if user.is_authenticated and user.is_staff %}
+        <i class="fas fa-user"></i>
+        <a href="/admin/" class="text-white">S'IDENTIFIER</a>
+        {% endif %}
+      </div>
+    </div>
+
+    <div class="menu-icon" aria-label="Menu">
+      <button id="togglePanel" class="toggle-button">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+  </div>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar navbar-expand-lg navbar-main">
+    <div class="container">
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav mx-auto">
+          <li class="nav-item {% if request.path == '/' %}active{% endif %}">
+            <a href="{% url 'accueil' %}" class="nav-link">
+              <i class="fas fa-home"></i> Accueil
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="{% url 'direct' %}" class="nav-link {% if direct_is_live %}live{% endif %}">
+                <i class="fas fa-broadcast-tower"></i> Direct 
+                {% if direct_is_live %}
+                    <span class="live-indicator"></span>
+                {% endif %}
+            </a>
+        </li>
+        
+          <li class="nav-item">
+            <a
+              href="{% url 'podcasts' %}"
+              class="nav-link {% if request.path == '/podcasts/' %}active{% endif %}"
+            >
+              <i class="fas fa-podcast"></i> Podcasts
+            </a>
+          </li>
+          <li class="nav-item">
+            <a
+              href="{% url 'video' %}"
+              class="nav-link {% if request.path == '/video/' %}active{% endif %}"
+            >
+              <i class="fas fa-video"></i> Différé
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>

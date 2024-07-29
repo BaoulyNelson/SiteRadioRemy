@@ -1,0 +1,15 @@
+{% extends "admin/base.html" %}
+{% block title %}Administration de Radio Marbial FM{% endblock %}
+
+{% block branding %}
+<h1 id="site-name"><a href="{% url 'accueil' %}">Retour au site</a></h1>
+{% endblock %}
+
+{% block nav-global %}
+<nav class="nav-global">
+    <ul>
+        <li><a href="{% url 'admin_dashboard' %}">Tableau de bord</a></li>
+    </ul>
+</nav>
+{% endblock %}
+
