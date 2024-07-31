@@ -3,17 +3,17 @@ from django.contrib.auth.models import User
 from django.core.validators import RegexValidator
 from django.utils.translation import gettext_lazy as _
 
-# Modèle pour les vidéos
-class Video(models.Model):
+
+# Modèle pour les directs (émissions en direct)
+class Direct(models.Model):
     titre = models.CharField(max_length=200)
-    description = models.TextField()
-    url = models.URLField(blank=True, null=True)  # URL pour les vidéos externes
-    video_file = models.FileField(upload_to='videos/', blank=True, null=True)  # Fichier vidéo local
-    auteur = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True)
+    description = models.TextField(blank=True)
+    url = models.URLField()  # Lien vers le direct
     date_publication = models.DateTimeField(auto_now_add=True)
-    
+
     def __str__(self):
         return self.titre
+
 
 # Modèle pour les podcasts
 class Podcast(models.Model):
@@ -27,16 +27,23 @@ class Podcast(models.Model):
     def __str__(self):
         return self.titre
 
-# Modèle pour les directs (émissions en direct)
-class Direct(models.Model):
-    titre = models.CharField(max_length=200)
-    description = models.TextField(blank=True)
-    url = models.URLField()  # Lien vers le direct
-    date_publication = models.DateTimeField(auto_now_add=True)
 
+
+
+class Video(models.Model):
+    titre = models.CharField(max_length=200)
+    description = models.TextField()
+    url = models.URLField(blank=True, null=True)  # URL pour les vidéos externes
+    video_file = models.FileField(upload_to='videos/', blank=True, null=True)  # Fichier vidéo local
+    auteur = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True)
+    date_publication = models.DateTimeField(auto_now_add=True)
+    
     def __str__(self):
         return self.titre
 
+    
+    
+    
 # Modèle pour les animateurs
 class Animateur(models.Model):
     prenom = models.CharField(max_length=100)
@@ -126,13 +133,14 @@ class Contact(models.Model):
     
 class Parrain(models.Model):
     nom = models.CharField(max_length=100)
-    contact = models.CharField(max_length=100, blank=True, null=True)
+    contact = models.URLField(blank=True, null=True)  # URLField pour les URL valides
     type_parrainage = models.CharField(max_length=200, choices=[('or', 'Or'), ('argent', 'Argent'), ('bronze', 'Bronze')], default='bronze')
     details = models.TextField(blank=True, null=True)
     date_creation = models.DateTimeField(auto_now_add=True)
     
     def __str__(self):
         return self.nom
+
     
 class MyModel(models.Model):
     name = models.CharField(_('name'), max_length=100)

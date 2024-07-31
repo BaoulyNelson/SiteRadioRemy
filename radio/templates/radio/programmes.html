@@ -1,20 +1,29 @@
 {% extends 'radio/base.html' %}
 
-{% block title %}Programmes{% endblock %}
+
+{% block title %}Programmes -Radio Marbial FM{% endblock %}
 
 {% block content %}
     <div class="container mt-4">
         <h1>Programmes</h1>
         <p>Découvrez nos programmes.</p>
         <!-- Affichage de la liste des programmes -->
-        <ul>
+        <div class="row">
             {% for programme in programmes %}
-                <li>
-                    <a href="{% url 'programme_detail' programme_id=programme.id %}">{{ programme.nom }}</a>
-                </li>
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ programme.nom }}</h5>
+                            <p class="card-text">{{ programme.description }}</p>
+                            <a href="{% url 'programme_detail' programme_id=programme.id %}" class="btn btn-primary">Voir plus</a>
+                        </div>
+                    </div>
+                </div>
             {% empty %}
-                <li>Aucun programme disponible.</li>
+                <div class="col-12">
+                    <p>Aucun programme disponible.</p>
+                </div>
             {% endfor %}
-        </ul>
+        </div>
     </div>
 {% endblock %}

@@ -58,7 +58,12 @@ def direct(request):
     directs = Direct.objects.all().order_by('-date_publication')
     return render(request, 'radio/direct.html', {'directs': directs})
 
-
+def room(request, room_name):
+    return render(request, 'radio/room.html', {
+        'room_name': room_name
+    })
+    
+    
 # Vue pour les podcasts
 def podcasts(request):
     podcasts = Podcast.objects.all().order_by('-date_publication')
@@ -165,6 +170,18 @@ def marque_page(request):
 # Vue pour afficher la diffusion
 def diffusion(request):
     return render(request, 'radio/diffusion.html')
+
+def parrains_list(request):
+    parrains = Parrain.objects.all()
+    return render(request, 'radio/parrains.html', {'parrains': parrains})
+
+
+
+def parrain_detail(request, id):
+    parrain = get_object_or_404(Parrain, id=id)
+    parrain.valid_contact = parrain.contact and parrain.contact.startswith('http')
+    return render(request, 'radio/parrain_detail.html', {'parrain': parrain})
+
 def live_comments(request):
     if request.method == 'POST':
         form = CommentForm(request.POST)
@@ -194,6 +211,7 @@ def contact(request):
 def parrains(request):
     parrains = Parrain.objects.all()
     return render(request, 'radio/parrains.html', {'parrains': parrains})
+
 # Gestion des erreurs
 def page_not_found(request, exception=None):
     return render(request, '404.html', status=404)
@@ -216,6 +234,9 @@ def search(request):
         'publicites': [],
         'statistiques': [],
         'articles': [],
+        'contacts': [],
+        'parrains': [],
+        
     }
     
     if query:
@@ -248,5 +269,23 @@ def search(request):
         
         # Recherche dans les articles
         results['articles'] = Article.objects.filter(Q(titre__icontains=query) | Q(contenu__icontains=query))
+        
+        
+        # Recherche dans les contacts
+        results['contacts'] = Contact.objects.filter(
+            Q(nom__icontains=query) | 
+            Q(email__icontains=query) | 
+            Q(telephone__icontains=query) | 
+            Q(sujet__icontains=query) | 
+            Q(message__icontains=query)
+        )
+        
+        # Recherche dans les parrains
+        results['parrains'] = Parrain.objects.filter(
+            Q(nom__icontains=query) | 
+            Q(contact__icontains=query) | 
+            Q(type_parrainage__icontains=query) | 
+            Q(details__icontains=query)
+        )
     
     return render(request, 'radio/search_results.html', {'query': query, **results})

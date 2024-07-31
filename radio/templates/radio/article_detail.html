@@ -1,4 +1,6 @@
 {% extends 'radio/base.html' %}
+
+
 {% block title %}{{ article.titre }}{% endblock %}
 
 {% block content %}
@@ -6,11 +8,11 @@
 <div class="article-content">
     <p>{{ article.contenu }}</p>
     {% if article.image %}
-        <img src="{{ article.image.url }}" alt="{{ article.titre }}" style="max-width:100%;">
+        <img src="{{ article.image.url }}" alt="{{ article.titre }}" class="article-image">
+
     {% endif %}
 </div>
 <p>Par {{ article.auteur }}</p>
-<p>Publié le {{ article.date_publication }}</p>
-
-
+<p>Publié le {{ article.date_publication|date:"d M Y" }}</p> <!-- Format de date amélioré -->
+<a href="{% url 'article_list' %}">Retour à la liste des articles</a> <!-- Ajout d'un lien de retour -->
 {% endblock %}

@@ -1,6 +1,7 @@
+/* logo de rmf */
+
 .logo-expand {
   display: flex;
- 
   align-items: center; /* Centrer l'image verticalement */
   max-width: 100%; /* Le conteneur ne sera pas plus large que 100% de son parent */
   padding: 10px; /* Optionnel : ajouter un peu de padding autour du logo */

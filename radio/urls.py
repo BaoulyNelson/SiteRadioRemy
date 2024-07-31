@@ -10,7 +10,7 @@ urlpatterns = [
     
     # Page en direct
     path('direct/', views.direct, name='direct'),
-    
+    path('chat/<str:room_name>/', views.room, name='room'),
     # Podcasts
     path('podcasts/', views.podcasts, name='podcasts'),
     
@@ -55,7 +55,7 @@ urlpatterns = [
     path('culture/', views.culture, name='culture'),
     path('sports/', views.sports, name='sports'),
     path('articles/', views.article_list, name='article_list'),
-        path('article/<int:article_id>/', views.article_detail, name='article_detail'),
+    path('article/<int:article_id>/', views.article_detail, name='article_detail'),
     path('live_comments/', views.live_comments, name='live_comments'),
     # Gestion des erreurs
     path('404/', views.page_not_found, name='page_not_found'),

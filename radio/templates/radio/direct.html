@@ -1,26 +1,70 @@
 {% extends 'radio/base.html' %}
 
-{% block title %}Direct - Mon Site Radio{% endblock %}
+
+{% load custom_filters %}
+{% block title %}Direct - Radio Marbial FM{% endblock %}
 
 {% block content %}
 <p>Bienvenue sur la page de Direct !</p>
 
-<div class="direct-list">
+<div class="row">
     {% for direct in directs %}
-        <div class="direct-item">
-            <h2>{{ direct.titre }}</h2>
-            <p>{{ direct.description }}</p>
-            {% if 'youtube.com' in direct.url %}
-                <!-- Pour les vidéos YouTube -->
-                <iframe src="https://www.youtube.com/embed/{{ direct.url|slice:'*?v=' }}?autoplay=1" width="600" style="height: 400px;" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            {% elif 'facebook.com' in direct.url %}
-                <!-- Pour les vidéos Facebook -->
-                <iframe src="https://www.facebook.com/plugins/video.php?href={{ direct.url }}&autoplay=1" width="600" style="height: 400px;" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            {% else %}
-                <!-- Autres types de vidéos -->
-                <iframe src="{{ direct.url }}?autoplay=1" width="600" style="height: 400px;" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            {% endif %}
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">{{ direct.titre }}</h5>
+                    <p class="card-text">{{ direct.description }}</p>
+                    <div class="video-container">
+                        {% if 'youtube.com' in direct.url or 'youtu.be' in direct.url %}
+                            <div class="embed-responsive embed-responsive-16by9">
+                                <iframe class="embed-responsive-item" src="{{ direct.url|youtube_embed_url }}" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+                            </div>
+                        {% elif 'facebook.com' in direct.url %}
+                            <div class="embed-responsive embed-responsive-16by9">
+                                <iframe class="embed-responsive-item" src="{{ direct.url|facebook_embed_url }}" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+                            </div>
+                        {% else %}
+                            <p>Vidéo non supportée.</p>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
         </div>
     {% endfor %}
 </div>
+
+<div class="chat">
+    <div class="chat-log" id="chat-log"></div>
+    <form id="chat-form">
+        <input type="text" id="chat-message-input" autocomplete="off"/>
+        <input type="submit" id="chat-message-submit" value="Send"/>
+    </form>
+</div>
+
+<script>
+const roomName = "your_room_name";  // Remplacez par la méthode pour générer le nom de la salle
+
+const chatSocket = new WebSocket(
+    'ws://' + window.location.host + '/ws/chat/' + roomName + '/'
+);
+
+chatSocket.onmessage = function(e) {
+    const data = JSON.parse(e.data);
+    document.querySelector('#chat-log').value += (data.message + '\n');
+};
+
+chatSocket.onclose = function(e) {
+    console.error('Chat socket closed unexpectedly');
+};
+
+document.querySelector('#chat-form').onsubmit = function(e) {
+    e.preventDefault();
+    const messageInputDom = document.querySelector('#chat-message-input');
+    const message = messageInputDom.value;
+    chatSocket.send(JSON.stringify({
+        'message': message
+    }));
+    messageInputDom.value = '';
+};
+</script>
 {% endblock %}

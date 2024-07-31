@@ -1,4 +1,6 @@
 {% extends 'radio/base.html' %}
+
+
 {% block title %}Liste des articles{% endblock %}
 
 {% block content %}
@@ -6,12 +8,15 @@
 <div class="article-list">
     {% for article in articles %}
         <div class="article-item">
-            <h2>{{ article.titre }}</h2>
+            <h2><a href="{% url 'article_detail' article.id %}">{{ article.titre }}</a></h2> <!-- Titre cliquable -->
             <p>{{ article.contenu|truncatewords:30 }}</p>
-            {% if article.image %}
-                <img src="{{ article.image.url }}" alt="{{ article.titre }}" style="max-width:100%;">
-            {% endif %}
-            <p><a href="{% url 'article_detail' article.id %}">Lire la suite</a></p>
+            <div class="card bg-white mb-4">
+                {% if article.image %}
+                    <img src="{{ article.image.url }}" alt="{{ article.titre }}" class="card-img-top img-fluid">
+                {% endif %}
+            </div>
+            
+            <p><a href="{% url 'article_detail' article.id %}">Lire la suite</a></p> <!-- Lien pour lire la suite -->
         </div>
     {% endfor %}
 </div>

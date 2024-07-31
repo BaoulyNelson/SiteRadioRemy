@@ -1,59 +1,24 @@
-/* styles.css */
-
-/* Container for the video list */
-.video-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
-    padding: 20px;
+/* Place the CSS styles here or link to your main CSS file */
+.video-container {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    border: 2px solid #333;
+    border-radius: 10px;
 }
 
-/* Individual video item styling */
-.video-item {
-    border: 1px solid #ddd;
-    padding: 15px;
-    border-radius: 8px;
-    background-color: #fff;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    width: 300px;
-    text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+.video-container iframe,
+.video-container video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
 }
 
-/* Video item hover effect */
-.video-item:hover {
-    transform: scale(1.05);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-/* Video title styling */
-.video-item h2 {
-    font-size: 1.2em;
-    color: #333;
-    margin-bottom: 10px;
-}
-
-/* Video description styling */
-.video-item p {
-    font-size: 0.9em;
-    color: #555;
-    margin-bottom: 15px;
-}
-
-/* Link styling */
-.video-item a {
-    text-decoration: none;
-    color: #007bff;
-    font-weight: bold;
-}
-
-.video-item a:hover {
-    text-decoration: underline;
-}
-
-
-/* styles.css */
 
 /* Card customization */
 .card {
@@ -106,6 +71,7 @@
     display: block;   /* S'assurer que les images sont des éléments de bloc */
     margin: 0 auto;   /* Centrer les images */
 }
+
 
 .article-item {
     max-width: 600px;  /* Largeur maximale pour le conteneur */

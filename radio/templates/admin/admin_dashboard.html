@@ -114,27 +114,28 @@
             </div>
         </div>
 
+        
  <!-- Affichage des contacts -->
- <div class="col-md-4 mb-4">
-    <div class="card text-white bg-info">
-        <div class="card-body">
-            <h5 class="card-title">Contacts</h5>
-            <p class="card-text">Nombre de contacts : {{ contacts.count }}</p>
-            <a href="{% url 'admin:radio_contact_changelist' %}" class="btn btn-light">Voir les contacts</a>
-        </div>
-    </div>
-</div>
+                <div class="col-md-4 mb-4">
+                    <div class="card text-white bg-info">
+                        <div class="card-body">
+                            <h5 class="card-title">Contacts</h5>
+                            <p class="card-text">Nombre de contacts : {{ contacts.count }}</p>
+                            <a href="{% url 'admin:radio_contact_changelist' %}" class="btn btn-light">Voir les contacts</a>
+                        </div>
+                    </div>
+                </div>
 
-<!-- Affichage des parrains -->
-<div class="col-md-4 mb-4">
-    <div class="card text-white bg-warning">
-        <div class="card-body">
-            <h5 class="card-title">Parrains</h5>
-            <p class="card-text">Nombre de parrains : {{ parrains.count }}</p>
-            <a href="{% url 'admin:radio_parrain_changelist' %}" class="btn btn-light">Voir les parrains</a>
-        </div>
-    </div>
-</div>
+                <!-- Affichage des parrains -->
+                <div class="col-md-4 mb-4">
+                    <div class="card text-white bg-warning">
+                        <div class="card-body">
+                            <h5 class="card-title">Parrains</h5>
+                            <p class="card-text">Nombre de parrains : {{ parrains.count }}</p>
+                            <a href="{% url 'admin:radio_parrain_changelist' %}" class="btn btn-light">Voir les parrains</a>
+                        </div>
+                    </div>
+                </div>
 
 
     </div>
