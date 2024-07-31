@@ -1,13 +1,13 @@
 import os
 from pathlib import Path
+from decouple import config
+
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = 'django-insecure-n2c_-$ka78l26$3#zddw88sdw%=her7xqdeb8*($rc84xm(39u'
-
-DEBUG = True
-
-ALLOWED_HOSTS = []
+SECRET_KEY = config('DJANGO_SECRET_KEY', default='django-insecure-n2c_-$ka78l26$3#zddw88sdw%=her7xqdeb8*($rc84xm(39u')
+DEBUG = config('DEBUG', default=False, cast=bool)
+ALLOWED_HOSTS = config('ALLOWED_HOSTS', default='').split(',')
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -24,7 +24,10 @@ INSTALLED_APPS = [
 ASGI_APPLICATION = 'radio.asgi.application'
 CHANNEL_LAYERS = {
     'default': {
-        'BACKEND': 'channels.layers.InMemoryChannelLayer',
+        'BACKEND': 'channels_redis.core.RedisChannelLayer',
+        'CONFIG': {
+            "hosts": [('127.0.0.1', 6379)],
+        },
     },
 }
 
@@ -65,11 +68,11 @@ WSGI_APPLICATION = 'siteMFMradio.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'radiomfm',
-        'USER': 'root',
-        'PASSWORD': '',
-        'HOST': 'localhost',
-        'PORT': '3306',
+        'NAME': config('DB_NAME', default='radiomfm'),
+        'USER': config('DB_USER', default='root'),
+        'PASSWORD': config('DB_PASSWORD', default=''),
+        'HOST': config('DB_HOST', default='localhost'),
+        'PORT': config('DB_PORT', default='3306'),
     }
 }
 
@@ -105,7 +108,7 @@ LANGUAGE_COOKIE_NAME = 'my_language_cookie'
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'radio', 'static')]
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  # Ajoutez cette ligne
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 MEDIA_URL = '/media/'

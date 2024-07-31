@@ -1,0 +1,125 @@
+/* Styles de base pour le conteneur de l'icône */
+#searchIcon {
+  margin-left: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  background-color: #007BFF; /* Couleur de fond */
+  border-radius: 50%; /* Forme circulaire */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ombre portée */
+  transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s; /* Transition pour les effets */
+  cursor: pointer;
+}
+
+/* Styles pour l'icône */
+#searchIcon i {
+  color: #ffffff; /* Couleur de l'icône */
+  transition: color 0.3s; /* Transition pour la couleur */
+}
+
+/* Effet au survol */
+#searchIcon:hover {
+  background-color: #0056b3; /* Couleur de fond au survol */
+  transform: scale(1.1); /* Agrandissement au survol */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Ombre portée plus forte */
+}
+
+#searchIcon:hover i {
+  color: #e0e0e0; /* Couleur de l'icône au survol */
+}
+
+
+.logo-right {
+  position: absolute;
+  top: -20px; /* Déplace l'image vers le haut */
+  right: 10px; /* Ajuste la position horizontale */
+  width: 80px; /* Ajuste la largeur de l'image */
+  height: auto; /* Maintient le ratio de l'image */
+}
+
+
+#searchForm {
+  display: none;
+  margin-left: 30px; /* Décaler à droite */
+}
+
+input[type="search"] {
+  width: 200px; /* Définir une largeur pour le champ de recherche */
+  padding: 8px; /* Ajouter un peu d'espace à l'intérieur du champ */
+  border: 1px solid #ccc; /* Ajouter une bordure */
+  border-radius: 5px; /* Arrondir les coins */
+  font-size: 16px; /* Définir une taille de police */
+}
+
+button[type="submit"] {
+  background-color: #007bff; /* Couleur de fond */
+  color: #fff; /* Couleur du texte */
+  border: none; /* Supprimer la bordure */
+  padding: 8px 16px; /* Ajouter de l'espace intérieur */
+  border-radius: 5px; /* Arrondir les coins */
+  cursor: pointer; /* Utiliser un curseur de type pointeur */
+  font-size: 16px; /* Définir une taille de police */
+}
+
+button[type="submit"]:hover {
+  background-color: #0056b3; /* Couleur de fond au survol */
+}
+
+
+/* Styles pour les résultats de recherche */
+.search-results-container {
+  margin: 20px auto;
+  max-width: 1200px;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.search-results-container h1 {
+  font-size: 2em;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.search-results-container p {
+  font-size: 1.1em;
+  color: #555;
+}
+
+.search-results-container h2 {
+  font-size: 1.5em;
+  margin-top: 30px;
+  border-bottom: 2px solid #ddd;
+  padding-bottom: 10px;
+  color: #333;
+}
+
+.search-results-container ul {
+  list-style: none;
+  padding: 0;
+}
+
+.search-results-container li {
+  margin-bottom: 15px;
+  padding: 10px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.search-results-container li:hover {
+  background-color: #f1f1f1;
+}
+
+.search-results-container .no-results {
+  font-style: italic;
+  color: #888;
+}
+
+.search-results-container .query-message {
+  font-weight: bold;
+  color: #333;
+}

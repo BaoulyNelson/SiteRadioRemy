@@ -1,0 +1,27 @@
+/* logo de rmf */
+
+.logo-expand {
+  display: flex;
+  align-items: center; /* Centrer l'image verticalement */
+  max-width: 100%; /* Le conteneur ne sera pas plus large que 100% de son parent */
+  padding: 10px; /* Optionnel : ajouter un peu de padding autour du logo */
+}
+
+.logo-expand img {
+  width: 100%; /* L'image prendra toute la largeur de son conteneur */
+  height: auto; /* L'image gardera ses proportions */
+  max-width: 150px; /* Limiter la largeur maximale de l'image */
+}
+
+/* Media queries pour ajuster la taille du logo sur des écrans plus petits */
+@media (max-width: 600px) {
+  .logo-expand img {
+      max-width: 100px; /* Ajustez cette valeur pour les écrans plus petits */
+  }
+}
+
+@media (max-width: 400px) {
+  .logo-expand img {
+      max-width: 80px; /* Ajustez cette valeur pour les écrans très petits */
+  }
+}
