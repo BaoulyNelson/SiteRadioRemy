@@ -1,11 +1,21 @@
-.night-mode {
-    background-color: #333; /* Fond sombre */
-    color: #fff; /* Texte clair */
-  }
 
-  /* Mode nuit */
-  .night-mode .close-button i {
-      color: black; /* Couleur claire pour le mode nuit */
-    }
+/* Ou avec margin */
+body.dark-mode {
+  background-color: #000000;
+  color: #ffffff;
 
-   
+}
+
+#theme-toggle {
+  margin-left: 20px; /* Ajoute un décalage de 20px vers la droite */
+  padding: 10px 20px; /* Ajoute du padding interne au bouton (facultatif) */
+  background-color: #444444; /* Couleur de fond du bouton */
+  color: #ffffff; /* Couleur du texte du bouton */
+  border: none; /* Retire la bordure du bouton */
+  border-radius: 5px; /* Ajoute des coins arrondis */
+  cursor: pointer; /* Change le curseur en forme de main */
+}
+
+#theme-toggle:hover {
+  background-color: #555555; /* Change la couleur du bouton au survol */
+}

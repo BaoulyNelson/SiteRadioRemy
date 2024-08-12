@@ -1,6 +1,5 @@
 /* Styles pour l'icône du menu */
-.navbar-bottom .menu-icon {
-    font-size: 30px;
+.menu-icon {
     cursor: pointer;
 }
 
@@ -23,6 +22,8 @@
     box-shadow: 0 -1px 5px rgba(0, 0, 0, 0.1);
     position: fixed;
     bottom: 0;
+    left: 0; /* Assure que la barre de navigation commence à partir de la gauche */
+    right: 0; /* Assure que la barre de navigation s'étend jusqu'à la droite */
     width: 100%;
     z-index: 999;
     border-top: solid 1px gainsboro;
@@ -36,7 +37,7 @@
 
 /* Styles pour les éléments de la liste */
 .navbar-bottom .nav-item {
-    flex: 1;
+    flex-grow: 1; /* Permet aux éléments de croître et remplir l'espace disponible */
     text-align: center;
 }
 
@@ -46,11 +47,12 @@
     text-decoration: none;
     color: black;
     font-weight: bold;
+    
 }
 
 .navbar-bottom .nav-link:hover {
-    color: #007bff;
-    /* Couleur de survol */
+    color: red;
+    transform: scale(1.1);
 }
 
 /* Styles pour le lien actif */

@@ -1,111 +1,47 @@
 <!-- Panneau latéral -->
-<div id="sidebar" class="closed">
+<div id="sidebar" class="sidebar">
   <div class="side-title">MENU</div>
-  <ul class="menu">
-    <li>
-      <a
-        href="{% url 'decouvrir' %}"
-        class="{% if request.path == '/decouvrir/' %}active{% endif %}">
-        <i class="fas fa-globe"></i> Découvrir
-      </a>
-    </li>
 
-    <li>
-      <a
-        href="{% url 'tendance' %}"
-        class="{% if request.path == '/tendance/' %}active{% endif %}">
-        <i class="fas fa-chart-line"></i> Tendance
-      </a>
-    </li>
+  <div class="search-container">
+            <form method="GET" action="{% url 'search' %}">
+                <input type="search" id="searchInput" name="q" placeholder="🔍..." aria-label="Search">
+                <button type="submit" id="searchButton" aria-label="Submit Search">
+                    <i class="fas fa-search"></i>
+                </button>
+            </form>
+        </div>
 
-    <li>
-      <a
-        href="{% url 'video' %}"
-        class="{% if request.path == '/video/' %}active{% endif %}">
-        <i class="fas fa-play-circle"></i> Diffusion
-      </a>
-    </li>
+        <ul class="menu">
+          <li><a href="{% url 'article_list_by_category' 'Découverte' %}" class="{% if request.path == '/articles/categorie/Découverte/' %}active{% endif %}"><i class="fas fa-globe"></i> Découvrir</a></li>
+          <li><a href="{% url 'article_list_by_category' 'Tendance' %}" class="{% if request.path == '/articles/categorie/Tendance/' %}active{% endif %}"><i class="fas fa-chart-line"></i> Tendance</a></li>
+          
+            <li><a href="{% url 'video' %}" class="{% if request.path == '/video/' %}active{% endif %}"><i class="fas fa-play-circle"></i> Diffusion</a></li>
+            <li><a href="{% url 'article_list_by_category' 'Liste de Lecture' %}" class="{% if request.path == '/articles/categorie/Liste%20de%20Lecture/' %}active{% endif %}"><i class="fas fa-list"></i> Liste de Lecture</a></li>
+<li><a href="{% url 'article_list_by_category' 'Marque-Page' %}" class="{% if request.path == '/articles/categorie/Marque-Page/' %}active{% endif %}"><i class="fas fa-bookmark"></i> Marque-Page</a></li>
 
-    <li>
-      <a
-        href="{% url 'liste_de_lecture' %}"
-        class="{% if request.path == '/liste_de_lecture/' %}active{% endif %}">
-        <i class="fas fa-list"></i> Liste de Lecture
-      </a>
-    </li>
+        </ul>
 
-    <li>
-      <a
-        href="{% url 'marque_page' %}"
-        class="{% if request.path == '/marque_page/' %}active{% endif %}">
-        <i class="fas fa-bookmark"></i> Marque-Page
-      </a>
-    </li>
-  </ul>
+        <div class="categories">
+            <h3>Catégories</h3>
+            <ul>
+                <li><a href="{% url 'direct' %}" class="{% if direct_is_live %}live{% endif %}"><i class="fas fa-broadcast-tower"></i> Diffusion en Direct {% if direct_is_live %}<span class="live-indicator"></span>{% endif %}</a></li>
+                <li><a href="{% url 'article_list_by_category' 'Économie' %}" class="{% if request.path == '/articles/categorie/Économie/' %}active{% endif %}"><i class="fas fa-chart-line"></i> Économie</a></li>
+<li><a href="{% url 'article_list_by_category' 'Culture' %}" class="{% if request.path == '/articles/categorie/Culture/' %}active{% endif %}"><i class="fas fa-theater-masks"></i> Culture</a></li>
+<li><a href="{% url 'article_list_by_category' 'Sports' %}" class="{% if request.path == '/articles/categorie/Sports/' %}active{% endif %}"><i class="fas fa-futbol"></i> Sports</a></li>
 
-  <div class="categories">
-    <h3>Catégories</h3>
-    <ul>
-      <li>
-        <a
-          href="{% url 'direct' %}"
-          class="{% if direct_is_live %}live{% endif %}">
-          <i class="fas fa-broadcast-tower"></i> Diffusion en Direct  {% if direct_is_live %}
-          <span class="live-indicator"></span>
-      {% endif %}
-        </a>
-      </li>
-
-      <li>
-        <a
-          href="{% url 'economie' %}"
-          class="{% if request.path == '/economie/' %}active{% endif %}">
-          <i class="fas fa-chart-line"></i> Économie
-        </a>
-      </li>
-
-      <li>
-        <a
-          href="{% url 'culture' %}"
-          class="{% if request.path == '/culture/' %}active{% endif %}">
-          <i class="fas fa-theater-masks"></i> Culture
-        </a>
-      </li>
-
-      <li>
-        <a
-          href="{% url 'sports' %}"
-          class="{% if request.path == '/sports/' %}active{% endif %}">
-          <i class="fas fa-futbol"></i> Sports
-        </a>
-      </li>
-
-      <li>
-        <a
-          href="{% url 'statistiques' %}"
-          class="{% if request.resolver_match.url_name == 'statistiques' %}active{% endif %}">
-          <i class="fas fa-chart-line"></i> Statistiques
-        </a>
-      </li>
-
-      <li>
-        <a
-          href="{% url 'publicites' %}"
-          class="{% if request.resolver_match.url_name == 'publicites' %}active{% endif %}">
-          <i class="fas fa-bullhorn"></i> Publicités
-        </a>
-      </li>
-      <div class="custom-control custom-switch">
-        <input type="checkbox" class="custom-control-input" id="customSwitch" />
-        <label class="custom-control-label" for="customSwitch">
-          <span id="modeIcon" class="mode-icon"><i class="fas fa-sun"></i></span>
-          <span id="modeText" class="mode-text">Mode nuit</span>
-        </label>
+            
+                <li><a href="{% url 'publicites' %}" class="{% if request.resolver_match.url_name == 'publicites' %}active{% endif %}"><i class="fas fa-bullhorn"></i> Publicités</a></li>
+              
+            </ul>
+            <button id="theme-toggle" onclick="toggleTheme()">
+              <span id="theme-icon">🌙</span>
+              <span id="theme-text">Mode Nuit</span>
+          </button>
+          
+            
+        </div>
+        <div class="line"></div>
     </div>
-    </ul>
-   
-  <div class="line"></div>
-</div>
 </div>
 
 <!-- Barre de navigation en bas -->
@@ -135,11 +71,14 @@
       </a>
     </li>
 
+
     <li class="nav-item">
-      <a class="nav-link" href="#">
-        <i class="fas fa-bars menu-icon" onclick="toggleNav()"></i><br />Menu
+      <a class="nav-link" href="#" onclick="toggleSidebar()">
+          <i class="fas fa-bars menu-icon" aria-label="Open sidebar"></i>
+          <br />Menu
       </a>
-    </li>
+  </li>
   </ul>
+  
 </nav>
 

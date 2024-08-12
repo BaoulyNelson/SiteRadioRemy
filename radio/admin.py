@@ -1,6 +1,6 @@
 # radio/admin.py
 from django.contrib import admin
-from .models import Video, Podcast, Direct, Animateur, Emission, Programme, Auditeur, Publicite, Statistique, Article,Comment,Contact,Parrain
+from .models import Video, Podcast, Direct, Animateur, Emission, Programme, Publicite, Article,Contact,Parrain
 
 @admin.register(Video)
 class VideoAdmin(admin.ModelAdmin):
@@ -39,20 +39,13 @@ class ProgrammeAdmin(admin.ModelAdmin):
     list_display = ('emission', 'date_diffusion', 'heure_debut', 'heure_fin')
     search_fields = ('emission__titre',)
 
-@admin.register(Auditeur)
-class AuditeurAdmin(admin.ModelAdmin):
-    list_display = ('utilisateur', 'date_inscription')
-    search_fields = ('utilisateur__username',)
 
 @admin.register(Publicite)
 class PubliciteAdmin(admin.ModelAdmin):
     list_display = ('nom_annonceur', 'date_debut', 'date_fin')
     search_fields = ('nom_annonceur',)
 
-@admin.register(Statistique)
-class StatistiqueAdmin(admin.ModelAdmin):
-    list_display = ('emission', 'auditeurs', 'date_statistique')
-    search_fields = ('emission__titre',)
+
 
 @admin.register(Article)
 class ArticleAdmin(admin.ModelAdmin):
@@ -69,6 +62,21 @@ class ArticleAdmin(admin.ModelAdmin):
         }),
     )
     
-    admin.site.register(Comment)
-    admin.site.register(Contact)
-    admin.site.register(Parrain)
+@admin.register(Contact)
+class ContactAdmin(admin.ModelAdmin):
+    list_display = ('nom', 'prenom', 'email', 'telephone')
+    search_fields = ('nom', 'prenom', 'email', 'telephone')
+    fieldsets = (
+        (None, {
+            'fields': ('nom', 'prenom', 'email', 'telephone')
+        }),
+    )
+
+@admin.register(Parrain)
+class ParrainAdmin(admin.ModelAdmin):
+    list_display = ('nom', 'type_parrainage', 'date_creation')
+    list_filter = ('type_parrainage',)
+    search_fields = ('nom', 'details')
+    fields = ('nom', 'contact', 'logo', 'type_parrainage', 'details', 'date_creation')
+    readonly_fields = ('date_creation',)
+ 

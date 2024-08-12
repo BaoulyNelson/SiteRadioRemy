@@ -1,6 +1,7 @@
 <!-- Barre de navigation en haut -->
 <nav class="navbar navbar-expand navbar-top">
   <ul class="navbar-nav ml-auto">
+    
     <li class="nav-item">
       <a
         href="{% url 'animateurs' %}"
@@ -29,12 +30,13 @@
 
     <li class="nav-item">
       <a
-        href="{% url 'parrains' %}"
-        class="{% if request.resolver_match.url_name == 'parrains' %}active{% endif %} nav-link"
+        href="{% url 'parrains_list' %}"
+        class="{% if request.resolver_match.url_name == 'parrains_list' %}active{% endif %} nav-link"
       >
         <i class="fas fa-handshake"></i> Parrains
       </a>
     </li>
+    
   </ul>
 </nav>
 
@@ -56,11 +58,13 @@
     >
   </div>
 
+
+
   <div class="logo">Radio MFM 99.5</div>
 
   <div class="user-actions">
     {% if user.is_authenticated and user.is_staff %}
-    <a href="/admin/" class="text-white">
+    <a href="/mfm/" class="text-white">
         <i class="fas fa-user"></i>
     </a>
     {% endif %}

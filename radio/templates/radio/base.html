@@ -1,25 +1,32 @@
 <!DOCTYPE html>
 <html lang="fr">
-  <head>
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{% block title %}Radio Marbial FM 99.5 FM{% endblock %}</title>
-    <!-- Inclure Bootstrap CSS -->
-    <link
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-      rel="stylesheet"/>
-    <!-- Inclure Font Awesome CSS -->
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
-      rel="stylesheet"/>
-
-    <!-- Google Fonts -->
-    <link
-      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap"
-      rel="stylesheet"/>
-
-    {% block extra_head %} {% load static %}
+    {% load static %}
     
+    <!-- Open Graph metadata -->
+    <meta property="og:title" content="{% block og_title %}{% endblock %}" />
+    <meta property="og:description" content="{% block og_description %}{% endblock %}" />
+    <meta property="og:image" content="{% block og_image %}{% if article.image %}{{ article.image.url }}{% else %}{% static 'images/logo.jpg' %}{% endif %}{% endblock %}" />
+    <meta property="og:url" content="{% block og_url %}{% endblock %}" />
+    <meta property="og:type" content="{% block og_type %}website{% endblock %}" />
+
+    <title>{% block title %}Radio Marbial FM 99.5{% endblock %}</title>
+    
+    <!-- Inclure Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet"/>
+    <!-- Inclure Font Awesome CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet"/>
+    <!-- Inclure Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet"/>
+    <!-- Inclure Animate.css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <!-- Inclure AOS -->
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet"/>
+
+    {% block extra_head %}
+    <!-- Inclure les fichiers CSS personnalisés -->
     <link rel="stylesheet" href="{% static 'css/mode.css' %}" />
     <link rel="stylesheet" href="{% static 'css/navbar.css' %}" />
     <link rel="stylesheet" href="{% static 'css/navbarBottom.css' %}" />
@@ -28,27 +35,34 @@
     <link rel="stylesheet" href="{% static 'css/sidebar.css' %}" />
     <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
     <link rel="stylesheet" href="{% static 'css/tableau.css' %}" />
-    <link rel="stylesheet" href="{% static 'css/logo.css' %}" />
+  
+    <link rel="stylesheet" href="{% static 'css/chat.css' %}" />
     <link rel="stylesheet" href="{% static 'css/stylesCommuns.css' %}" />
     {% endblock %}
-  </head>
-  <body>
-
+</head>
+<body>
     {% include 'radio/partials/header.html' %}
 
     <div class="main-container">
-      <div class="content">
-    {% block content %}
+        <div class="content">
+            {% block content %}
+       
+          
+            {% endblock %}
+        </div>
+    </div>
 
-    {% endblock %}
-  </div>
-</div>
-    {% include 'radio/partials/navbarBottom.html'%}
+    {% include 'radio/partials/navbarBottom.html' %}
 
-
-    <!-- Inclusion du fichier JavaScript -->
+    <!-- Inclusion des fichiers JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
     <script src="{% static 'js/mode.js' %}"></script>
-    <script src="{% static 'js/scriptRecherche.js' %}"></script>
     <script src="{% static 'js/sidebar.js' %}"></script>
+    <script>
+      AOS.init();
+    </script>
   </body>
 </html>

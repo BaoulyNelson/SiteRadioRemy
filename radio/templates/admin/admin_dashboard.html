@@ -8,7 +8,7 @@
 <div class="container mt-4">
     <div class="row">
         <div class="col-12 text-center mb-4">
-            <h1>Bienvenue sur le Tableau de Bord</h1>
+            <h1>Bienvenue sur le Tableau de Bord De RMF</h1>
             <p>Accédez rapidement aux différentes sections de l'application :</p>
         </div>
     </div>
@@ -34,25 +34,8 @@
             </div>
         </div>
 
-        <div class="col-md-4 mb-4">
-            <div class="card text-white bg-success">
-                <div class="card-body">
-                    <h5 class="card-title">Auditeurs</h5>
-                    <p class="card-text">Nombre d'auditeurs : {{ auditeurs.count }}</p>
-                    <a href="{% url 'admin:radio_auditeur_changelist' %}" class="btn btn-light">Voir les auditeurs</a>
-                </div>
-            </div>
-        </div>
 
-        <div class="col-md-4 mb-4">
-            <div class="card text-white bg-danger">
-                <div class="card-body">
-                    <h5 class="card-title">Commentaires</h5>
-                    <p class="card-text">Nombre de commentaires : {{ comments.count }}</p>
-                    <a href="{% url 'admin:radio_comment_changelist' %}" class="btn btn-light">Voir les commentaires</a>
-                </div>
-            </div>
-        </div>
+    
 
         <div class="col-md-4 mb-4">
             <div class="card text-white bg-warning">
@@ -136,8 +119,6 @@
                         </div>
                     </div>
                 </div>
-
-
     </div>
 </div>
 {% endblock %}

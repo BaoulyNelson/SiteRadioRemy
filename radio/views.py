@@ -1,11 +1,9 @@
 from django.shortcuts import render,redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required, user_passes_test
-from .models import Emission, Direct,Podcast,Video,Animateur, Emission, Programme, Auditeur, Publicite, Statistique, Article,Comment,Contact,Parrain
+from .models import Emission, Direct,Podcast,Video,Animateur, Emission, Programme, Publicite, Article,Contact,Parrain
 from django.db.models import Q
-from .forms import CommentForm
 from django.utils import translation
 from django.conf import settings
-
 
 
 @login_required
@@ -13,8 +11,6 @@ from django.conf import settings
 def admin_dashboard(request):
     animateurs = Animateur.objects.all()
     articles = Article.objects.all()
-    auditeurs = Auditeur.objects.all()
-    comments = Comment.objects.all()
     directs = Direct.objects.all()
     emissions = Emission.objects.all()
     podcasts = Podcast.objects.all()
@@ -27,8 +23,6 @@ def admin_dashboard(request):
     return render(request, 'admin/admin_dashboard.html', {
         'animateurs': animateurs,
         'articles': articles,
-        'auditeurs': auditeurs,
-        'comments': comments,
         'directs': directs,
         'emissions': emissions,
         'podcasts': podcasts,
@@ -94,13 +88,20 @@ def emission_detail(request, emission_id):
 
 # Vue pour afficher la liste des articles
 def article_list(request):
-    articles = Article.objects.all()
+    articles = Article.objects.all().order_by('-date_publication')
     return render(request, 'radio/article_list.html', {'articles': articles})
+
 
 
 def article_detail(request, article_id):
     article = get_object_or_404(Article, id=article_id)
     return render(request, 'radio/article_detail.html', {'article': article})
+
+
+def article_list_by_category(request, category_name):
+    articles = Article.objects.filter(categorie=category_name).order_by('-date_publication')
+    return render(request, 'radio/article_list.html', {'articles': articles, 'category_name': category_name})
+
 
 # Vue pour afficher la liste des programmes
 def programmes(request):
@@ -108,63 +109,16 @@ def programmes(request):
     return render(request, 'radio/programmes.html', {'programmes': programmes})
 
 
-
 # Vue pour afficher les détails d'un programme
 def programme_detail(request, programme_id):
     programme = get_object_or_404(Programme, id=programme_id)
     return render(request, 'radio/programme_detail.html', {'programme': programme})  # Correction ici
 
-# Vue pour afficher la liste des auditeurs
-def auditeurs(request):
-    auditeurs = Auditeur.objects.all()  # Utilisation de CustomUser pour les auditeurs
-    return render(request, 'radio/auditeurs.html', {'auditeurs': auditeurs})
 
 # Vue pour afficher la liste des publicités
 def publicites(request):
     publicites = Publicite.objects.all()
     return render(request, 'radio/publicites.html', {'publicites': publicites})
-
-# Vue pour afficher les statistiques
-def statistiques(request):
-    statistiques = Statistique.objects.all()
-    return render(request, 'radio/statistiques.html', {'statistiques': statistiques})
-
-# Vue pour afficher les articles de la catégorie "Culture"
-def culture(request):
-    articles = Article.objects.filter(categorie='Culture').order_by('-date_publication')
-    return render(request, 'radio/culture.html', {'articles': articles})
-
-# Vue pour afficher les articles de la catégorie "Découverte"
-def decouvrir(request):
-    articles = Article.objects.filter(categorie='Découverte').order_by('-date_publication')
-    return render(request, 'radio/decouvrir.html', {'articles': articles})
-
-
-# Vue pour afficher les articles de la catégorie "Économie"
-def economie(request):
-    articles = Article.objects.filter(categorie='Économie').order_by('-date_publication')
-    return render(request, 'radio/economie.html', {'articles': articles})
-
-# Vue pour afficher les articles de la catégorie "Sports"
-def sports(request):
-    articles = Article.objects.filter(categorie='Sports').order_by('-date_publication')
-    return render(request, 'radio/sports.html', {'articles': articles})
-
-# Vue pour afficher les articles de la catégorie "Tendance"
-def tendance(request):
-    articles = Article.objects.filter(categorie='Tendance').order_by('-date_publication')
-    return render(request, 'radio/tendance.html', {'articles': articles})
-
-# Vue pour afficher les articles de la catégorie "Liste de Lecture"
-def liste_de_lecture(request):
-    articles = Article.objects.filter(categorie='Liste de Lecture').order_by('-date_publication')
-    return render(request, 'radio/liste_de_lecture.html', {'articles': articles})
-
-
-# Vue pour afficher les articles de la catégorie "Marque-Page"
-def marque_page(request):
-    articles = Article.objects.filter(categorie='Marque-Page').order_by('-date_publication')
-    return render(request, 'radio/marque_page.html', {'articles': articles})
 
 
 # Vue pour afficher la diffusion
@@ -175,26 +129,11 @@ def parrains_list(request):
     parrains = Parrain.objects.all()
     return render(request, 'radio/parrains.html', {'parrains': parrains})
 
-
-
 def parrain_detail(request, id):
     parrain = get_object_or_404(Parrain, id=id)
     parrain.valid_contact = parrain.contact and parrain.contact.startswith('http')
     return render(request, 'radio/parrain_detail.html', {'parrain': parrain})
 
-def live_comments(request):
-    if request.method == 'POST':
-        form = CommentForm(request.POST)
-        if form.is_valid():
-            comment = form.save(commit=False)
-            if request.user.is_authenticated:
-                comment.user = request.user
-            comment.save()
-            return redirect('live_comments')
-    else:
-        form = CommentForm()
-    comments = Comment.objects.filter(is_active=True).order_by('-created_at')
-    return render(request, 'radio/live_comments.html', {'form': form, 'comments': comments})
 
 def set_language(request):
     user_language = request.GET.get('language', 'fr')
@@ -208,9 +147,7 @@ def contact(request):
     contacts = Contact.objects.all()
     return render(request, 'radio/contact.html', {'contacts': contacts})
 
-def parrains(request):
-    parrains = Parrain.objects.all()
-    return render(request, 'radio/parrains.html', {'parrains': parrains})
+
 
 # Gestion des erreurs
 def page_not_found(request, exception=None):
@@ -258,14 +195,10 @@ def search(request):
         # Recherche dans les programmes
         results['programmes'] = Programme.objects.filter(Q(emission__titre__icontains=query) | Q(emission__description__icontains=query))
         
-        # Recherche dans les auditeurs
-        results['auditeurs'] = Auditeur.objects.filter(Q(utilisateur__username__icontains=query) | Q(utilisateur__email__icontains=query))
+    
         
         # Recherche dans les publicités
         results['publicites'] = Publicite.objects.filter(Q(nom_annonceur__icontains=query) | Q(description__icontains=query))
-        
-        # Recherche dans les statistiques
-        results['statistiques'] = Statistique.objects.filter(Q(emission__titre__icontains=query))
         
         # Recherche dans les articles
         results['articles'] = Article.objects.filter(Q(titre__icontains=query) | Q(contenu__icontains=query))

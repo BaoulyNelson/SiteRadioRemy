@@ -1,21 +1,33 @@
-  // Fonction pour basculer entre le mode nuit et le mode jour
-  function toggleNightMode() {
-    var body = document.body;
-    body.classList.toggle('night-mode');
+function toggleTheme() {
+  const body = document.body;
+  const themeIcon = document.getElementById("theme-icon");
+  const themeText = document.getElementById("theme-text");
 
-    // Changer l'icône du mode et le texte
-    var modeIcon = document.getElementById('modeIcon');
-    var modeText = document.getElementById('modeText');
-    if (body.classList.contains('night-mode')) {
-      modeIcon.innerHTML = '<i class="fas fa-moon"></i>';
-      modeText.innerText = 'Mode jour';
-    } else {
-      modeIcon.innerHTML = '<i class="fas fa-sun"></i>';
-      modeText.innerText = 'Mode nuit';
-    }
+  body.classList.toggle("dark-mode");
+
+  if (body.classList.contains("dark-mode")) {
+      themeIcon.textContent = "☀️";  // Icône de soleil pour le mode jour
+      themeText.textContent = "Mode Jour";
+      localStorage.setItem("theme", "dark");
+  } else {
+      themeIcon.textContent = "🌙";  // Icône de lune pour le mode nuit
+      themeText.textContent = "Mode Nuit";
+      localStorage.setItem("theme", "light");
   }
+}
 
-  // Ajoute un écouteur d'événement au clic sur l'interrupteur
-  document.getElementById('customSwitch').addEventListener('click', function() {
-    toggleNightMode(); // Appelle la fonction pour basculer entre les modes
-  });
+// Applique le thème enregistré et met à jour le texte lors du chargement de la page
+window.onload = function() {
+  const savedTheme = localStorage.getItem("theme");
+  const themeIcon = document.getElementById("theme-icon");
+  const themeText = document.getElementById("theme-text");
+
+  if (savedTheme && savedTheme === "dark") {
+      document.body.classList.add("dark-mode");
+      themeIcon.textContent = "☀️";  // Icône de soleil pour le mode jour
+      themeText.textContent = "Mode Jour";
+  } else {
+      themeIcon.textContent = "🌙";  // Icône de lune pour le mode nuit
+      themeText.textContent = "Mode Nuit";
+  }
+}

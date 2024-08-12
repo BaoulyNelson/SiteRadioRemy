@@ -1,7 +1,5 @@
 /* Styles pour le corps de la page */
 body {
-    margin-top: 80px; /* Décalage pour le header */
-    margin-bottom: 200px; 
     font-family: "Times New Roman", serif;
     background-color: #f0f0f0;
 }
@@ -27,6 +25,8 @@ body, html {
     width: 100%; /* S'adapte à la largeur du conteneur principal */
     padding: 20px;
     box-sizing: border-box;
+    margin-bottom: 100px; 
+
 }
 
 /* Titres */
@@ -51,3 +51,5 @@ p {
     box-sizing: border-box;
     text-align: center;
 }
+
+

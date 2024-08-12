@@ -44,7 +44,7 @@
 .user-actions {
   position: absolute; /* Permet de positionner l'élément de manière absolue */
   top: 10px; /* Ajuste la position verticale */
-  right: 20px; /* Ajuste la position horizontale */
+  right: 10px; /* Ajuste la position horizontale */
   color: #fff; /* Couleur du texte en blanc */
   display: flex; /* Utilise Flexbox pour aligner les éléments en ligne */
   align-items: center; /* Aligne verticalement les éléments au centre */

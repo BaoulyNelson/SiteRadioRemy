@@ -9,8 +9,7 @@
     /* Position en haut de la page */
     width: 100%;
     /* Largeur totale */
-    z-index: 1000;
-    /* Couche supérieure */
+
 }
 
 /* Centrer les éléments de la liste dans la barre de navigation */
@@ -76,4 +75,16 @@
     font-weight: bold; /* Met en gras le texte du lien actif */
     background-color: rgba(255, 255, 255, 0.2); /* Fond léger pour le lien actif */
     border-radius: 5px; /* Coins arrondis pour le fond de surbrillance */
+}
+
+/* Media query pour les petits écrans */
+@media (max-width: 768px) {
+    .navbar-top .nav-item {
+        margin: 0 10px; /* Réduire l'espacement horizontal entre les éléments */
+    }
+
+    .navbar-top .nav-link {
+        padding: 4px 8px; /* Réduire le padding des liens pour s'adapter aux petits écrans */
+        font-size: 14px; /* Réduire la taille de la police pour les petits écrans */
+    }
 }
