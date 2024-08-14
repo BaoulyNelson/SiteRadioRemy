@@ -3,16 +3,25 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.radyomabyalfm.com/">
+    <meta property="og:image" content="https://media.radyomabyalfm.com/static/logo.jpg">
+    <link rel="icon" type="image/x-icon" href="images/logo.jpg">
+
     {% load static %}
     
     <!-- Open Graph metadata -->
     <meta property="og:title" content="{% block og_title %}{% endblock %}" />
     <meta property="og:description" content="{% block og_description %}{% endblock %}" />
+    <meta name="description" content="Toutes les musiques fiables sur Haïti">
+
     <meta property="og:image" content="{% block og_image %}{% if article.image %}{{ article.image.url }}{% else %}{% static 'images/logo.jpg' %}{% endif %}{% endblock %}" />
     <meta property="og:url" content="{% block og_url %}{% endblock %}" />
     <meta property="og:type" content="{% block og_type %}website{% endblock %}" />
 
-    <title>{% block title %}Radio Marbial FM 99.5{% endblock %}</title>
+    <title>{% block title %}Radio Marbial FM 99.5,Depuis 2008, musique au quotidien{% endblock %}</title>
     
     <!-- Inclure Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet"/>
@@ -22,8 +31,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet"/>
     <!-- Inclure Animate.css -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
     <!-- Inclure AOS -->
     <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet"/>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+    
 
     {% block extra_head %}
     <!-- Inclure les fichiers CSS personnalisés -->
@@ -35,8 +49,6 @@
     <link rel="stylesheet" href="{% static 'css/sidebar.css' %}" />
     <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
     <link rel="stylesheet" href="{% static 'css/tableau.css' %}" />
-  
-    <link rel="stylesheet" href="{% static 'css/chat.css' %}" />
     <link rel="stylesheet" href="{% static 'css/stylesCommuns.css' %}" />
     {% endblock %}
 </head>
@@ -63,6 +75,27 @@
     <script src="{% static 'js/sidebar.js' %}"></script>
     <script>
       AOS.init();
+    </script>
+
+    <script>
+      var swiper = new Swiper('.swiper-container', {
+        direction: 'horizontal',
+        loop: true,
+        slidesPerView: 1,  // Assurez-vous que ce soit défini sur 1
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: true,
+        },
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+        autoplay: {
+          delay: 3000,
+          disableOnInteraction: false,
+        },
+      });
+      
     </script>
   </body>
 </html>

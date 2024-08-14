@@ -6,9 +6,11 @@
 {% block content %}
 <div class="container mt-4">
     <h1 class="text-center">Nos Parrains</h1>
-    <div class="row">
-        {% for parrain in parrains %}
-            <div class="col-md-4 mb-4">
+    <!-- Conteneur Swiper -->
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            {% for parrain in parrains %}
+            <div class="swiper-slide">
                 <div class="card">
                     {% if parrain.logo %}
                         <img src="{{ parrain.logo.url }}" alt="{{ parrain.logo }}" class="card-img-top">
@@ -25,9 +27,18 @@
                     </div>
                 </div>
             </div>
-        {% empty %}
+            {% empty %}
             <p>Aucun parrain disponible.</p>
-        {% endfor %}
+            {% endfor %}
+        </div>
+
+        <!-- Pagination et Navigation (optionnel) -->
+        <div class="swiper-pagination"></div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
     </div>
 </div>
+
+
+
 {% endblock %}

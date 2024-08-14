@@ -1,9 +1,15 @@
 function toggleSidebar() {
-  console.log("toggleSidebar called"); // Debugging
   var sidebar = document.getElementById("sidebar");
-  if (sidebar.style.width === "50%" || sidebar.style.width === "100%") {
-      sidebar.style.width = "0";
+  var menuIcon = document.querySelector(".navbar-bottom .menu-icon");
+  if (sidebar.classList.contains("open")) {
+      sidebar.classList.remove("open");
+      sidebar.classList.add("closed");
+      menuIcon.classList.remove("fa-times");
+      menuIcon.classList.add("fa-bars");
   } else {
-      sidebar.style.width = window.innerWidth <= 768 ? "100%" : "50%";
+      sidebar.classList.remove("closed");
+      sidebar.classList.add("open");
+      menuIcon.classList.remove("fa-bars");
+      menuIcon.classList.add("fa-times");
   }
 }

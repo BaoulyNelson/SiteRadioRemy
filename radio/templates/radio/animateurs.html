@@ -1,5 +1,5 @@
 {% extends 'radio/base.html' %}
-
+{% load static %}
 
 {% block title %}Animateurs - Radio Marbial FM{% endblock %}
 
@@ -7,19 +7,35 @@
 {% block og_description %}Découvrez tous nos animateurs{% endblock %}
 
 {% block content %}
-    <div class="container mt-4">
-        <div class="row">
-            {% for animateur in animateurs %}
-                <div class="col-md-4 mb-4">
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title">{{ animateur.prenom }} {{ animateur.nom }}</h5>
-                            <p class="card-text">{{ animateur.bio }}</p>
-                            <p class="card-text"><small class="text-muted">{{ animateur.email }}</small></p>
-                        </div>
-                    </div>
-                </div>
-            {% endfor %}
+<div class="container mt-4">
+  <h1 class="text-center">Nos Animateurs</h1>
+  <!-- Conteneur Swiper -->
+  <div class="swiper-container">
+    <div class="swiper-wrapper">
+      {% for animateur in animateurs %}
+      <div class="swiper-slide">
+        <div class="card">
+          {% if animateur.logo %}
+          <img src="{{ animateur.logo.url }}" alt="{{ animateur.logo }}" class="card-img-top">
+      {% else %}
+          <img src="{% static 'images/logo.jpg' %}" alt="Image par défaut" class="card-img-top">
+      {% endif %}
+          <div class="card-body">
+            <h5 class="card-title">{{ animateur.prenom }} {{ animateur.nom }}</h5>
+            <p class="card-text">{{ animateur.bio }}</p>
+            <p class="card-text"><small class="text-muted">{{ animateur.email }}</small></p>
+          </div>
         </div>
+      </div>
+      {% endfor %}
     </div>
+
+    <!-- Pagination et Navigation (optionnel) -->
+    <div class="swiper-pagination"></div>
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+  </div>
+</div>
+
+
 {% endblock %}

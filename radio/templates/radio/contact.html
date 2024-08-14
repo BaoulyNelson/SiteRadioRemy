@@ -5,9 +5,11 @@
 {% block content %}
 <div class="container mt-4">
     <h1>Liste des Contacts</h1>
-    <div class="row">
-        {% for contact in contacts %}
-            <div class="col-md-4 mb-4">
+    <!-- Conteneur Swiper -->
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            {% for contact in contacts %}
+            <div class="swiper-slide">
                 <div class="card text-dark bg-light">
                     <div class="card-body">
                         <h5 class="card-title">{{ contact.nom }} {{ contact.prenom }}</h5>
@@ -18,7 +20,15 @@
                     </div>
                 </div>
             </div>
-        {% endfor %}
+            {% endfor %}
+        </div>
+
+        <!-- Pagination et Navigation (optionnel) -->
+        <div class="swiper-pagination"></div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
     </div>
 </div>
+
+
 {% endblock %}

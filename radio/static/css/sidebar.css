@@ -14,6 +14,19 @@
 
 }
 
+#sidebar.open {
+    width: 100%;
+}
+
+/* Styles pour les grands écrans */
+@media (min-width: 768px) {
+    #sidebar.open {
+        width: 50%;
+    }
+}
+
+
+
 .sidebar input[type="search"] {
     width: 50%;
     padding: 10px;
@@ -67,10 +80,5 @@
     cursor: pointer;
 }
 
-@media (max-width: 768px) {
-    .sidebar {
-        width: 100%;
-    }
-}
 
 

@@ -22,11 +22,12 @@ class PodcastAdmin(admin.ModelAdmin):
 class DirectAdmin(admin.ModelAdmin):
     list_display = ('titre', 'date_publication')
     search_fields = ('titre',)
-
+    
 @admin.register(Animateur)
 class AnimateurAdmin(admin.ModelAdmin):
-    list_display = ('prenom', 'nom', 'email')
+    list_display = ('prenom', 'nom', 'email', 'logo')  # Ajouter le champ 'logo' ici
     search_fields = ('nom', 'prenom')
+    list_filter = ('nom',)  # Optionnel : pour ajouter un filtre sur le nom
 
 @admin.register(Emission)
 class EmissionAdmin(admin.ModelAdmin):

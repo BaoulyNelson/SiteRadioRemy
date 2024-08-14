@@ -1,19 +1,40 @@
 {% extends 'radio/base.html' %}
 
-
-{% block title %}Publicités -Radio Marbial FM{% endblock %}
+{% block title %}Publicités - Radio Marbial FM{% endblock %}
 
 {% block content %}
-    <div class="container mt-4">
-        <h1>Publicités</h1>
-        <p>Voici nos publicités en cours.</p>
-        <!-- Affichage de la liste des publicités -->
-        <ul>
+<div class="container mt-4">
+    <h1>Publicités</h1>
+    <p>Voici nos publicités en cours.</p>
+    <!-- Conteneur Swiper -->
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
             {% for publicite in publicites %}
-                <li>{{ publicite.nom }} - {{ publicite.description }}</li>
+            <div class="swiper-slide">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ publicite.nom }}</h5>
+                        <p class="card-text">{{ publicite.description }}</p>
+                    </div>
+                </div>
+            </div>
             {% empty %}
-                <li>Aucune publicité disponible.</li>
+            <div class="swiper-slide">
+                <div class="card">
+                    <div class="card-body text-center">
+                        <p>Aucune publicité disponible.</p>
+                    </div>
+                </div>
+            </div>
             {% endfor %}
-        </ul>
+        </div>
+
+        <!-- Pagination et Navigation (optionnel) -->
+        <div class="swiper-pagination"></div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
     </div>
+</div>
+
+
 {% endblock %}
