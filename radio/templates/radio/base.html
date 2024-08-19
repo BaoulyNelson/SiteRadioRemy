@@ -55,14 +55,15 @@
 <body>
     {% include 'radio/partials/header.html' %}
 
-    <div class="main-container">
-        <div class="content">
-            {% block content %}
-       
-          
-            {% endblock %}
-        </div>
-    </div>
+ 
+ <!-- Main Content Block -->
+ <div class="container">
+  <main>
+    {% block content %}
+    <!-- Le contenu spécifique aux pages sera inséré ici -->
+    {% endblock %}
+  </main>
+</div>
 
     {% include 'radio/partials/navbarBottom.html' %}
 

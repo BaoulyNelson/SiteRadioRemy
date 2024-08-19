@@ -1,10 +1,38 @@
-{% extends 'radio/base.html' %} {% block title %}{{ article.titre }}{% endblock
-%} {% load static %} {% block og_title %}{{ article.titre }}{% endblock %} {%
-block og_description %}{{ article.contenu|truncatewords:30 }}{% endblock %} {%
-block og_image %} {% if article.image %} {{ article.image.url }} {% else %} {%
-static 'images/logo.jpg' %} {% endif %} {% endblock %} {% block og_url %}{{
-request.build_absolute_uri }}{% endblock %} {% block og_type %}article{%
-endblock %} {% block content %}
+{% extends 'radio/base.html' %}
+
+{% block title %}
+    {{ article.titre }}
+{% endblock %}
+
+{% load static %}
+
+{% block og_title %}
+    {{ article.titre }}
+{% endblock %}
+
+{% block og_description %}
+    {{ article.contenu|truncatewords:30 }}
+{% endblock %}
+
+{% block og_image %}
+    {% if article.image %}
+        {{ article.image.url }}
+    {% else %}
+        {% static 'images/logo.jpg' %}
+    {% endif %}
+{% endblock %}
+
+{% block og_url %}
+    {{ request.build_absolute_uri }}
+{% endblock %}
+
+{% block og_type %}
+    article
+{% endblock %}
+
+{% block content %}
+
+
 <h1>{{ article.titre }}</h1>
 <div class="article-content">
   <p>{{ article.contenu }}</p>

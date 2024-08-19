@@ -27,9 +27,6 @@ class Podcast(models.Model):
     def __str__(self):
         return self.titre
 
-
-
-
 class Video(models.Model):
     titre = models.CharField(max_length=200)
     description = models.TextField()
@@ -41,9 +38,6 @@ class Video(models.Model):
     def __str__(self):
         return self.titre
 
-    
-    
-    
 # Modèle pour les animateurs
 class Animateur(models.Model):
     prenom = models.CharField(max_length=100)
@@ -79,9 +73,6 @@ class Programme(models.Model):
     def __str__(self):
         return f"{self.nom or self.emission.titre} - {self.date_diffusion}"
     
-    
-
-
 # Modèle pour les publicités
 class Publicite(models.Model):
     nom_annonceur = models.CharField(max_length=200)
@@ -105,8 +96,6 @@ class Contact(models.Model):
     def __str__(self):
         return f"{self.nom} {self.prenom} - {self.email}"
 
-from django.db import models
-from django.core.validators import RegexValidator
 
 class Parrain(models.Model):
     nom = models.CharField(max_length=100)

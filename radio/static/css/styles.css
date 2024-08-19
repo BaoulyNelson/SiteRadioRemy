@@ -1,33 +1,29 @@
-/* Styles pour le corps de la page */
+/* base.css ou dans un bloc <style> de base.html */
 body {
-    font-family: "Times New Roman", serif;
-    background-color: #f0f0f0;
-}
-
-/* Réinitialisation des marges et des paddings */
-body, html {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
     margin: 0;
-    padding: 0;
-    width: 100%;
     overflow-x: hidden;
+}
 
-}
-/* Conteneur principal */
-.main-container {
-    width: 100%;
-    max-width: 1200px; /* Largeur maximale du contenu */
-    margin: 0 auto; /* Centre le conteneur horizontalement */
-    padding: 20px;
-    box-sizing: border-box;
-}
-/* Exemple de styles pour un élément de contenu */
-.content {
-    width: 100%; /* S'adapte à la largeur du conteneur principal */
-    padding: 20px;
-    box-sizing: border-box;
-    margin-bottom: 100px; 
 
+/* Conteneur principal pour le contenu */
+.container {
+    max-width: 800px; /* Limiter la largeur maximale pour le contenu */
+    margin: 0 auto; /* Centrer horizontalement le contenu */
+    padding: 20px; /* Ajouter un peu de padding autour du contenu */
+    margin-bottom: 100px; /* Ajouter un grand espace en bas */
 }
+
+/* Main content */
+main {
+    display: flex;
+    flex-direction: column; /* Organiser les éléments en colonne */
+    align-items: center; /* Centrer le contenu horizontalement */
+    width: 100%; /* S'assurer que le contenu occupe toute la largeur disponible */
+}
+
 
 /* Titres */
 h1, h2, h4, h5, h6 {

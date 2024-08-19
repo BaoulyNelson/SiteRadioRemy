@@ -133,8 +133,6 @@
     color: gray;
 }
 
-
-
 /* Styles pour l'auteur et la date dans les détails de l'article */
 .article-author {
     font-style: italic;
@@ -147,8 +145,6 @@
     font-size: 0.9em;
     margin-bottom: 20px;
 }
-
-
 
 .swiper-container {
     display: flex;

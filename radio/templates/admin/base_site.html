@@ -1,15 +1,17 @@
 {% extends "admin/base.html" %}
-{% block title %}Administration de Radio Marbial FM{% endblock %}
+{% load static %}
+{% block extrastyle %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'admin/css/custom_admin.css' %}">
+
+<link rel="icon" href="{% static 'images/logo.jpg' %}" type="image/jpeg">
+
+{% endblock %}
+
+{% block title %}Mon Site Admin{% endblock %}
 
 {% block branding %}
-<h1 id="site-name"><a href="{% url 'accueil' %}">Retour au site</a></h1>
+<h1 id="site-name"><a href="{% url 'admin:index' %}">RADIO MARBIAL FM 99.5</a></h1>
 {% endblock %}
 
-{% block nav-global %}
-<nav class="nav-global">
-    <ul>
-        <li><a href="{% url 'admin_dashboard' %}">Tableau de bord</a></li>
-    </ul>
-</nav>
-{% endblock %}
-
+{% block nav-global %}{% endblock %}

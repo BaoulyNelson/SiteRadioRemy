@@ -42,7 +42,6 @@ urlpatterns = [
     path('contacts/', views.contact, name='contacts'),
     
  
-    
     path('parrains/', views.parrains_list, name='parrains_list'),
     path('parrain/<int:id>/', views.parrain_detail, name='parrain_detail'),
 
@@ -56,6 +55,4 @@ urlpatterns = [
     path('500/', views.server_error, name='server_error'),
 
     path('search/', views.search, name='search'),
-
-
 ]

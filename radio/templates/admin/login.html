@@ -1,7 +1,12 @@
 {% extends "admin/login.html" %}
-{% block title %}Connexion - RMF{% endblock %}
 
-{% block content_title %}Connexion à l'administration MFM{% endblock %}
-{% block submit_buttons %}
+{% block title %}Connexion à Mon Site{% endblock %}
+
+{% block content %}
+<h1>Bienvenue sur Radio Marbial FM</h1>
+<p>Veuillez vous connecter pour accéder à l'administration.</p>
+<form method="post" action="{% url 'admin:login' %}">{% csrf_token %}
+    {{ form.as_p }}
     <input type="submit" value="Connexion">
+</form>
 {% endblock %}
