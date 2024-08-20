@@ -52,6 +52,8 @@
     <link rel="stylesheet" href="{% static 'css/stylesCommuns.css' %}" />
     {% endblock %}
 </head>
+
+
 <body>
     {% include 'radio/partials/header.html' %}
 
@@ -74,29 +76,11 @@
     <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
     <script src="{% static 'js/mode.js' %}"></script>
     <script src="{% static 'js/sidebar.js' %}"></script>
+    <script src="{% static 'js/caroussel.js' %}"></script>
     <script>
       AOS.init();
     </script>
 
-    <script>
-      var swiper = new Swiper('.swiper-container', {
-        direction: 'horizontal',
-        loop: true,
-        slidesPerView: 1,  // Assurez-vous que ce soit défini sur 1
-        pagination: {
-          el: '.swiper-pagination',
-          clickable: true,
-        },
-        navigation: {
-          nextEl: '.swiper-button-next',
-          prevEl: '.swiper-button-prev',
-        },
-        autoplay: {
-          delay: 3000,
-          disableOnInteraction: false,
-        },
-      });
-      
-    </script>
+ 
   </body>
 </html>

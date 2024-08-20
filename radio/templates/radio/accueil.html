@@ -1,7 +1,5 @@
-{% extends 'radio/base.html' %}
-{% block title %}Accueil - Radio Marbial FM 99.5{% endblock %}
-{% load static %}
-{% block content %}
+{% extends 'radio/base.html' %} {% block title %}Accueil - Radio Marbial FM
+99.5{% endblock %} {% load static %} {% block content %}
 
 <div class="container mt-4">
   <!-- Jumbotron principal -->
@@ -9,17 +7,19 @@
     <h1 class="display-4 font-weight-bold">Bienvenue sur Radio Marbial FM</h1>
     <p class="lead">
       Explorez nos émissions, découvrez nos animateurs et restez à l'écoute des
-      dernières tendances musicales.<br>
-      Infos de tous genres en temps réel. Sport, Actualités, Cultures et Sociétés.
-      La Radio qui vous suit partout !!!
+      dernières tendances musicales.<br />
+      Infos de tous genres en temps réel. Sport, Actualités, Cultures et
+      Sociétés. La Radio qui vous suit partout !!!
     </p>
     <div class="d-flex justify-content-center">
-      <a href="{% url 'direct' %}" class="btn btn-lg btn-warning">Écouter en direct</a>
+      <a href="{% url 'direct' %}" class="btn btn-lg btn-warning"
+        >Écouter en direct</a
+      >
     </div>
   </div>
 
-  <!-- Section des émissions avec un design amélioré -->
-  <div class="jumbotron text-white bg-dark jumbotron-fluid">
+  <!-- Jumbotron des émissions -->
+  <div class="jumbotron text-white bg-dark rounded-lg p-5">
     <div class="container">
       <section class="mt-5">
         <h2 class="text-center mb-4 font-weight-bold">Nos Émissions</h2>
@@ -32,7 +32,7 @@
                   src="{% static 'images/radio.jpg' %}"
                   alt="{{ emission.nom }}"
                   class="img-fluid rounded-top"
-                  style="transition: transform 0.3s ease;"
+                  style="transition: transform 0.3s ease"
                 />
                 <div
                   class="overlay position-absolute w-100 h-100 d-flex justify-content-center align-items-center"
@@ -45,7 +45,8 @@
                 <a
                   href="{% url 'emission_detail' emission.id %}"
                   class="btn btn-outline-primary btn-block"
-                  >En savoir plus</a>
+                  >En savoir plus</a
+                >
               </div>
             </div>
           </div>
@@ -54,57 +55,8 @@
       </section>
     </div>
   </div>
-</div>
 
-<div class="jumbotron text-center">
   
-
-
-<div class="swiper-container">
-  <div class="swiper-wrapper">
-    <div class="swiper-slide">
-      <img src="{% static 'images/logo.jpg' %}" alt="Image 1" class="swiper-image">
-    </div>
-    <div class="swiper-slide">
-      <img src="{% static 'images/remy.jpg' %}" alt="Image 1" class="swiper-image">
-    </div>
-  
-  
-    <div class="swiper-slide">
-      <p>En live sur Radio Marbial FM Stéréo</p>
-      <p>Zeno Radio: Radio MarbialFM 99.5</p>
-    </div>
-    <div class="swiper-slide">
-      <div class="info-item">
-        <i class="fas fa-broadcast-tower"></i> &nbsp; Estasyon radyo
-      </div>
-    </div>
-    <div class="swiper-slide">
-      <div class="info-item">
-        <i class="fas fa-map-marker-alt"></i> &nbsp; 23, Cochon Gras, Quartier de Marbial-Jacmel
-      </div>
-    </div>
-    <div class="swiper-slide">
-      <div class="info-item">
-        <i class="fas fa-phone-alt"></i> &nbsp; 47 68 6825
-      </div>
-    </div>
-    <div class="swiper-slide">
-      <div class="info-item">
-        <i class="fas fa-globe"></i> &nbsp; <a href="http://mfmmarbialhaiti.ht" target="_blank">mfmmarbialhaiti.ht</a>
-      </div>
-    </div>
-    <div class="swiper-slide">
-      <div class="info-item">
-        <i class="fas fa-envelope"></i> &nbsp; radiomfm995@gmail.com
-      </div>
-    </div>
-
-  </div>
- 
 </div>
-
-</div>
-
 
 {% endblock %}
