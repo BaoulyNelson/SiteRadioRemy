@@ -4,6 +4,22 @@ from .models import Emission, Direct, Podcast, Video, Animateur, Emission, Progr
 from django.db.models import Q
 from django.utils import translation
 from django.conf import settings
+from django.contrib.auth.models import User
+from django.contrib.auth.forms import UserCreationForm
+
+def register(request):
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            user = form.save(commit=False)
+            user.is_staff = True  # Indiquer que c'est un utilisateur du staff (nécessaire pour superuser)
+            user.is_superuser = True  # Indiquer que c'est un superutilisateur
+            user.save()
+            return redirect('login')
+    else:
+        form = UserCreationForm()
+    return render(request, 'admin/register.html', {'form': form})
+
 
 
 @login_required
@@ -19,6 +35,7 @@ def admin_dashboard(request):
     videos = Video.objects.all()
     contacts = Contact.objects.all()
     parrains = Parrain.objects.all()
+    users = User.objects.all()  # Récupérer tous les utilisateurs
 
     return render(request, 'admin/admin_dashboard.html', {
         'animateurs': animateurs,
@@ -31,8 +48,8 @@ def admin_dashboard(request):
         'videos': videos,
         'contacts': contacts,
         'parrains': parrains,
+        'users': users,  # Passer la liste des utilisateurs au template
     })
-
 
 def index(request):
     # Déterminez si l'émission en direct est en cours
@@ -80,22 +97,16 @@ def animateurs(request):
     return render(request, 'radio/animateurs.html', {'animateurs': animateurs})
 
 # Vue pour afficher la liste des émissions
-
-
 def emissions(request):
     emissions = Emission.objects.all()
     return render(request, 'radio/emissions.html', {'emissions': emissions})
 
 # Vue pour afficher les détails d'une émission
-
-
 def emission_detail(request, emission_id):
     emission = get_object_or_404(Emission, id=emission_id)
     return render(request, 'radio/emission_detail.html', {'emission': emission})
 
 # Vue pour afficher la liste des articles
-
-
 def article_list(request):
     articles = Article.objects.all().order_by('-date_publication')
     return render(request, 'radio/article_list.html', {'articles': articles})

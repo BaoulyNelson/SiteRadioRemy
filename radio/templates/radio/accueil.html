@@ -18,43 +18,18 @@
     </div>
   </div>
 
-  <!-- Jumbotron des émissions -->
-  <div class="jumbotron text-white bg-dark rounded-lg p-5">
-    <div class="container">
-      <section class="mt-5">
-        <h2 class="text-center mb-4 font-weight-bold">Nos Émissions</h2>
-        <div class="row justify-content-center">
-          {% for emission in emissions %}
-          <div class="col-md-4 mb-4">
-            <div class="card shadow-lg border-0">
-              <div class="card-img-top position-relative">
-                <img
-                  src="{% static 'images/radio.jpg' %}"
-                  alt="{{ emission.nom }}"
-                  class="img-fluid rounded-top"
-                  style="transition: transform 0.3s ease"
-                />
-                <div
-                  class="overlay position-absolute w-100 h-100 d-flex justify-content-center align-items-center"
-                >
-                  <h5 class="text-white">{{ emission.nom }}</h5>
-                </div>
-              </div>
-              <div class="card-body">
-                <p class="card-text">{{ emission.description }}</p>
-                <a
-                  href="{% url 'emission_detail' emission.id %}"
-                  class="btn btn-outline-primary btn-block"
-                  >En savoir plus</a
-                >
-              </div>
-            </div>
-          </div>
-          {% endfor %}
-        </div>
-      </section>
-    </div>
+  <div class="container mt-5 text-center">
+    <div class="card-img-top position-relative">
+      <img
+        src="{% static 'images/radio.jpg' %}"
+        alt="{{ emission.nom }}"
+        class="img-fluid rounded-top"
+        style="transition: transform 0.3s ease"
+      />
+
+    <a href="{% url 'emissions' %}" class="btn btn-primary btn-lg mt-4">Explorer nos émissions</a>
   </div>
+  
 
   
 </div>

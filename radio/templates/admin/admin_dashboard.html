@@ -6,10 +6,12 @@
 
 {% block content %}
 <div class="container mt-4">
-    <div class="row">
-        <div class="col-12 text-center mb-4">
-            <h1>Bienvenue sur le Tableau de Bord De RMF</h1>
-            <p>Accédez rapidement aux différentes sections de l'application :</p>
+    <div class="jumbotron">
+        <div class="row">
+            <div class="col-12 text-center mb-4">
+                <h1>Bienvenue sur le Tableau de Bord De RMF</h1>
+                <p>Accédez rapidement aux différentes sections de l'application :</p>
+            </div>
         </div>
     </div>
 
@@ -34,9 +36,29 @@
             </div>
         </div>
 
+        <div class="col-md-4 mb-4">
+            <div class="card text-white bg-secondary">
+                <div class="card-body">
+                    <h5 class="card-title">Utilisateurs</h5>
+                    <p class="card-text">Nombre d'utilisateurs : {{ users.count }}</p>
+                    <ul>
+                        {% for user in users %}
+                        <li>
+                            {% if user.first_name or user.last_name %}
+                                {{ user.first_name }} {{ user.last_name }}
+                            {% else %}
+                                {{ user.username }}
+                            {% endif %}
+                        </li>
+                        
 
-    
-
+                        {% endfor %}
+                    </ul>
+                    <a href="{% url 'admin:auth_user_changelist' %}" class="btn btn-light">Voir les utilisateurs</a>
+                </div>
+            </div>
+        </div>
+        
         <div class="col-md-4 mb-4">
             <div class="card text-white bg-warning">
                 <div class="card-body">
@@ -58,7 +80,7 @@
         </div>
 
         <div class="col-md-4 mb-4">
-            <div class="card text-white bg-dark">
+            <div class="card text-white bg-warning">
                 <div class="card-body">
                     <h5 class="card-title">Podcasts</h5>
                     <p class="card-text">Nombre de podcasts : {{ podcasts.count }}</p>

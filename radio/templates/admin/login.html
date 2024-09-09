@@ -1,12 +1,18 @@
 {% extends "admin/login.html" %}
+{% load static %}
 
 {% block title %}Connexion à Mon Site{% endblock %}
 
+
+
 {% block content %}
-<h1>Bienvenue sur Radio Marbial FM</h1>
-<p>Veuillez vous connecter pour accéder à l'administration.</p>
-<form method="post" action="{% url 'admin:login' %}">{% csrf_token %}
-    {{ form.as_p }}
-    <input type="submit" value="Connexion">
-</form>
+<div class="login-container">
+    <h1>Bienvenue sur Radio Marbial FM</h1>
+    <p class="description">Veuillez vous connecter pour accéder à l'administration.</p>
+    <form method="post" action="{% url 'admin:login' %}" class="login-form">{% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn-login">Connexion</button>
+    </form>
+    <p class="register-prompt">Vous n'avez pas de compte ? <a href="{% url 'register' %}">Inscrivez-vous ici</a>.</p>
+</div>
 {% endblock %}

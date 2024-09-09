@@ -1,0 +1,15 @@
+{% extends "admin/base_site.html" %}
+
+{% block title %}Enregistrement sur Mon Site{% endblock %}
+
+{% block content %}
+<div class="registration-container">
+    <h1>Enregistrez-vous sur Radio Marbial FM</h1>
+    <p class="description">Veuillez remplir le formulaire ci-dessous pour créer un compte superutilisateur.</p>
+    <form method="post" action="{% url 'register' %}" class="registration-form">{% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn-submit">S'inscrire</button>
+    </form>
+    <p class="login-prompt">Vous avez déjà un compte ? <a href="{% url 'admin:login' %}">Connectez-vous ici</a>.</p>
+</div>
+{% endblock %}

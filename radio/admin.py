@@ -25,7 +25,7 @@ class DirectAdmin(admin.ModelAdmin):
     
 @admin.register(Animateur)
 class AnimateurAdmin(admin.ModelAdmin):
-    list_display = ('prenom', 'nom', 'email', 'logo')  # Ajouter le champ 'logo' ici
+    list_display = ('nom', 'prenom', 'email', 'logo')  # Mettre 'nom' avant 'prenom'
     search_fields = ('nom', 'prenom')
     list_filter = ('nom',)  # Optionnel : pour ajouter un filtre sur le nom
 
@@ -54,9 +54,11 @@ class ArticleAdmin(admin.ModelAdmin):
     list_filter = ('categorie', 'date_publication')  # Ajout de 'categorie'
     search_fields = ('titre', 'contenu')
     readonly_fields = ('date_publication',)
+    
+    # Définir l'ordre des champs dans le formulaire d'édition
     fieldsets = (
         (None, {
-            'fields': ('titre', 'contenu', 'auteur', 'image', 'categorie')  # Ajout de 'categorie'
+            'fields': ('titre', 'categorie', 'contenu', 'auteur', 'image')  # Ordre modifié pour correspondre à votre besoin
         }),
         ('Dates', {
             'fields': ('date_publication',),

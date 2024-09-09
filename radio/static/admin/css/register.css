@@ -1,0 +1,83 @@
+    /* Container for the registration form */
+    .registration-container {
+        max-width: 500px;
+        margin: 50px auto;
+        padding: 20px;
+        background: #ffffff;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+        text-align: center;
+    }
+
+    /* Header and description styling */
+    .registration-container h1 {
+        font-size: 28px;
+        color: #333333;
+        margin-bottom: 10px;
+        font-weight: 700;
+    }
+
+    .description {
+        font-size: 16px;
+        color: #777777;
+        margin-bottom: 20px;
+    }
+
+    /* Form styling */
+    .registration-form {
+        text-align: left;
+    }
+
+    .registration-form input[type="text"], 
+    .registration-form input[type="password"], 
+    .registration-form input[type="email"], 
+    .registration-form input[type="number"], 
+    .registration-form select {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 15px;
+        border: 1px solid #dddddd;
+        border-radius: 5px;
+        font-size: 14px;
+        box-sizing: border-box;
+        transition: border-color 0.3s;
+    }
+
+    .registration-form input:focus {
+        border-color: #007BFF;
+        outline: none;
+    }
+
+    /* Submit button styling */
+    .btn-submit {
+        width: 100%;
+        padding: 10px;
+        background-color: #007BFF;
+        color: #ffffff;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color 0.3s, box-shadow 0.3s;
+    }
+
+    .btn-submit:hover {
+        background-color: #0056b3;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Login prompt styling */
+    .login-prompt {
+        font-size: 14px;
+        color: #777777;
+        margin-top: 15px;
+    }
+
+    .login-prompt a {
+        color: #007BFF;
+        text-decoration: none;
+    }
+
+    .login-prompt a:hover {
+        text-decoration: underline;
+    }
