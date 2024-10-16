@@ -1,0 +1,24 @@
+{% extends "base.html" %} {% load static %} {% block title %}Mon Profil
+{%endblock %} {% block extrahead %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/profil.css' %}" />
+{% endblock %} {% block content %}
+<div class="container d-flex align-items-center justify-content-center vh-100">
+  <div class="card shadow-lg" style="width: 100%; max-width: 600px">
+    <div class="card-header text-center">
+      <h1>Bienvenue, {{ user.first_name }} {{ user.last_name }}!</h1>
+    </div>
+    <div class="card-body">
+      <p><strong>Email :</strong> {{ user.email }}</p>
+      <p><strong>Nom d'utilisateur :</strong> {{ user.username }}</p>
+
+      <!-- Lien de déconnexion dans un formulaire -->
+      <form method="post" action="{% url 'logout' %}">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger mt-3">
+          Se déconnecter
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}

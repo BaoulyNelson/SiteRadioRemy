@@ -17,19 +17,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'radio',
-    'channels',
     'whitenoise.runserver_nostatic',
 ]
 
-ASGI_APPLICATION = 'radio.asgi.application'
-CHANNEL_LAYERS = {
-    'default': {
-        'BACKEND': 'channels_redis.core.RedisChannelLayer',
-        'CONFIG': {
-            "hosts": [('127.0.0.1', 6379)],
-        },
-    },
-}
+
 
 AUTH_USER_MODEL = 'auth.User'
 
@@ -50,7 +41,7 @@ ROOT_URLCONF = 'siteMFMradio.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'radio', 'templates')],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -67,14 +58,15 @@ WSGI_APPLICATION = 'siteMFMradio.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': config('DB_NAME', default='radiomfm'),
-        'USER': config('DB_USER', default='root'),
-        'PASSWORD': config('DB_PASSWORD', default=''),
-        'HOST': config('DB_HOST', default='localhost'),
-        'PORT': config('DB_PORT', default='3306'),
+        'ENGINE': 'django.db.backends.mysql',  # Utilisation du moteur MySQL
+        'NAME': config('DB_NAME', default='radiomfm'),  # Nom de la base de données
+        'USER': config('DB_USER', default='root'),  # Nom d'utilisateur pour se connecter à MySQL
+        'PASSWORD': config('DB_PASSWORD', default=''),  # Mot de passe pour l'utilisateur
+        'HOST': config('DB_HOST', default='localhost'),  # Hôte, généralement 'localhost' pour XAMPP
+        'PORT': config('DB_PORT', default='3306'),  # Port, 3306 est le port par défaut pour MySQL
     }
 }
+
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -90,12 +82,13 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+LANGUAGE_CODE = 'fr-fr'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'America/Port-au-Prince'
+
 USE_I18N = True
 USE_TZ = True
 
-LANGUAGE_CODE = 'fr'
 LANGUAGES = [
     ('fr', 'Français'),
     ('en', 'English'),
@@ -107,7 +100,9 @@ LOCALE_PATHS = [
 LANGUAGE_COOKIE_NAME = 'my_language_cookie'
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'radio', 'static')]
+
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 

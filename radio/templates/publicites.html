@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block title %}Publicités - Radio Marbial FM{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h1>Publicités</h1>
+    <p>Voici nos publicités en cours.</p>
+    <!-- Conteneur Swiper -->
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            {% for publicite in publicites %}
+            <div class="swiper-slide">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ publicite.nom }}</h5>
+                        <p class="card-text">{{ publicite.description }}</p>
+                    </div>
+                </div>
+            </div>
+            {% empty %}
+            <div class="swiper-slide">
+                <div class="card">
+                    <div class="card-body text-center">
+                        <p>Aucune publicité disponible.</p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+        <!-- Pagination et Navigation (optionnel) -->
+        <div class="swiper-pagination"></div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+    </div>
+</div>
+
+
+{% endblock %}

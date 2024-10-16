@@ -1,0 +1,142 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1 class="text-center mb-4">Tableau de bord des statistiques</h1>
+
+    <div class="row">
+        <!-- Total des utilisateurs -->
+        <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card bg-primary text-white shadow">
+                <div class="card-body">
+                    <h4 class="card-title">Utilisateurs</h4>
+                    <p class="card-text">
+                        <strong>Total :</strong> {{ total_users }}
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Total des animateurs -->
+        <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card bg-success text-white shadow">
+                <div class="card-body">
+                    <h4 class="card-title">Animateurs</h4>
+                    <p class="card-text">
+                        <strong>Total :</strong> {{ total_animateurs }}
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Total des articles -->
+        <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card bg-info text-white shadow">
+                <div class="card-body">
+                    <h4 class="card-title">Articles</h4>
+                    <p class="card-text">
+                        <strong>Total :</strong> {{ total_articles }}
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Total des directs -->
+        <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card bg-warning text-white shadow">
+                <div class="card-body">
+                    <h4 class="card-title">Directs</h4>
+                    <p class="card-text">
+                        <strong>Total :</strong> {{ total_directs }}
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Total des émissions -->
+        <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card bg-danger text-white shadow">
+                <div class="card-body">
+                    <h4 class="card-title">Émissions</h4>
+                    <p class="card-text">
+                        <strong>Total :</strong> {{ total_emissions }}
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Total des podcasts -->
+        <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card bg-secondary text-white shadow">
+                <div class="card-body">
+                    <h4 class="card-title">Podcasts</h4>
+                    <p class="card-text">
+                        <strong>Total :</strong> {{ total_podcasts }}
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Total des programmes -->
+        <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card bg-dark text-white shadow">
+                <div class="card-body">
+                    <h4 class="card-title">Programmes</h4>
+                    <p class="card-text">
+                        <strong>Total :</strong> {{ total_programmes }}
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Total des publicités -->
+        <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card bg-primary text-white shadow">
+                <div class="card-body">
+                    <h4 class="card-title">Publicités</h4>
+                    <p class="card-text">
+                        <strong>Total :</strong> {{ total_publicites }}
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Total des vidéos -->
+        <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card bg-success text-white shadow">
+                <div class="card-body">
+                    <h4 class="card-title">Vidéos</h4>
+                    <p class="card-text">
+                        <strong>Total :</strong> {{ total_videos }}
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Total des contacts -->
+        <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card bg-info text-white shadow">
+                <div class="card-body">
+                    <h4 class="card-title">Contacts</h4>
+                    <p class="card-text">
+                        <strong>Total :</strong> {{ total_contacts }}
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Total des parrains -->
+        <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card bg-warning text-white shadow">
+                <div class="card-body">
+                    <h4 class="card-title">Parrains</h4>
+                    <p class="card-text">
+                        <strong>Total :</strong> {{ total_parrains }}
+                    </p>
+                </div>
+            </div>
+        </div>
+
+    </div> <!-- row -->
+</div> <!-- container -->
+{% endblock %}

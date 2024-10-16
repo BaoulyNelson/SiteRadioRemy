@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block title %}Programmes - Radio Marbial FM{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h1>Programmes</h1>
+    <!-- Conteneur Swiper -->
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            {% for programme in programmes %}
+            <div class="swiper-slide">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ programme.nom }}</h5>
+                        <p class="card-text">{{ programme.description }}</p>
+                        <div class="d-flex justify-content-center mt-3">
+                            <a href="{% url 'programme_detail' programme_id=programme.id %}" class="btn btn-primary">Voir plus</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% empty %}
+            <div class="swiper-slide">
+                <div class="card">
+                    <div class="card-body text-center">
+                        <p style="text-align: center;">Aucun programme disponible.</p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+        <!-- Pagination et Navigation (optionnel) -->
+        <div class="swiper-pagination"></div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+    </div>
+</div>
+
+
+{% endblock %}

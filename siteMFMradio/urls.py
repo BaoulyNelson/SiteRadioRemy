@@ -19,16 +19,18 @@ from django.urls import path, include
 from django.contrib.auth import views as auth_views
 from django.conf import settings
 from django.conf.urls.static import static
-from radio import views  # Import des vues
+from django.conf.urls.i18n import i18n_patterns
+from django.views.i18n import set_language
 
-urlpatterns = [
+# Utilise i18n_patterns pour gérer les langues
+urlpatterns = i18n_patterns(
     path('mfm/', admin.site.urls),
-    path('login/', auth_views.LoginView.as_view(template_name='admin/login.html'), name='login'),
-    path('logout/', auth_views.LogoutView.as_view(next_page='/'), name='logout'),
+ 
+    path('set_language/', set_language, name='set_language'),  # Changement de langue
     path('', include('radio.urls')),  # Inclut les URLs de l'application 'radio'
-    path('admin_dashboard/', views.admin_dashboard, name='admin_dashboard'),
-    path('register/', views.register, name='register'),
-]
+   
+    
+)
 
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

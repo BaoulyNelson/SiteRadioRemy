@@ -1,13 +1,10 @@
-{% extends "admin/base.html" %}
+{% extends "admin/base_site.html" %}
 
 {% load static %}
 {% block extrastyle %}
-
-<link rel="stylesheet" type="text/css" href="{% static 'admin/css/register.css' %}">
-<link rel="stylesheet" type="text/css" href="{% static 'admin/css/login.css' %}">
-
-<link rel="icon" href="{% static 'images/logo.jpg' %}" type="image/jpeg">
-
+    <link rel="stylesheet" type="text/css" href="{% static 'admin/css/register.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'admin/css/login.css' %}">
+    <link rel="icon" href="{% static 'images/logo.jpg' %}" type="image/jpeg">
 {% endblock %}
 
 {% block title %}Mon Site Admin{% endblock %}
@@ -16,4 +13,6 @@
 <h1 id="site-name"><a href="{% url 'admin:index' %}">RADIO MARBIAL FM 99.5</a></h1>
 {% endblock %}
 
-{% block nav-global %}{% endblock %}
+{% block nav-global %}
+    {# Tu peux ajouter ici d'autres éléments de navigation si nécessaire #}
+{% endblock %}

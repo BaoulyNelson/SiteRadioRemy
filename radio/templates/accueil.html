@@ -1,0 +1,37 @@
+{% extends 'base.html' %} {% block title %}Accueil - Radio Marbial FM
+99.5{% endblock %} {% load static %} {% block content %}
+
+<div class="container mt-4">
+  <!-- Jumbotron principal -->
+  <div class="jumbotron text-white bg-dark rounded-lg p-5">
+    <h1 class="display-4 font-weight-bold">Bienvenue sur Radio Marbial FM</h1>
+    <p class="lead">
+      Explorez nos émissions, découvrez nos animateurs et restez à l'écoute des
+      dernières tendances musicales.<br />
+      Infos de tous genres en temps réel. Sport, Actualités, Cultures et
+      Sociétés. La Radio qui vous suit partout !!!
+    </p>
+    <div class="d-flex justify-content-center">
+      <a href="{% url 'direct' %}" class="btn btn-lg btn-warning"
+        >Écouter en direct</a
+      >
+    </div>
+  </div>
+
+  <div class="container mt-5 text-center">
+    <div class="card-img-top position-relative">
+      <img
+        src="{% static 'images/radio.jpg' %}"
+        alt="{{ emission.nom }}"
+        class="img-fluid rounded-top"
+        style="transition: transform 0.3s ease"
+      />
+
+    <a href="{% url 'emissions' %}" class="btn btn-primary btn-lg mt-4">Explorer nos émissions</a>
+  </div>
+  
+
+  
+</div>
+
+{% endblock %}

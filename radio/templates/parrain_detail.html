@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}{{ parrain.nom }}{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h1 class="text-center">{{ parrain.nom }}</h1>
+    <div class="row justify-content-center">
+        <div class="col-md-6 text-center">
+            {% if parrain.logo %}
+                <img src="{{ parrain.logo.url }}" alt="{{ parrain.logo }}" class="img-fluid mb-4">
+            {% else %}
+                <img src="{% static 'images/logo.jpg' %}" alt="Image par défaut" class="img-fluid mb-4">
+            {% endif %}
+        </div>
+        <div class="col-md-6">
+            <h2 class="text-center">Détails du parrainage</h2>
+            <p><strong>Type de parrainage :</strong> {{ parrain.get_type_parrainage_display }}</p>
+            <p><strong>Contact :</strong> {{ parrain.contact }}</p>
+            <p><strong>Détails :</strong> {{ parrain.details|linebreaksbr }}</p>
+            <p><strong>Date de création :</strong> {{ parrain.date_creation }}</p>
+            {% if parrain.contact %}
+                <a href="tel:{{ parrain.contact }}" class="btn btn-primary">Appeler</a>
+            {% endif %}
+        </div>
+    </div>
+    <div class="text-center mt-4">
+        <a href="{% url 'parrains_list' %}" class="btn btn-secondary">Retour à la liste des parrains</a>
+    </div>
+</div>
+{% endblock %}

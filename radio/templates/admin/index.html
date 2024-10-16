@@ -1,13 +1,13 @@
-{% extends "admin/base_site.html" %}
+{% extends "admin/index.html" %}
 
 {% block content %}
-<div class="dashboard-container">
-    <header>
-        <a class="btn btn-primary" href="{% url 'admin_dashboard' %}" style="padding: 10px 20px; font-size: 18px; text-transform: uppercase; background-color: #007bff; border-radius: 8px;">
-            Cliquez ici pour accéder au tableau de bord
-        </a>
-    </header>
-    
- 
-</div>
+    {{ block.super }}  {# Cela rendra le contenu original de la page #}
+
+    <div class="dashboard-container">
+        <header>
+            <a class="btn btn-primary" href="{% url 'admin_dashboard' %}" style="padding: 10px 20px; font-size: 18px; text-transform: uppercase; background-color: #007bff; border-radius: 8px;">
+                Cliquez ici pour accéder au tableau de bord
+            </a>
+        </header>
+    </div>
 {% endblock %}
