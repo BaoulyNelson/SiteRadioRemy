@@ -1,84 +1,37 @@
-<!-- Panneau latéral -->
-<div id="sidebar" class="sidebar closed">
-  <div class="side-title">MENU</div>
+<nav class="navbar navbar-dark bg-dark border-top fixed-bottom navbar-bottom d-lg-none">
+  <div class="container justify-content-around">
+    <a class="nav-link text-center text-white" href="{% url 'accueil' %}">
+      <i class="fas fa-home fs-4"></i><br><small>Accueil</small>
+    </a>
+    <a class="nav-link text-center text-white" id="listen-live" href="{% url 'direct' %}">
+      <i class="fas fa-play-circle"></i><br><small>Direct</small>
+    </a>
+    <a class="nav-link text-center text-white" href="{% url 'podcasts' %}">
+      <i class="fas fa-podcast fs-4"></i><br><small>Podcast</small>
+    </a>
+    <a class="nav-link text-center text-white" href="{% url 'video' %}">
+      <i class="fas fa-record-vinyl fs-4"></i><br><small>Différé</small>
+    </a>
 
-  <div class="search-container">
-            <form method="GET" action="{% url 'search' %}">
-                <input type="search" id="searchInput" name="q" placeholder="🔍..." aria-label="Search">
-                <button type="submit" id="searchButton" aria-label="Submit Search">
-                    <i class="fas fa-search"></i>
-                </button>
-            </form>
-        </div>
-
-        <ul class="menu">
-          <li><a href="{% url 'article_list_by_category' 'Découverte' %}" class="{% if request.path == '/articles/categorie/Découverte/' %}active{% endif %}"><i class="fas fa-globe"></i> Découvrir</a></li>
-          <li><a href="{% url 'article_list_by_category' 'Tendance' %}" class="{% if request.path == '/articles/categorie/Tendance/' %}active{% endif %}"><i class="fas fa-chart-line"></i> Tendance</a></li>
-          
-            <li><a href="{% url 'video' %}" class="{% if request.path == '/video/' %}active{% endif %}"><i class="fas fa-play-circle"></i> Diffusion</a></li>
-            <li><a href="{% url 'article_list_by_category' 'Liste de Lecture' %}" class="{% if request.path == '/articles/categorie/Liste%20de%20Lecture/' %}active{% endif %}"><i class="fas fa-list"></i> Liste de Lecture</a></li>
-<li><a href="{% url 'article_list_by_category' 'Marque-Page' %}" class="{% if request.path == '/articles/categorie/Marque-Page/' %}active{% endif %}"><i class="fas fa-bookmark"></i> Marque-Page</a></li>
-
-        </ul>
-
-        <div class="categories">
-            <h3>Catégories</h3>
-            <ul>
-                <li><a href="{% url 'direct' %}" class="{% if direct_is_live %}live{% endif %}"><i class="fas fa-broadcast-tower"></i> Diffusion en Direct {% if direct_is_live %}<span class="live-indicator"></span>{% endif %}</a></li>
-                <li><a href="{% url 'article_list_by_category' 'Économie' %}" class="{% if request.path == '/articles/categorie/Économie/' %}active{% endif %}"><i class="fas fa-chart-line"></i> Économie</a></li>
-<li><a href="{% url 'article_list_by_category' 'Culture' %}" class="{% if request.path == '/articles/categorie/Culture/' %}active{% endif %}"><i class="fas fa-theater-masks"></i> Culture</a></li>
-<li><a href="{% url 'article_list_by_category' 'Sports' %}" class="{% if request.path == '/articles/categorie/Sports/' %}active{% endif %}"><i class="fas fa-futbol"></i> Sports</a></li>
-
-            
-                <li><a href="{% url 'publicites' %}" class="{% if request.resolver_match.url_name == 'publicites' %}active{% endif %}"><i class="fas fa-bullhorn"></i> Publicités</a></li>
-              
-            </ul>
-            <button id="theme-toggle" onclick="toggleTheme()">
-              <span id="theme-icon">🌙</span>
-              <span id="theme-text">Mode Nuit</span>
-          </button>
-          
-            
-        </div>
-        <div class="line"></div>
-    </div>
-</div>
-
-<!-- Barre de navigation en bas -->
-<nav class="navbar navbar-expand navbar-bottom">
-  <ul class="navbar-nav w-100">
-    <li class="nav-item">
-      <a class="nav-link {% if request.path == '/' %}active{% endif %}" href="{% url 'accueil' %}">
-        <i class="fas fa-home"></i><br />Accueil
+    {% if user.is_authenticated %}
+    {% if user.is_superuser %}
+      <a class="nav-link text-center" href="{% url 'admin:index' %}">
+        <i class="fas fa-cogs fs-4"></i><br><small>Admin</small>
       </a>
-    </li>
-
-    <li class="nav-item">
-      <a class="nav-link {% if request.path == '/direct/' %}active{% endif %}" href="{% url 'direct' %}">
-        <i class="fas fa-play-circle"></i><br />Direct
+    {% elif user.is_staff %}
+      <a class="nav-link text-center" href="{% url 'staff_dashboard' %}">
+        <i class="fas fa-tools fs-4"></i><br><small>Staff</small>
       </a>
-    </li>
-    
-    <li class="nav-item">
-      <a class="nav-link {% if request.path == '/podcasts/' %}active{% endif %}" href="{% url 'podcasts' %}">
-        <i class="fas fa-podcast"></i><br />Podcasts
+    {% else %}
+      <a class="nav-link text-center" href="{% url 'user_profile' %}">
+        <i class="fas fa-user fs-4"></i><br><small>Profil</small>
       </a>
-    </li>
-
-    <li class="nav-item">
-      <a class="nav-link {% if request.path == '/video/' %}active{% endif %}" href="{% url 'video' %}">
-        <i class="fas fa-video"></i><br />Différé
-      </a>
-    </li>
-
-
-    <li class="nav-item">
-      <a class="nav-link" href="#" onclick="toggleSidebar()">
-          <i class="fas fa-bars menu-icon" aria-label="Open sidebar"></i>
-          <br />Menu
-      </a>
-  </li>
-  </ul>
+    {% endif %}
+  {% else %}
+    <a class="nav-link text-center" href="{% url 'login' %}">
+      <i class="fas fa-user-circle"></i><br><small>Connexion</small>
+    </a>
+  {% endif %}
   
+  </div>
 </nav>
-

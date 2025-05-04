@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% load custom_filters %}
+
+{% block title %}🎥 Direct - Radio Marbial FM{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1 class="text-center text-danger fw-bold mb-4">🔴 En Direct</h1>
+
+    {% if directs %}
+        <div class="row">
+            {% for direct in directs %}
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card shadow-sm border-0 rounded-4">
+                        <div class="card-body">
+                            <h5 class="card-title text-dark fw-bold">{{ direct.titre }}</h5>
+                            <p class="card-text text-muted">{{ direct.description|truncatewords:20 }}</p>
+
+                            <div class="video-container rounded overflow-hidden">
+                                {% if 'youtube.com' in direct.url or 'youtu.be' in direct.url %}
+                                    <iframe class="w-100 rounded-3" height="200" src="{{ direct.url|youtube_embed_url }}" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+                                {% elif 'facebook.com' in direct.url %}
+                                    <iframe class="w-100 rounded-3" height="200" src="{{ direct.url|facebook_embed_url }}" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+                                {% else %}
+                                    <p class="text-danger">Vidéo non supportée.</p>
+                                {% endif %}
+                            </div>
+
+                            <a href="{{ direct.url }}" target="_blank" class="btn btn-danger mt-3 w-100">🔴 Regarder en direct</a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <p class="text-center text-muted">📡 Aucun direct en cours pour le moment.</p>
+    {% endif %}
+</div>
+
+<!-- Styles personnalisés -->
+<style>
+    .card {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    }
+    .video-container iframe {
+        transition: transform 0.3s ease;
+    }
+    .video-container:hover iframe {
+        transform: scale(1.03);
+    }
+</style>
+{% endblock %}

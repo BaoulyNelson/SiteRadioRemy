@@ -1,0 +1,59 @@
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4 d-none d-lg-block">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="footer-logo">
+                        <div class="footer-logo-img">RM</div>
+                        <div class="footer-logo-text">Radyo <span>Mabyal FM</span></div>
+                    </div>
+                    <p class="footer-about">Radyo Mabyal FM est votre radio préférée qui vous connecte à la musique, l'information et le divertissement 24h/24. Nous diffusons sur la fréquence 98.5 FM et en ligne.</p>
+                    <div class="footer-social">
+                        <a href="#" class="footer-social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="footer-social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="footer-social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="footer-social-link"><i class="fab fa-youtube"></i></a>
+                        <a href="#" class="footer-social-link"><i class="fab fa-spotify"></i></a>
+                    </div>
+                </div>
+                <div class="col">
+                    <h3 class="footer-title">Liens Rapides</h3>
+                    <ul class="footer-links">
+                        <li><a href="{% url 'accueil' %}">Accueil</a></li>
+                        <li><a href="{% url 'programmes' %}">Programmes</a></li>
+                        <li><a href="{% url 'animateurs' %}">Animateurs</a></li>
+                        <li><a href="{% url 'video' %}">Video</a></li>
+                        <li><a href="{% url 'accueil' %}">Actualités</a></li>
+                      
+                        <li><a href="{% url 'accueil' %}">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col">
+                    <h3 class="footer-title">Programmes</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Matinale Mabyal</a></li>
+                        <li><a href="#">Pause Déjeuner</a></li>
+                        <li><a href="#">Soirée Groove</a></li>
+                        <li><a href="#">Débat du Soir</a></li>
+                        <li><a href="#">Ambiance Nocturne</a></li>
+                        <li><a href="#">Week-end Détente</a></li>
+                    </ul>
+                </div>
+                <div class="col">
+                    <h3 class="footer-title">Newsletter</h3>
+                    <p class="footer-newsletter">Abonnez-vous à notre newsletter pour recevoir les dernières actualités et offres spéciales.</p>
+                    <form class="newsletter-form">
+                        <input type="email" class="newsletter-input" placeholder="Votre email" required>
+                        <button type="submit" class="newsletter-btn">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; <span id="year"></span> Radyo Mabyal FM. Tous droits réservés. | Conçu par <a href="#">Baouly NELSON</a></p>
+            </div>
+        </div>
+    </footer>

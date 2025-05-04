@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<section class="djs-section" id="djs">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">Nos Animateurs</h2>
+      <p class="section-subtitle">Rencontrez l'équipe passionnée qui vous accompagne chaque jour sur les ondes</p>
+    </div>
+    <div class="row">
+      {% for animateur in animateurs %}
+      <div class="col">
+        <div class="dj-card">
+          {% if animateur.logo %}
+<div class="dj-image">
+  <img src="{{ animateur.logo.url }}" alt="{{ animateur.prenom }} {{ animateur.nom }}">
+</div>
+{% else %}
+<div class="dj-image">
+  <img src="{% static 'images/bac.jpg' %}" alt="Image par défaut">
+</div>
+{% endif %}
+
+          
+          <h3 class="dj-name">{{ animateur.prenom }} {{ animateur.nom }}</h3>
+          {% if animateur.role %}
+          <p class="dj-role">{{ animateur.role }}</p>
+          {% endif %}
+          <p class="dj-bio">{{ animateur.bio }}</p>
+
+          <div class="social-links">
+            {% if animateur.facebook %}
+            <a href="{{ animateur.facebook }}" class="social-link"><i class="fab fa-facebook-f"></i></a>
+            {% endif %}
+            {% if animateur.twitter %}
+            <a href="{{ animateur.twitter }}" class="social-link"><i class="fab fa-twitter"></i></a>
+            {% endif %}
+            {% if animateur.instagram %}
+            <a href="{{ animateur.instagram }}" class="social-link"><i class="fab fa-instagram"></i></a>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock %}

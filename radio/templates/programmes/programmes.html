@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %}Programmes - Radio Marbial FM{% endblock %}
+
+{% block content %}
+<div class="schedule-tabs">
+    {% for jour, programmes in programmes_par_jour.items %}
+      <button class="schedule-tab {% if forloop.first %}active{% endif %}" data-day="{{ jour }}">{{ jour|title }}</button>
+    {% endfor %}
+  </div>
+  
+  <div class="schedule-content">
+    {% for jour, programmes in programmes_par_jour.items %}
+      <div class="schedule-day {% if forloop.first %}active{% endif %}" id="{{ jour }}">
+        {% for programme in programmes %}
+          <div class="schedule-item">
+            <div class="schedule-time">{{ programme.heure_debut|time:"H:i" }} - {{ programme.heure_fin|time:"H:i" }}</div>
+            <div class="schedule-details">
+              <h3 class="schedule-title">{{ programme.nom|default:programme.emission.titre }}</h3>
+              <p class="schedule-host">{{ programme.emission.animateur }}</p>
+              <p class="schedule-description">{{ programme.emission.description }}</p>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    {% endfor %}
+  </div>
+  
+{% endblock %}

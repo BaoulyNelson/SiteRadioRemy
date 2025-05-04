@@ -1,0 +1,98 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Parrains - Radio Marbial FM{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1 class="text-center text-primary fw-bold mb-4">Nos Parrains</h1>
+
+    {% if parrains %}
+    <!-- Conteneur Swiper -->
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            {% for parrain in parrains %}
+            <div class="swiper-slide">
+                <div class="card shadow-lg border-0 rounded-4 text-center">
+                    {% if parrain.logo %}
+                        <img src="{{ parrain.logo.url }}" alt="{{ parrain.nom }}" class="card-img-top parrain-img">
+                    {% else %}
+                        <img src="{% static 'images/logo.jpg' %}" alt="Image par défaut" class="card-img-top parrain-img">
+                    {% endif %}
+                    <div class="card-body">
+                        <h5 class="card-title text-dark fw-bold">{{ parrain.nom }}</h5>
+                        <p class="card-text text-muted">
+                            <strong>Type:</strong> {{ parrain.type_parrainage }}<br>
+                            {{ parrain.details|truncatewords:20 }}
+                        </p>
+                        <a href="{% url 'parrain_detail' parrain.id %}" class="btn btn-outline-primary btn-sm">Voir les détails</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+        <!-- Pagination et Navigation -->
+        <div class="swiper-pagination"></div>
+        <div class="swiper-button-next custom-next"></div>
+        <div class="swiper-button-prev custom-prev"></div>
+    </div>
+    {% else %}
+        <p class="text-center text-muted">Aucun parrain disponible pour le moment.</p>
+    {% endif %}
+</div>
+
+<!-- Styles personnalisés -->
+<style>
+  .swiper-container {
+      padding: 20px 0;
+  }
+  .swiper-slide {
+      display: flex;
+      justify-content: center;
+  }
+  .card {
+      width: 18rem;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+  }
+  .parrain-img {
+      height: 220px;
+      object-fit: cover;
+      border-top-left-radius: 12px;
+      border-top-right-radius: 12px;
+  }
+  .custom-next, .custom-prev {
+      color: #007bff !important;
+  }
+  .swiper-button-next, .swiper-button-prev {
+      transition: transform 0.3s ease;
+  }
+  .swiper-button-next:hover, .swiper-button-prev:hover {
+      transform: scale(1.1);
+  }
+</style>
+
+<!-- Swiper JS -->
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    new Swiper(".swiper-container", {
+      loop: true,
+      autoplay: { delay: 3000 },
+      spaceBetween: 20,
+      slidesPerView: 1,
+      breakpoints: {
+        576: { slidesPerView: 2 },
+        768: { slidesPerView: 3 },
+        992: { slidesPerView: 4 }
+      },
+      pagination: { el: ".swiper-pagination", clickable: true },
+      navigation: { nextEl: ".custom-next", prevEl: ".custom-prev" }
+    });
+  });
+</script>
+{% endblock %}

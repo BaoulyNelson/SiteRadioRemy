@@ -37,10 +37,11 @@ class EmissionAdmin(admin.ModelAdmin):
 
 @admin.register(Programme)
 class ProgrammeAdmin(admin.ModelAdmin):
-    list_display = ('emission', 'date_diffusion', 'heure_debut', 'heure_fin')
-    search_fields = ('emission__titre',)
-
-
+    list_display = ('nom', 'jour', 'heure_debut', 'heure_fin')
+    list_filter = ('jour',)
+    
+    
+    
 @admin.register(Publicite)
 class PubliciteAdmin(admin.ModelAdmin):
     list_display = ('nom_annonceur', 'date_debut', 'date_fin')

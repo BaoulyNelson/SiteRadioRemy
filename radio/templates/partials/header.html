@@ -1,98 +1,100 @@
-<!-- Barre de navigation en haut -->
-<nav class="navbar navbar-expand navbar-top">
-  <ul class="navbar-nav ml-auto">
-    <li class="nav-item">
-      <a
-        href="{% url 'animateurs' %}"
-        class="{% if request.resolver_match.url_name == 'animateurs' %}active{% endif %} nav-link"
-      >
-        <i class="fas fa-microphone"></i> Animateurs
-      </a>
-    </li>
-    <li class="nav-item">
-      <a
-        href="{% url 'programmes' %}"
-        class="{% if request.resolver_match.url_name == 'programmes' %}active{% endif %} nav-link"
-      >
-        <i class="fas fa-calendar-alt"></i> Programme
-      </a>
-    </li>
 
-    <li class="nav-item">
-      <a
-        href="{% url 'contacts' %}"
-        class="{% if request.resolver_match.url_name == 'contacts' %}active{% endif %} nav-link"
-      >
-        <i class="fas fa-envelope"></i> Contact
-      </a>
-    </li>
 
-    <li class="nav-item">
-      <a
-        href="{% url 'parrains_list' %}"
-        class="{% if request.resolver_match.url_name == 'parrains_list' %}active{% endif %} nav-link"
-      >
-        <i class="fas fa-handshake"></i> Parrains
-      </a>
-    </li>
-  </ul>
-</nav>
+<!-- Header -->
+<header>
+    <div class="container">
+        <div class="header-container">
+            <div class="logo">
+                <div class="logo-text">Radyo <span>Mabyal FM</span></div>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="{% url 'accueil' %}">Accueil</a></li>
+                    <li><a href="{% url 'programmes' %}">Programmes</a></li>
+                    <li><a href="{% url 'animateurs' %}">Animateurs</a></li>
+                    <li><a href="{% url 'direct' %}">Diffusion</a></li>
+                    <li><a href="{% url 'parrains_list' %}">Parrains</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          Actualités
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                          <li><a class="dropdown-item" href="{% url 'article_list_by_category' 'Économie' %}"><i class="fas fa-chart-line"></i> Économie</a></li>
+                          <li><a class="dropdown-item" href="{% url 'article_list_by_category' 'Culture' %}"><i class="fas fa-theater-masks"></i> Culture</a></li>
+                          <li><a class="dropdown-item" href="{% url 'article_list_by_category' 'Découverte' %}"><i class="fas fa-compass"></i> Découverte</a></li>
+                          <li><a class="dropdown-item" href="{% url 'article_list_by_category' 'Sports' %}"><i class="fas fa-futbol"></i> Sports</a></li>
+                          <li><a class="dropdown-item" href="{% url 'article_list_by_category' 'Tendance' %}"><i class="fas fa-fire"></i> Tendance</a></li>
+                          <li><a class="dropdown-item" href="{% url 'article_list_by_category' 'Liste de Lecture' %}"><i class="fas fa-list"></i> Liste de Lecture</a></li>
+                          <li><a class="dropdown-item" href="{% url 'article_list_by_category' 'Marque-Page' %}"><i class="fas fa-bookmark"></i> Marque-Page</a></li>
+                          <li><hr class="dropdown-divider"></li>
+                          <li><a class="dropdown-item" href="{% url 'article_list' %}#publicites"><i class="fas fa-bullhorn"></i> Publicités</a></li>
 
-<!-- Main Header -->
-<div class="header-main text-center">
-  <!-- Language Switch -->
-  <div class="language-switch">
-    <a
-      href="{% url 'set_language' %}?language=fr"
-      class="text-white {% if LANGUAGE_CODE == 'fr' %}active{% endif %}"
-      >FRANÇAIS</a
-    >
-    |
-    <a
-      href="{% url 'set_language' %}?language=en"
-      class="text-white {% if LANGUAGE_CODE == 'en' %}active{% endif %}"
-      >ENGLISH</a
-    >
-  </div>
+                        </ul>
+                      </li>
+                      
+                    <!-- Actions utilisateur -->
+                    <li class="nav-item">
+                        {% if user.is_authenticated %}
+                            {% if user.is_superuser %}
+                                <a class="nav-link" href="{% url 'admin:index' %}" title="Accéder à l'administration">
+                                    <i class="fas fa-cogs"></i> Admin
+                                </a>
+                            {% else %}
+                                <a class="nav-link" href="{% url 'user_profile' %}" title="Voir votre profil">
+                                    <i class="fas fa-user-circle"></i> Profil
+                                </a>
+                            {% endif %}
+                        {% else %}
+                            <a class="nav-link" href="{% url 'login' %}" title="Se connecter">
+                                <i class="fas fa-user-plus"></i> Se connecter
+                            </a>
+                        {% endif %}
+                    </li>
+                </ul>
+            </nav>
+            <button class="mobile-menu-btn" id="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </div>
+</header>
 
-  <!-- Logo for the radio -->
-  <div class="logo">Radio MFM 99.5</div>
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobile-menu">
+    <button class="close-menu" id="close-menu">
+        <i class="fas fa-times"></i>
+    </button>
+    <ul>
+        <li><a href="{% url 'accueil' %}">Accueil</a></li>
+        <li><a href="{% url 'programmes' %}">Programmes</a></li>
+        <li><a href="{% url 'animateurs' %}">Animateurs</a></li>
+        <li><a href="{% url 'direct' %}">Diffusion</a></li>
+        <li><a href="{% url 'parrains_list' %}">Parrains</a></li>
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle text-white" href="#" id="mobileDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Actualités
+              
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="mobileDropdown">
+              <li><a class="dropdown-item" href="{% url 'article_list_by_category' 'Économie' %}"><i class="fas fa-chart-line"></i> Économie</a></li>
+              <li><a class="dropdown-item" href="{% url 'article_list_by_category' 'Culture' %}"><i class="fas fa-theater-masks"></i> Culture</a></li>
+              <li><a class="dropdown-item" href="{% url 'article_list_by_category' 'Découverte' %}"><i class="fas fa-compass"></i> Découverte</a></li>
+              <li><a class="dropdown-item" href="{% url 'article_list_by_category' 'Sports' %}"><i class="fas fa-futbol"></i> Sports</a></li>
+              <li><a class="dropdown-item" href="{% url 'article_list_by_category' 'Tendance' %}"><i class="fas fa-fire"></i> Tendance</a></li>
+              <li><a class="dropdown-item" href="{% url 'article_list_by_category' 'Liste de Lecture' %}"><i class="fas fa-list"></i> Liste de Lecture</a></li>
+              <li><a class="dropdown-item" href="{% url 'article_list_by_category' 'Marque-Page' %}"><i class="fas fa-bookmark"></i> Marque-Page</a></li>
+              <li><hr class="dropdown-divider"></li>
+           
+              <li><a class="dropdown-item" href="{% url 'article_list' %}#publicites"><i class="fas fa-bullhorn"></i> Publicités</a></li>
+
+            </ul>
+          </li>
+          
+        <li><a href="{% url 'contact' %}">Contact</a></li>
+        
+    </ul>
 </div>
 
-<div class="user-actions">
-  {% if user.is_authenticated %}
-      {% if user.is_superuser %}
-      <!-- Condition pour les superutilisateurs -->
-      <div class="profile-icon" style="color: white">
-          <a href="{% url 'admin_dashboard' %}" title="Tableau de bord Admin">
-              <i class="fas fa-user"></i> 
-          </a>
-      </div>
 
-      {% elif user.is_staff %}
-      <!-- Condition pour les utilisateurs staff (non-superuser) -->
-      <div class="profile-icon" style="color: white">
-          <a href="{% url 'stats_dashboard' %}" title="Voir les statistiques">
-              <i class="fas fa-chart-line"></i> 
-          </a>
-      </div>
 
-      {% else %}
-      <!-- Condition pour les autres utilisateurs authentifiés mais non staff -->
-      <div class="profile-icon" style="color: white">
-          <a href="{% url 'account_profile' %}" title="Voir votre profil">
-              <i class="fas fa-user-circle"></i>
-          </a>
-      </div>
-      {% endif %}
-
-  {% else %}
-  <!-- Si l'utilisateur n'est pas connecté -->
-  <div class="profile-icon" style="color: white">
-      <a href="{% url 'login' %}" title="Se connecter">
-          <i class="fas fa-user-plus"></i>
-      </a>
-  </div>
-  {% endif %}
-</div>
 

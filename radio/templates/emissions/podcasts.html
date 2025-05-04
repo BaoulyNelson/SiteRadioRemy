@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+{% block title %}Podcasts - Radio Marbial FM{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1 class="text-center text-primary fw-bold mb-4">🎙 Nos Podcasts</h1>
+
+    {% if podcasts %}
+        <div class="row">
+            {% for podcast in podcasts %}
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card shadow-sm border-0 rounded-4">
+                        {% if podcast.image %}
+                            <img src="{{ podcast.image.url }}" alt="{{ podcast.titre }}" class="card-img-top rounded-top">
+                        {% else %}
+                            <img src="https://source.unsplash.com/600x400/?podcast,music" alt="Podcast" class="card-img-top rounded-top">
+                        {% endif %}
+
+                        <div class="card-body">
+                            <h5 class="card-title text-dark fw-bold">{{ podcast.titre }}</h5>
+                            <p class="card-text text-muted">{{ podcast.description|truncatewords:20 }}</p>
+
+                            {% if podcast.audio_file %}
+                                <audio controls class="w-100">
+                                    <source src="{{ podcast.audio_file.url }}" type="audio/mpeg">
+                                    Votre navigateur ne supporte pas l'élément audio.
+                                </audio>
+                            {% elif podcast.url %}
+                                <audio controls class="w-100">
+                                    <source src="{{ podcast.url }}" type="audio/mpeg">
+                                    Votre navigateur ne supporte pas l'élément audio.
+                                </audio>
+                            {% else %}
+                                <p class="text-warning">Pas de fichier audio disponible.</p>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <p class="text-center text-muted">🎧 Aucun podcast disponible pour le moment.</p>
+    {% endif %}
+</div>
+
+<!-- Styles personnalisés -->
+<style>
+    .card {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    }
+    audio {
+        margin-top: 10px;
+        border-radius: 8px;
+    }
+</style>
+{% endblock %}

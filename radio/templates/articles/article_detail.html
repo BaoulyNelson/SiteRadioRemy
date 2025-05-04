@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}{{ article.titre }}{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+  <div class="row">
+    
+    <!-- Article principal -->
+    <div class="col-lg-8">
+      <div class="main-article">
+        {% if article.image %}
+        <img src="{{ article.image.url }}" class="article-image mb-3" alt="{{ article.titre }}">
+        {% endif %}
+        
+        <div class="article-content">
+          <span class="category-badge category-{{ article.categorie|slugify }}">{{ article.categorie }}</span>
+          <h1 class="article-title">{{ article.titre }}</h1>
+          <p class="article-date">
+            <i class="far fa-clock me-1"></i> Publié le {{ article.date_publication|date:"d M Y à H:i" }}
+            {% if article.auteur %} | Par {{ article.auteur.username }}{% endif %}
+          </p>
+          <hr>
+          <div class="article-body">
+            {{ article.contenu|linebreaks }}
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+<!-- Suggestions d’articles similaires -->
+<div class="col-lg-4">
+  <div class="sidebar-container mb-4">
+    <h4 class="sidebar-header">Articles similaires</h4>
+
+    {% for suggere in articles_suggeres %}
+    <div class="sidebar-article mb-3 pb-2 border-bottom">
+      <div class="d-flex flex-row-reverse align-items-start">
+
+        
+        {% if suggere.image %}
+        <img src="{{ suggere.image.url }}" class="me-3" alt="{{ suggere.titre }}" style="width: 100px; height: 70px; object-fit: cover; border-radius: 5px;">
+        {% endif %}
+
+        <div>
+          <span class="category-badge category-{{ suggere.categorie|slugify }}" style="font-size: 0.7rem; padding: 0.15rem 0.5rem;">
+            {{ suggere.categorie|upper }}
+          </span>
+          <h6 class="fw-bold text-primary mb-1">{{ suggere.titre|truncatechars:60 }}</h6>
+          <p class="mb-1 text-muted" style="font-size: 0.85rem;">{{ suggere.contenu|truncatewords:16 }}</p>
+          <a href="{% url 'article_detail' suggere.id %}" class="read-more small text-decoration-none text-secondary">Lire</a>
+        </div>
+
+      </div>
+    </div>
+    {% empty %}
+    <p>Aucun article similaire trouvé.</p>
+    {% endfor %}
+    <!-- Section des publicités -->
+<h4 class="sidebar-header mt-4">Publicités</h4>
+{% for pub in publicites %}
+<div class="sidebar-article mb-3 pb-2 border-bottom">
+  <div class="d-flex flex-row-reverse align-items-start">
+    {% if pub.image %}
+    <img src="{{ pub.image.url }}" class="me-3" alt="{{ pub.nom }}" style="width: 100px; height: 70px; object-fit: cover; border-radius: 5px;">
+    {% endif %}
+    <div>
+      <h6 class="fw-bold text-dark mb-1">{{ pub.nom|truncatechars:60 }}</h6>
+      <p class="mb-1 text-muted" style="font-size: 0.85rem;">{{ pub.description|truncatewords:16 }}</p>
+    </div>
+  </div>
+</div>
+{% empty %}
+<p class="text-muted">Aucune publicité disponible.</p>
+{% endfor %}
+
+  </div>
+</div>
+
+
+  </div>
+</div>
+{% endblock %}

@@ -56,11 +56,14 @@ class Animateur(models.Model):
     # Ajout du champ image
     logo = models.ImageField(
         upload_to='animateurs/logos/', blank=True, null=True)
+    role = models.CharField(max_length=100, blank=True)
+    facebook = models.URLField(blank=True)
+    twitter = models.URLField(blank=True)
+    instagram = models.URLField(blank=True)
+
 
     def __str__(self):
         return f"{self.prenom} {self.nom}"
-
-# Modèle pour les émissions
 
 
 class Emission(models.Model):
@@ -77,14 +80,24 @@ class Emission(models.Model):
 
 
 class Programme(models.Model):
+    JOURS_SEMAINE = [
+        ('monday', 'Lundi'),
+        ('tuesday', 'Mardi'),
+        ('wednesday', 'Mercredi'),
+        ('thursday', 'Jeudi'),
+        ('friday', 'Vendredi'),
+        ('saturday', 'Samedi'),
+        ('sunday', 'Dimanche'),
+    ]
+
     emission = models.ForeignKey(Emission, on_delete=models.CASCADE)
-    date_diffusion = models.DateField()
+    jour = models.CharField(max_length=10, choices=JOURS_SEMAINE)
     heure_debut = models.TimeField()
     heure_fin = models.TimeField()
-    nom = models.CharField(max_length=200, blank=True, null=True)  # Optionnel
+    nom = models.CharField(max_length=200, blank=True, null=True)  # Nom alternatif de l'émission
 
     def __str__(self):
-        return f"{self.nom or self.emission.titre} - {self.date_diffusion}"
+        return f"{self.nom or self.emission.titre} ({self.jour})"
 
 # Modèle pour les publicités
 
@@ -131,7 +144,6 @@ class Parrain(models.Model):
     def __str__(self):
         return self.nom
 
-# Modèle pour les articles
 
 
 class Article(models.Model):
@@ -144,18 +156,19 @@ class Article(models.Model):
         ('Liste de Lecture', 'Liste de Lecture'),
         ('Marque-Page', 'Marque-Page'),
     ]
+    
     titre = models.CharField(max_length=200)
     contenu = models.TextField()
     date_publication = models.DateTimeField(auto_now_add=True)
-    auteur = models.ForeignKey(
-        User, on_delete=models.SET_NULL, null=True, blank=True)
-    image = models.ImageField(
-        upload_to='articles/images/', blank=True, null=True)
-    categorie = models.CharField(
-        max_length=20,
-        choices=CATEGORIE_CHOICES,
-        default='Culture',  # Valeur par défaut
-    )
+    auteur = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True)
+    image = models.ImageField(upload_to='articles/images/', blank=True, null=True)
+    categorie = models.CharField(max_length=20, choices=CATEGORIE_CHOICES, default='Culture')
+
+    def save(self, *args, **kwargs):
+        if not self.auteur:  # Si aucun auteur n'est défini
+            self.auteur, _ = User.objects.get_or_create(username="MFM", defaults={"is_active": False})
+        super().save(*args, **kwargs)
 
     def __str__(self):
         return self.titre
+

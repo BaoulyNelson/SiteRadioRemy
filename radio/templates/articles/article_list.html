@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Articles{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+  <div class="row">
+
+    <!-- Colonne des articles principaux -->
+    <div class="col-lg-8">
+      {% for article in articles %}
+      <div class="main-article">
+        {% if article.image %}
+        <img src="{{ article.image.url }}" class="article-image" alt="{{ article.titre }}">
+        {% endif %}
+        
+        <div class="article-content">
+          <span class="category-badge category-{{ article.categorie|slugify }}">{{ article.categorie }}</span>
+          <h2 class="article-title">{{ article.titre }}</h2>
+          <span class="article-date">
+            <i class="far fa-clock me-1"></i> Publié le {{ article.date_publication|date:"d M Y à H:i" }}
+          </span>
+          <p class="article-summary">{{ article.contenu|truncatewords:40 }}</p>
+          <a href="{% url 'article_detail' article.id %}" class="read-more">Lire l'article complet</a>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+
+    <!-- Colonne de la sidebar (articles populaires) -->
+<!-- Colonne de la sidebar (articles populaires + publicités) -->
+<div class="col-lg-4">
+    <div class="sidebar-container mb-4">
+      <h4 class="sidebar-header">Articles populaires</h4>
+  
+      {% for article in articles_suggeres %}
+      <div class="sidebar-article mb-3">
+        <div class="d-flex align-items-start">
+          {% if article.image %}
+          <img src="{{ article.image.url }}" class="me-3" alt="{{ article.titre }}" style="width: 80px; height: 80px; object-fit: cover;">
+          {% endif %}
+          <div>
+            <span class="category-badge category-{{ article.categorie|slugify }}" style="font-size: 0.7rem; padding: 0.15rem 0.5rem;">
+              {{ article.categorie }}
+            </span>
+            <h6>{{ article.titre|truncatechars:50 }}</h6>
+            <p>{{ article.contenu|truncatewords:12 }}</p>
+            <a href="{% url 'article_detail' article.id %}" class="read-more">Lire</a>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+  
+      <!-- Publicités -->
+      <h4 class="sidebar-header mt-4">Publicités</h4>
+      {% for pub in publicites %}
+      <div class="sidebar-article mb-3">
+        <div class="d-flex align-items-start">
+          {% if pub.image %}
+          <img src="{{ pub.image.url }}" class="me-3" alt="{{ pub.nom }}" style="width: 80px; height: 80px; object-fit: cover;">
+          {% endif %}
+          <div>
+            <h6>{{ pub.nom|truncatechars:50 }}</h6>
+            <p>{{ pub.description|truncatewords:12 }}</p>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+  
+
+  </div>
+</div>
+{% endblock %}

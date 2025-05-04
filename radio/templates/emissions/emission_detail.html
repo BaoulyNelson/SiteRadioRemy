@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block title %}🎙️ {{ emission.titre }} - Détails{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-8 col-md-10">
+            <div class="card shadow-lg border-0 rounded-4">
+                {% if emission.image %}
+                    <img src="{{ emission.image.url }}" alt="{{ emission.titre }}" class="card-img-top rounded-top-4">
+                {% else %}
+                    <img src="https://via.placeholder.com/800x400?text=Pas+d'image" alt="Image par défaut" class="card-img-top rounded-top-4">
+                {% endif %}
+                
+                <div class="card-body">
+                    <h1 class="card-title text-primary fw-bold">{{ emission.titre }}</h1>
+                    <p class="text-muted">{{ emission.description }}</p>
+                    
+                    <hr>
+                    <p><strong>🎤 Animateur :</strong> {{ emission.animateur.prenom }} {{ emission.animateur.nom }}</p>
+                    <p><strong>📅 Date :</strong> {{ emission.date }}</p>
+                    <p><strong>⏰ Heure :</strong> {{ emission.heure_debut }} - {{ emission.heure_fin }}</p>
+                    <p><strong>🔴 En direct :</strong> 
+                        {% if emission.en_direct %}
+                            <span class="badge bg-danger">Oui</span>
+                        {% else %}
+                            <span class="badge bg-secondary">Non</span>
+                        {% endif %}
+                    </p>
+
+                    <!-- Bouton de retour -->
+                    <a href="{% url 'emissions' %}" class="btn btn-outline-primary mt-3">⬅ Retour aux Émissions</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Styles personnalisés -->
+<style>
+    .card {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    }
+</style>
+{% endblock %}

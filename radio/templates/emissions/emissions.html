@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block title %}📻 Nos Émissions - Radio Marbial FM{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1 class="text-center text-primary fw-bold mb-4">🎙️ Nos Émissions</h1>
+    
+    {% if emissions %}
+        <div class="row">
+            {% for emission in emissions %}
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card shadow-sm border-0 rounded-4">
+                        {% if emission.image %}
+                            <img src="{{ emission.image.url }}" alt="{{ emission.titre }}" class="card-img-top rounded-top-4">
+                        {% else %}
+                            <img src="https://via.placeholder.com/400x250?text=Pas+d'image" alt="Image par défaut" class="card-img-top rounded-top-4">
+                        {% endif %}
+                        
+                        <div class="card-body">
+                            <h5 class="card-title text-dark fw-bold">{{ emission.titre }}</h5>
+                            <p class="card-text text-muted">{{ emission.description|truncatewords:20 }}</p>
+                            <a href="{% url 'emission_detail' emission.id %}" class="btn btn-outline-primary w-100">📺 En savoir plus</a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <p class="text-center text-muted">📡 Aucune émission disponible pour le moment.</p>
+    {% endif %}
+</div>
+
+<!-- Styles personnalisés -->
+<style>
+    .card {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    }
+</style>
+{% endblock %}

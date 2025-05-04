@@ -1,63 +1,45 @@
-/* Styles pour l'icône du menu */
-.menu-icon {
-    cursor: pointer;
-}
+/* Padding bottom pour petits écrans, afin d'éviter que le contenu soit caché par la navbar inférieure */
+@media (max-width: 991px) {
+    main {
+      padding-bottom: 56px; /* Ajoute un padding égal à la hauteur de la navbar inférieure */
+    }
+  }
+  
+  @media (min-width: 992px) {
+    body {
+      padding-bottom: 0;
+    }
+    .navbar-bottom {
+      display: none;
+    }
+  }
+  
+    /* Sticky footer - faire en sorte que le footer soit collé en bas */
+    .d-flex {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+  
+    /* Faire en sorte que le main occupe tout l'espace restant */
+    .flex-grow-1 {
+      flex-grow: 1;
+    }
+  
+    @media (min-width: 992px) {
+      body {
+        padding-bottom: 0; /* Retirer tout padding pour grands écrans */
+      }
+      .navbar-bottom {
+        display: none; /* Masquer la navbar inférieure sur grands écrans */
+      }
+    }
+  
+    .nav-link.active {
+      color: #0d6efd;
+    }
 
-/* Styles pour l'icône de menu transformée en croix */
-.navbar-bottom .menu-icon.open {
-    position: relative;
-}
-
-.navbar-bottom .menu-icon.open::before {
-    content: "\f00d";
-    /* Code Unicode pour la croix */
-    font-family: 'Font Awesome 5 Free';
-    /* Assure-toi que Font Awesome est chargé */
-}
-
-/* Styles pour la barre de navigation en bas */
-.navbar-bottom {
-    background-color: white;
-    color: black;
-    box-shadow: 0 -1px 5px rgba(0, 0, 0, 0.1);
-    position: fixed;
-    bottom: 0;
-    left: 0; /* Assure que la barre de navigation commence à partir de la gauche */
-    right: 0; /* Assure que la barre de navigation s'étend jusqu'à la droite */
-    width: 100%;
-    z-index: 999;
-    border-top: solid 1px gainsboro;
-    padding: 5px 10px;
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: nowrap;
-    overflow-x: hidden;
-    z-index: 1000;
-}
-
-/* Styles pour les éléments de la liste */
-.navbar-bottom .nav-item {
-    flex-grow: 1; /* Permet aux éléments de croître et remplir l'espace disponible */
-    text-align: center;
-}
-
-.navbar-bottom .nav-link {
-    display: block;
-    padding: 5px 10px;
-    text-decoration: none;
-    color: black;
-    font-weight: bold;
-    
-}
-
-.navbar-bottom .nav-link:hover {
-    color: red;
-    transform: scale(1.1);
-}
-
-/* Styles pour le lien actif */
-.navbar-bottom .nav-link.active {
-    color: red; /* Couleur de surbrillance */
-    background-color: #e9ecef; /* Fond de surbrillance */
-    border-radius: 5px; /* Coins arrondis pour le fond de surbrillance */
-}
+    .navbar-bottom {
+      z-index: 2100;
+  }
+  

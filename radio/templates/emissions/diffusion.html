@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+
+{% block title %}Diffusion en Direct - Radio Marbial FM{% endblock %}
+
+{% block content %}
+<div class="container mt-5 text-center">
+    <h1 class="text-primary fw-bold mb-3">🎙 Écoutez Radio Marbial FM en Direct</h1>
+    <p class="text-muted mb-4">Profitez de notre diffusion en ligne 24/7</p>
+
+    <!-- Player Audio -->
+    <div class="audio-player">
+        <img src="https://source.unsplash.com/800x400/?radio,music" alt="Radio" class="img-fluid rounded-4 shadow">
+        <audio id="radioPlayer" controls class="mt-3">
+            <source src="https://URL_DE_TA_RADIO" type="audio/mpeg">
+            Votre navigateur ne supporte pas l’élément audio.
+        </audio>
+    </div>
+
+    <!-- Bouton Play/Pause Personnalisé -->
+    <button id="playButton" class="btn btn-primary mt-3">
+        ▶ Écouter en direct
+    </button>
+
+    <!-- Programme en cours -->
+    <div class="mt-5">
+        <h3 class="text-dark fw-bold">📻 Actuellement en diffusion :</h3>
+        <p id="currentShow" class="text-muted fs-5">Chargement...</p>
+    </div>
+</div>
+
+<!-- Styles -->
+<style>
+    .audio-player {
+        max-width: 600px;
+        margin: auto;
+    }
+    #playButton {
+        font-size: 18px;
+        padding: 10px 20px;
+        border-radius: 8px;
+        transition: background 0.3s ease;
+    }
+    #playButton:hover {
+        background: #0056b3;
+    }
+</style>
+
+<!-- Script pour gérer la lecture -->
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const playButton = document.getElementById("playButton");
+        const radioPlayer = document.getElementById("radioPlayer");
+        const currentShow = document.getElementById("currentShow");
+
+        playButton.addEventListener("click", function () {
+            if (radioPlayer.paused) {
+                radioPlayer.play();
+                playButton.innerHTML = "⏸ Pause";
+            } else {
+                radioPlayer.pause();
+                playButton.innerHTML = "▶ Écouter en direct";
+            }
+        });
+
+        // Simuler un programme en cours (remplace par un appel AJAX si nécessaire)
+        setTimeout(() => {
+            currentShow.innerHTML = "🎵 <strong>Émission Matinale</strong> avec DJ Alex";
+        }, 1500);
+    });
+</script>
+{% endblock %}

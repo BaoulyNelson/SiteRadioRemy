@@ -5,9 +5,11 @@ from decouple import config
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = config('DJANGO_SECRET_KEY', default='django-insecure-n2c_-$ka78l26$3#zddw88sdw%=her7xqdeb8*($rc84xm(39u')
-DEBUG = config('DEBUG', default=False, cast=bool)
-ALLOWED_HOSTS = config('ALLOWED_HOSTS', default='').split(',')
+# Charger les variables sensibles depuis .env
+SECRET_KEY = config('DJANGO_SECRET_KEY')
+DEBUG = config('DEBUG', cast=bool, default=False)
+ALLOWED_HOSTS = config('ALLOWED_HOSTS', default='localhost,127.0.0.1').split(',')
+
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -41,7 +43,7 @@ ROOT_URLCONF = 'siteMFMradio.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')],
+        'DIRS': [BASE_DIR / 'radio/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -56,14 +58,15 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'siteMFMradio.wsgi.application'
 
+# Configuration de la base de données
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',  # Utilisation du moteur MySQL
-        'NAME': config('DB_NAME', default='radiomfm'),  # Nom de la base de données
-        'USER': config('DB_USER', default='root'),  # Nom d'utilisateur pour se connecter à MySQL
-        'PASSWORD': config('DB_PASSWORD', default=''),  # Mot de passe pour l'utilisateur
-        'HOST': config('DB_HOST', default='localhost'),  # Hôte, généralement 'localhost' pour XAMPP
-        'PORT': config('DB_PORT', default='3306'),  # Port, 3306 est le port par défaut pour MySQL
+        'ENGINE': 'django.db.backends.mysql',  # Exemple pour MySQL, à adapter si nécessaire
+        'NAME': config('DB_NAME'),
+        'USER': config('DB_USER'),
+        'PASSWORD': config('DB_PASSWORD'),
+        'HOST': config('DB_HOST', default='localhost'),
+        'PORT': config('DB_PORT', default=3306, cast=int),
     }
 }
 
@@ -86,18 +89,9 @@ LANGUAGE_CODE = 'fr-fr'
 
 TIME_ZONE = 'America/Port-au-Prince'
 
-USE_I18N = True
+
 USE_TZ = True
 
-LANGUAGES = [
-    ('fr', 'Français'),
-    ('en', 'English'),
-]
-
-LOCALE_PATHS = [
-    BASE_DIR / 'locale/',
-]
-LANGUAGE_COOKIE_NAME = 'my_language_cookie'
 
 STATIC_URL = '/static/'
 
@@ -109,6 +103,8 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 DEFAULT_IMAGE_URL = '/static/images/logo.jpg'
+
+
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 LOGOUT_REDIRECT_URL = '/'
